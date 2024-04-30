@@ -3,7 +3,6 @@ import { fileURLToPath } from "url";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import CopyWebpackPlugin from "copy-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
-import { CleanWebpackPlugin } from "clean-webpack-plugin";
 import Dotenv from "dotenv-webpack";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -45,7 +44,6 @@ export default (env, argv) => {
     },
 
     plugins: [
-      new CleanWebpackPlugin(),
       ...htmlPluginsInstances,
       new MiniCssExtractPlugin({
         filename: isProduction
@@ -85,10 +83,14 @@ export default (env, argv) => {
             "css-loader",
           ],
         },
+        {
+          test: /\.(woff|woff2|eot|ttf|otf)$/i,
+          type: "asset/resource",
+        },
       ],
     },
-
     devtool: isProduction ? false : "source-map",
+
     devServer: {
       static: {
         directory: path.join(__dirname, "dist"),
