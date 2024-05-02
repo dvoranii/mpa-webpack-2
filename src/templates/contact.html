@@ -9,7 +9,7 @@
     <section>
       <h1>Contact</h1>
 
-      <form action="" method="POST" class="contact-form">
+      <form class="contact-form">
         <h2>Contact Us</h2>
         <div class="input-container">
           <div class="form-group">
@@ -26,8 +26,14 @@
           <label for="message">Message:</label>
           <textarea id="message" name="message" rows="4" required></textarea>
         </div>
+        <input type="hidden" name="recaptcha_response" id="recaptchaResponse" />
         <button type="submit">Send</button>
       </form>
     </section>
+
+    <script
+      src="https://www.google.com/recaptcha/api.js?render=6LddpsMpAAAAAD-7Uj4O_xlo84BMGwjJp_rQBkX1"
+      async
+    ></script>
   </body>
 </html>
