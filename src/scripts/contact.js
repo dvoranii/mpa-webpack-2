@@ -33,19 +33,18 @@ function setupRecaptcha() {
   });
 }
 
-function handleSubmit(event) {
+async function handleSubmit(event) {
   event.preventDefault();
 
   const formData = new FormData(event.target);
-  fetch("http://localhost:4444/submit-form", {
-    method: "POST",
-    body: formData,
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      console.log("Success:", data);
-    })
-    .catch((error) => {
-      console.error("Error:", error);
+  try {
+    const response = await fetch("http://localhost:4444/submit-form", {
+      method: "POST",
+      body: formData,
     });
+    const data = await response.json();
+    console.log(`Success: ${data}`);
+  } catch (error) {
+    console.error(`Error: ${error}`);
+  }
 }
