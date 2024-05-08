@@ -15,24 +15,10 @@
 .btn-container {
   display: flex;
   align-items: center;
+  justify-content: center;
   width: fit-content;
   height: 60px;
   position: relative;
-}
-
-.loader-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 255, 0.641);
-  width: 100%;
-  z-index: -1;
-  /* visibility: hidden; */
 }
 
 .form-group {
@@ -78,7 +64,6 @@ button {
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
-  /* margin-top: 20px; */
 }
 
 button:hover {
@@ -86,9 +71,11 @@ button:hover {
 }
 
 .loader {
+  position: absolute;
   display: block;
   width: 40px;
   height: 40px;
   opacity: 0.5;
   background-color: black;
+  z-index: -1;
 }

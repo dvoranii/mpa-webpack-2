@@ -1,4 +1,3 @@
-// ReCAPTCHA init and setup
 function setupRecaptcha(callback) {
   if (typeof grecaptcha === "undefined") {
     console.error("reCAPTCHA library not loaded!");
@@ -18,8 +17,6 @@ export function initializeRecaptchaToken() {
     document.getElementById("recaptchaResponse").value = token;
   });
 }
-
-// Form Submit
 
 // abstracted this logic to avoid nested callbacks
 async function submitForm(url, formData) {
