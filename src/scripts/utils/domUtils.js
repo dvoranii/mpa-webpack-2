@@ -5,12 +5,3 @@ export function loadScript(url, callback) {
   script.onload = callback;
   document.body.appendChild(script);
 }
-
-export function setupFormListener(selector, handler) {
-  const form = document.querySelector(selector);
-  if (!form) {
-    console.error("Form not found");
-    return;
-  }
-  form.addEventListener("submit", handler);
-}
