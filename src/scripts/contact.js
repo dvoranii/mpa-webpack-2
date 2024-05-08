@@ -1,6 +1,6 @@
 import "../styles/contact.css";
 import { loadScript } from "./utils/domUtils.js";
-import { setupRecaptcha, handleSubmit } from "./utils/apiUtils.js";
+import { initializeRecaptchaToken, handleSubmit } from "./utils/apiUtils.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   loadScript(
@@ -16,9 +16,3 @@ document.addEventListener("DOMContentLoaded", () => {
     await handleSubmit(form);
   });
 });
-
-function initializeRecaptchaToken() {
-  setupRecaptcha((token) => {
-    document.getElementById("recaptchaResponse").value = token;
-  });
-}
