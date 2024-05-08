@@ -1,24 +1,30 @@
 import "../styles/contact.css";
-import { loadScript, setupFormListener } from "./domUtils.js";
-import { setupRecaptcha, submitForm } from "./apiUtils.js";
+import { loadScript } from "./utils/domUtils.js";
+import { setupRecaptcha, submitForm } from "./utils/apiUtils.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   loadScript(
     "https://www.google.com/recaptcha/api.js?render=6LddpsMpAAAAAD-7Uj4O_xlo84BMGwjJp_rQBkX1",
-    initializeContactPage
+    initializeRecaptchaToken
   );
+
+  const submitBtn = document.querySelector(".submit-btn");
+  const form = document.querySelector(".contact-form");
+
+  submitBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
+    await handleSubmit(form);
+  });
 });
 
-function initializeContactPage() {
+function initializeRecaptchaToken() {
   setupRecaptcha((token) => {
     document.getElementById("recaptchaResponse").value = token;
   });
-  setupFormListener(".contact-form", handleSubmit);
 }
 
-async function handleSubmit(event) {
-  event.preventDefault();
-  const formData = new FormData(event.target);
+async function handleSubmit(form) {
+  const formData = new FormData(form);
 
   try {
     const data = await submitForm(

@@ -27,7 +27,12 @@
           <textarea id="message" name="message" rows="4" required></textarea>
         </div>
         <input type="hidden" name="recaptcha_response" id="recaptchaResponse" />
-        <button type="submit">Send</button>
+        <div class="btn-container">
+          <button type="button" class="submit-btn">Send</button>
+          <div class="loader-container hidden">
+            <div class="loader"></div>
+          </div>
+        </div>
       </form>
     </section>
   </body>

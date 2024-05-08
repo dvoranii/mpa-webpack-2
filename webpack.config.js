@@ -16,9 +16,6 @@ const pages = ["home", "about", "contact"];
 export default (env, argv) => {
   const isProduction = argv.mode === "production";
 
-  // const apiPath = path.resolve(__dirname, "src", "scripts", "api.js");
-  // const domUtilsPath = path.resolve(__dirname, "src", "scripts", "domUtils.js");
-
   const htmlPluginsInstances = pages.map(
     (page) =>
       new HtmlWebpackPlugin({
