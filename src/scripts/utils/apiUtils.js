@@ -12,7 +12,8 @@ export function setupRecaptcha(callback) {
   });
 }
 
-export async function submitForm(url, formData) {
+// abstracted this logic to avoid nested callbacks
+async function submitForm(url, formData) {
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -24,5 +25,21 @@ export async function submitForm(url, formData) {
     return await response.json();
   } catch (error) {
     throw error;
+  }
+}
+
+export async function handleSubmit(form) {
+  const formData = new FormData(form);
+
+  try {
+    const data = await submitForm(
+      "http://localhost:4444/submit-form",
+      formData
+    );
+    console.log(`Success: ${JSON.stringify(data)}`);
+    alert("Form submitted successfully!");
+  } catch (error) {
+    console.error(`Error: ${error}`);
+    alert("Failed to submit the form. Please try again later.");
   }
 }
