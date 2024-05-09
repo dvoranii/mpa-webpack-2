@@ -43,9 +43,10 @@ export async function handleSubmit(form) {
       formData
     );
     console.log(`Success: ${JSON.stringify(data)}`);
-    alert("Form submitted successfully!");
+    console.log("Form submitted successfully!");
   } catch (error) {
     console.error(`Error: ${error}`);
+    // replace with UI update error messages
     alert("Failed to submit the form. Please try again later.");
   }
 }
