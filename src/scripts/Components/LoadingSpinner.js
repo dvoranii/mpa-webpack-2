@@ -1,4 +1,4 @@
-export class Loader {
+export class LoadingSpinner {
   constructor(loaderSelector, triggerSelector) {
     this.loader = document.querySelector(loaderSelector);
     this.trigger = document.querySelector(triggerSelector);

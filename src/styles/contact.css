@@ -52,6 +52,9 @@
 .form-group textarea {
   display: block;
   width: 100%;
+  max-width: 100%;
+  /* try calc? */
+  max-height: 200px;
 }
 
 /* Button(s) & related components */
@@ -64,8 +67,6 @@ button {
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
-  /* opacity: 0; */
-  /* display: none; */
 }
 
 button:hover {
@@ -73,7 +74,6 @@ button:hover {
 }
 
 .loader {
-  /* position: absolute; */
   position: fixed;
   display: flex;
   width: 40px;
@@ -110,4 +110,20 @@ button:hover {
   to {
     transform: rotate(1turn);
   }
+}
+
+/* Error Messages */
+
+.error-message {
+  color: red;
+  margin-top: 5px;
+  display: none;
+}
+
+.error-message:not(.error-hidden) {
+  display: block;
+}
+
+.error-hidden {
+  display: none;
 }
