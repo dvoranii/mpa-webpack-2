@@ -1,3 +1,5 @@
+"use strict";
+
 function setupRecaptcha(callback) {
   if (typeof grecaptcha === "undefined") {
     console.error("reCAPTCHA library not loaded!");

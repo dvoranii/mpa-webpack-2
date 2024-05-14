@@ -1,4 +1,4 @@
-// utils/validationUtils.js
+"use strict";
 
 export function validateForm(form) {
   let isValid = true;

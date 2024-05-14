@@ -1,9 +1,7 @@
-// utils/inputEventListeners.js
-
+"use strict";
 export function addInputEventListeners(form) {
   const nameInput = form.querySelector("#name");
   const emailInput = form.querySelector("#email");
-  const messageInput = form.querySelector("#message");
 
   nameInput.addEventListener("input", () => {
     hideError("#nameError");
@@ -12,10 +10,6 @@ export function addInputEventListeners(form) {
   emailInput.addEventListener("input", () => {
     hideError("#emailEmptyError");
     hideError("#emailInvalidError");
-  });
-
-  messageInput.addEventListener("input", () => {
-    hideError("#messageError");
   });
 }
 

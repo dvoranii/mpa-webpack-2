@@ -118,6 +118,9 @@ button:hover {
   color: red;
   margin-top: 5px;
   display: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 0.8rem;
 }
 
 .error-message:not(.error-hidden) {

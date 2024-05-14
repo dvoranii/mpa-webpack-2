@@ -1,3 +1,5 @@
+"use strict";
+
 import "../styles/contact.css";
 import { loadScript } from "./utils/domUtils.js";
 import { initializeRecaptchaToken, handleSubmit } from "./utils/apiUtils.js";
@@ -12,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
   const form = document.querySelector(".contact-form");
-  // mount listeners for input events
+  // mount listeners for input events, will need refactoring when new form is created
   addInputEventListeners(form);
 });
 

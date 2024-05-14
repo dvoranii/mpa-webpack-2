@@ -1,3 +1,5 @@
+"use strict";
+
 export function loadScript(url, callback) {
   const script = document.createElement("script");
   script.src = url;
