@@ -1,4 +1,5 @@
 "use strict";
+
 export function addInputEventListeners(form) {
   const nameInput = form.querySelector("#name");
   const emailInput = form.querySelector("#email");

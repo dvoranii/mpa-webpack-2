@@ -33,9 +33,9 @@ submitBtn.addEventListener("click", async (e) => {
 
   try {
     await handleSubmit(form);
-    console.log("Form submitted successfully!");
+    showSuccessMessage();
+    form.reset();
   } catch (error) {
-    console.error(`Error: ${error}`);
     showError(".error-message");
   } finally {
     loader.hide();
@@ -45,8 +45,16 @@ submitBtn.addEventListener("click", async (e) => {
 function showError(selector) {
   const errorElement = document.querySelector(selector);
   if (!errorElement) {
-    console.error(`Element not found for selector: ${selector}`);
     return;
   }
   errorElement.classList.remove("error-hidden");
+}
+
+function showSuccessMessage() {
+  const successMessage = document.querySelector("#successMessage");
+  successMessage.classList.remove("success-hidden");
+
+  setTimeout(() => {
+    successMessage.classList.add("success-hidden");
+  }, 3000);
 }
