@@ -1,5 +1,3 @@
-// const apiUrl = process.env.API_URL;
-
 let csrfToken = null;
 
 export async function fetchCsrfToken() {
