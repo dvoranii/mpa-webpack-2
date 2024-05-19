@@ -28,3 +28,11 @@ export async function fetchCsrfToken() {
 export function getCsrfToken() {
   return csrfToken;
 }
+
+export function appendCsrfToken(form, csrfToken) {
+  const csrfTokenField = document.createElement("input");
+  csrfTokenField.type = "hidden";
+  csrfTokenField.name = "_csrf";
+  csrfTokenField.value = csrfToken;
+  form.appendChild(csrfTokenField);
+}

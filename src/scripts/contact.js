@@ -6,7 +6,11 @@ import { initializeRecaptchaToken, handleSubmit } from "./utils/apiUtils.js";
 import { LoadingSpinner } from "./Components/LoadingSpinner.js";
 import { validateForm } from "./utils/validationUtils.js";
 import { addInputEventListeners } from "./utils/inputEventListeners.js";
-import { fetchCsrfToken, getCsrfToken } from "./utils/csrfUtils.js";
+import {
+  fetchCsrfToken,
+  getCsrfToken,
+  appendCsrfToken,
+} from "./utils/csrfUtils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   loadScript(
@@ -40,15 +44,12 @@ submitBtn.addEventListener("click", async (e) => {
 
   try {
     const csrfToken = getCsrfToken(); // Retrieve the stored CSRF token
+
     if (!csrfToken) {
       throw new Error("CSRF token not available");
     }
 
-    const csrfTokenField = document.createElement("input");
-    csrfTokenField.type = "hidden";
-    csrfTokenField.name = "_csrf";
-    csrfTokenField.value = csrfToken;
-    form.appendChild(csrfTokenField);
+    appendCsrfToken(form, csrfToken);
 
     await handleSubmit(form);
     showSuccessMessage();
