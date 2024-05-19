@@ -1,5 +1,9 @@
 "use strict";
 
 import "../styles/global.css";
+import { createNav, setupNav } from "./Components/global/nav.js";
 
-console.log("Hello");
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.insertAdjacentHTML("afterbegin", createNav());
+  setupNav();
+});

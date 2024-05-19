@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   addInputEventListeners(form);
 
   try {
-    await fetchCsrfToken(); // Fetch the CSRF token when the page loads
+    await fetchCsrfToken();
     console.log("CSRF token successfully fetched and stored");
   } catch (error) {
     console.error("Failed to fetch CSRF token", error);
@@ -43,7 +43,7 @@ submitBtn.addEventListener("click", async (e) => {
   loader.show();
 
   try {
-    const csrfToken = getCsrfToken(); // Retrieve the stored CSRF token
+    const csrfToken = getCsrfToken();
 
     if (!csrfToken) {
       throw new Error("CSRF token not available");
@@ -56,7 +56,7 @@ submitBtn.addEventListener("click", async (e) => {
     form.reset();
   } catch (error) {
     console.error("Form submission error:", error);
-    alert("Failed to submit the form. Please try again later."); // Simple error alert
+    alert("Failed to submit the form. Please try again later.");
   } finally {
     loader.hide();
   }
