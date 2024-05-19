@@ -30,6 +30,7 @@ export function setupNav() {
 
   burgerMenu.addEventListener("click", () => {
     navLinks.classList.toggle("active");
+    burgerMenu.classList.toggle("active");
   });
 
   const dropdowns = document.querySelectorAll(".dropdown");

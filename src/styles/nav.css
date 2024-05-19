@@ -24,6 +24,7 @@
 .dropdown-content {
   display: none;
   position: absolute;
+  list-style: none;
   top: 100%;
   left: 0;
   background-color: white;
@@ -43,13 +44,15 @@
   display: none;
   flex-direction: column;
   cursor: pointer;
+  padding: 12px;
+  z-index: 8;
 }
 
 .burger-menu span {
   width: 25px;
   height: 3px;
   background: black;
-  margin: 4px;
+  margin: 2px;
   transition: 0.3s;
 }
 
@@ -70,10 +73,23 @@
 
   .nav-links.active {
     display: flex;
+
     transform: translateX(0);
   }
 
   .burger-menu {
     display: flex;
+  }
+
+  .burger-menu.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .burger-menu.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger-menu.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
   }
 }
