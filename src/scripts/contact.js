@@ -11,6 +11,7 @@ import {
   getCsrfToken,
   appendCsrfToken,
 } from "./utils/csrfUtils.js";
+import { sanitizeFormInputs } from "./utils/sanitizeUtils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   loadScript(
@@ -50,6 +51,13 @@ submitBtn.addEventListener("click", async (e) => {
     }
 
     appendCsrfToken(form, csrfToken);
+
+    const sanitizedData = sanitizeFormInputs(form);
+    const sanitizedFormData = new FormData();
+
+    for (const key in sanitizedData) {
+      sanitizedFormData.append(key, sanitizedData[key]);
+    }
 
     await handleSubmit(form);
     showSuccessMessage();
