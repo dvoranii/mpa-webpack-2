@@ -1,5 +1,6 @@
 "use strict";
 import { sanitizeInput } from "./domUtils.js";
+import { getCsrfToken } from "./csrfUtils.js";
 
 function setupRecaptcha(callback) {
   if (typeof grecaptcha === "undefined") {
@@ -27,6 +28,7 @@ async function submitForm(url, formData) {
     const response = await fetch(url, {
       method: "POST",
       body: formData,
+      credentials: "include", // Ensure cookies are included
     });
     if (!response.ok) {
       throw new Error("Network response was not ok.");
@@ -42,6 +44,13 @@ export async function handleSubmit(form) {
   formData.set("name", sanitizeInput(formData.get("name")));
   formData.set("email", sanitizeInput(formData.get("email")));
   formData.set("message", sanitizeInput(formData.get("message")));
+
+  // Append the CSRF token to the form data
+  const csrfToken = getCsrfToken();
+  if (!csrfToken) {
+    throw new Error("CSRF token not available");
+  }
+  formData.append("_csrf", csrfToken);
 
   try {
     const data = await submitForm(
