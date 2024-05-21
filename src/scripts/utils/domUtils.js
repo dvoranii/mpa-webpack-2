@@ -1,4 +1,5 @@
 "use strict";
+import DOMPurify from "dompurify";
 
 export function loadScript(url, callback) {
   const script = document.createElement("script");
@@ -6,4 +7,8 @@ export function loadScript(url, callback) {
   script.async = true;
   script.onload = callback;
   document.body.appendChild(script);
+}
+
+export function sanitizeInput(input) {
+  return DOMPurify.sanitize(input);
 }

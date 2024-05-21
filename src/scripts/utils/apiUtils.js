@@ -1,5 +1,5 @@
 "use strict";
-import { sanitizeInput } from "./sanitizationUtils.js";
+import { sanitizeInput } from "./domUtils.js";
 
 function setupRecaptcha(callback) {
   if (typeof grecaptcha === "undefined") {
