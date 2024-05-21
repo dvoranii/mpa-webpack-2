@@ -1,4 +1,5 @@
 "use strict";
+import { sanitizeInput } from "./sanitizationUtils.js";
 
 function setupRecaptcha(callback) {
   if (typeof grecaptcha === "undefined") {
@@ -38,6 +39,9 @@ async function submitForm(url, formData) {
 
 export async function handleSubmit(form) {
   const formData = new FormData(form);
+  formData.set("name", sanitizeInput(formData.get("name")));
+  formData.set("email", sanitizeInput(formData.get("email")));
+  formData.set("message", sanitizeInput(formData.get("message")));
 
   try {
     const data = await submitForm(
@@ -48,7 +52,6 @@ export async function handleSubmit(form) {
     console.log("Form submitted successfully!");
   } catch (error) {
     console.error(`Error: ${error}`);
-    // replace with UI update error messages
     alert("Failed to submit the form. Please try again later.");
   }
 }

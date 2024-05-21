@@ -4,6 +4,9 @@ import MiniCssExtractPlugin from "mini-css-extract-plugin";
 import CopyWebpackPlugin from "copy-webpack-plugin";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import Dotenv from "dotenv-webpack";
+import TerserPlugin from "terser-webpack-plugin";
+import CompressionPlugin from "compression-webpack-plugin";
+import CssMinimizerPlugin from "css-minimizer-webpack-plugin";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -26,6 +29,35 @@ export default (env, argv) => {
       })
   );
 
+  const plugins = [
+    ...htmlPluginsInstances,
+    new MiniCssExtractPlugin({
+      filename: isProduction
+        ? "styles/[name].[contenthash].css"
+        : "styles/[name].css",
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: path.resolve(__dirname, "src", "assets"), to: "assets" },
+      ],
+    }),
+    new Dotenv({
+      path: `./.env.${argv.mode}`,
+    }),
+  ];
+
+  if (isProduction) {
+    plugins.push(
+      new CompressionPlugin({
+        filename: "[path][base].gz",
+        algorithm: "gzip",
+        test: /\.(js|css|html|svg)$/,
+        threshold: 10240,
+        minRatio: 0.8,
+      })
+    );
+  }
+
   return {
     entry: pages.reduce(
       (entries, page) => {
@@ -43,22 +75,7 @@ export default (env, argv) => {
       clean: true,
     },
 
-    plugins: [
-      ...htmlPluginsInstances,
-      new MiniCssExtractPlugin({
-        filename: isProduction
-          ? "styles/[name].[contenthash].css"
-          : "styles/[name].css",
-      }),
-      new CopyWebpackPlugin({
-        patterns: [
-          { from: path.resolve(__dirname, "src", "assets"), to: "assets" },
-        ],
-      }),
-      new Dotenv({
-        path: `./.env.${argv.mode}`,
-      }),
-    ],
+    plugins,
 
     module: {
       rules: [
@@ -108,6 +125,18 @@ export default (env, argv) => {
     },
 
     optimization: {
+      minimize: isProduction,
+      minimizer: [
+        new TerserPlugin({
+          terserOptions: {
+            format: {
+              comments: false,
+            },
+          },
+          extractComments: false,
+        }),
+        new CssMinimizerPlugin(), // Add the CSS Minimizer Plugin
+      ],
       splitChunks: {
         chunks: "all",
       },
