@@ -3,7 +3,7 @@
 import "../styles/contact.css";
 import { loadScript } from "./utils/domUtils.js";
 import { initializeRecaptchaToken, handleSubmit } from "./utils/apiUtils.js";
-import { LoadingSpinner } from "./Components/LoadingSpinner.js";
+import { showLoader, hideLoader } from "./utils/loadingSpinner.js";
 import { validateForm } from "./utils/validationUtils.js";
 import { addInputEventListeners } from "./utils/inputEventListeners.js";
 import { fetchCsrfToken } from "./utils/csrfUtils.js";
@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 const submitBtn = document.querySelector(".submit-btn");
 const form = document.querySelector(".contact-form");
-const loader = new LoadingSpinner(".loader", ".submit-btn");
 
 submitBtn.addEventListener("click", async (e) => {
   e.preventDefault();
@@ -36,7 +35,7 @@ submitBtn.addEventListener("click", async (e) => {
     return;
   }
 
-  loader.show();
+  showLoader(".loader", ".submit-btn");
 
   try {
     await handleSubmit(form);
@@ -46,7 +45,7 @@ submitBtn.addEventListener("click", async (e) => {
     console.error("Form submission error:", error);
     alert("Failed to submit the form. Please try again later.");
   } finally {
-    loader.hide();
+    hideLoader(".loader", ".submit-btn");
   }
 });
 
