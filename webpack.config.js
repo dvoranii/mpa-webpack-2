@@ -123,6 +123,14 @@ export default (env, argv) => {
           { from: /./, to: "/404.html" },
         ],
       },
+      proxy: [
+        {
+          context: ["/admin"],
+          target: "http://localhost:4444",
+          secure: false,
+          changeOrigin: true,
+        },
+      ],
     },
 
     optimization: {
@@ -136,7 +144,7 @@ export default (env, argv) => {
           },
           extractComments: false,
         }),
-        new CssMinimizerPlugin(), // Add the CSS Minimizer Plugin
+        new CssMinimizerPlugin(),
       ],
       splitChunks: {
         chunks: "all",
