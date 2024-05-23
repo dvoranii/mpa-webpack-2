@@ -123,14 +123,6 @@ export default (env, argv) => {
           { from: /./, to: "/404.html" },
         ],
       },
-      proxy: [
-        {
-          context: ["/admin"],
-          target: "http://localhost:4444",
-          secure: false,
-          changeOrigin: true,
-        },
-      ],
     },
 
     optimization: {
