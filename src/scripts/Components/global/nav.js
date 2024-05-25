@@ -9,7 +9,7 @@ export function createNav() {
           <span></span>
         </div>
         <ul class="nav-links" id="navLinks">
-          <li><a href="/home">Home</a></li>
+          <li><a href="/">Home</a></li>
           <li class="dropdown">
             <a href="#">Services</a>
             <ul class="dropdown-content">

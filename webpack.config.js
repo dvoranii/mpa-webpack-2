@@ -19,15 +19,18 @@ const pages = ["home", "about", "contact", "404"];
 export default (env, argv) => {
   const isProduction = argv.mode === "production";
 
-  const htmlPluginsInstances = pages.map(
-    (page) =>
-      new HtmlWebpackPlugin({
-        inject: true,
-        template: path.resolve(templatePath, `${page}.html`),
-        filename: `${page}.html`,
-        chunks: ["global", page],
-      })
-  );
+  const htmlPluginsInstances = pages.map((page) => {
+    const chunks = ["global", page];
+    if (page === "home") {
+      chunks.push("modal");
+    }
+    return new HtmlWebpackPlugin({
+      inject: true,
+      template: path.resolve(templatePath, `${page}.html`),
+      filename: `${page}.html`,
+      chunks,
+    });
+  });
 
   const plugins = [
     ...htmlPluginsInstances,
@@ -61,7 +64,15 @@ export default (env, argv) => {
   return {
     entry: pages.reduce(
       (entries, page) => {
-        entries[page] = path.resolve(__dirname, "src", "scripts", `${page}.js`);
+        entries[page] = [
+          path.resolve(__dirname, "src", "scripts", `${page}.js`),
+        ];
+
+        if (page === "home") {
+          entries[page].push(
+            path.resolve(__dirname, "src", "styles", "modal.css")
+          );
+        }
         return entries;
       },
       { global: path.resolve(__dirname, "src", "scripts", "global.js") }

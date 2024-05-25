@@ -28,7 +28,7 @@ async function submitForm(url, formData) {
     const response = await fetch(url, {
       method: "POST",
       body: formData,
-      credentials: "include", // Ensure cookies are included
+      credentials: "include",
     });
     if (!response.ok) {
       throw new Error("Network response was not ok.");
@@ -45,7 +45,6 @@ export async function handleSubmit(form) {
   formData.set("email", sanitizeInput(formData.get("email")));
   formData.set("message", sanitizeInput(formData.get("message")));
 
-  // Append the CSRF token to the form data
   const csrfToken = getCsrfToken();
   if (!csrfToken) {
     throw new Error("CSRF token not available");
