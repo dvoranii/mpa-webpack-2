@@ -2,7 +2,10 @@
 
 import "../styles/contact.css";
 import { loadScript } from "./utils/domUtils.js";
-import { initializeRecaptchaToken, handleSubmit } from "./utils/apiUtils.js";
+import {
+  initializeRecaptchaToken,
+  handleContactFormSubmit,
+} from "./utils/apiUtils.js";
 import { showLoader, hideLoader } from "./utils/loadingSpinner.js";
 import { validateForm } from "./utils/validationUtils.js";
 import { addInputEventListeners } from "./utils/inputEventListeners.js";
@@ -38,7 +41,7 @@ submitBtn.addEventListener("click", async (e) => {
   showLoader(".loader", ".submit-btn");
 
   try {
-    await handleSubmit(form);
+    await handleContactFormSubmit(form);
     showSuccessMessage();
     form.reset();
   } catch (error) {
