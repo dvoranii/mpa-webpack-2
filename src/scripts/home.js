@@ -3,6 +3,7 @@ import "../styles/home.css";
 import "../styles/modal.css";
 import { fetchCsrfToken } from "./utils/csrfUtils.js";
 import { handleSubscriptionFormSubmit } from "./utils/apiUtils.js";
+import { addInputEventListeners } from "./utils/inputEventListeners.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
@@ -11,6 +12,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   } catch (error) {
     console.error("Failed to fetch CSRF token", error);
   }
+
+  const form = document.querySelector(".newsletter-form");
+  addInputEventListeners(form);
 });
 
 const modalBg = document.querySelector(".modal-bg");
@@ -33,15 +37,56 @@ closeBtn.addEventListener("click", () => {
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
+  const nameInput = form.querySelector('input[name="name"]');
+  const emailInput = form.querySelector('input[name="email"]');
+  let valid = true;
+
+  if (!nameInput.value.trim()) {
+    showError("#nameError");
+    valid = false;
+  }
+
+  if (!emailInput.value.trim()) {
+    showError("#emailEmptyError");
+    valid = false;
+  } else if (!isValidEmail(emailInput.value.trim())) {
+    showError("#emailInvalidError");
+    valid = false;
+  }
+
+  if (!valid) return;
+
   try {
     await handleSubscriptionFormSubmit(form);
-    // add error messages and success message
-    alert("Subscription successful! ");
+    showSuccessMessage();
     form.reset();
-    modal.classList.remove("show");
-    modalBg.classList.remove("bg-active");
+    setTimeout(() => {
+      modal.classList.remove("show");
+      modalBg.classList.remove("bg-active");
+    }, 3000);
   } catch (error) {
     console.error("Subscription error:", error);
     alert("Failed to subscribe. Please try again later.");
   }
 });
+
+function showError(selector) {
+  const errorElement = document.querySelector(selector);
+  if (errorElement) {
+    errorElement.classList.remove("error-hidden");
+  }
+}
+
+function showSuccessMessage() {
+  const successMessage = document.querySelector("#successMessage");
+  successMessage.classList.remove("success-hidden");
+
+  setTimeout(() => {
+    successMessage.classList.add("success-hidden");
+  }, 3000);
+}
+
+function isValidEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}

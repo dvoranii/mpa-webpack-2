@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Home</title>
+    <link rel="stylesheet" href="path/to/your/home.css" />
+    <link rel="stylesheet" href="path/to/your/modal.css" />
   </head>
   <body>
     <section>
@@ -16,13 +18,29 @@
 
         <form class="newsletter-form">
           <label for="name">Name:</label>
-          <input type="text" name="name" />
+          <input type="text" name="name" id="name" />
+          <span id="nameError" class="error-message error-hidden"
+            >Please enter a valid name.</span
+          >
+
           <label for="email">Email:</label>
-          <input type="text" name="email" />
+          <input type="text" name="email" id="email" />
+          <span id="emailEmptyError" class="error-message error-hidden"
+            >Email is required.</span
+          >
+          <span id="emailInvalidError" class="error-message error-hidden"
+            >Please enter a valid email address.</span
+          >
+
           <button class="modal-subscribe__btn" type="submit">Subscribe</button>
-          <button class="modal-close__btn">✖</button>
+          <button class="modal-close__btn" type="button">✖</button>
         </form>
+        <div id="successMessage" class="success-message success-hidden">
+          Subscription successful!
+        </div>
       </div>
     </div>
+
+    <script type="module" src="path/to/your/home.js"></script>
   </body>
 </html>
