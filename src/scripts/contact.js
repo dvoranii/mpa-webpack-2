@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   try {
     await fetchCsrfToken();
-    console.log("CSRF token successfully fetched and stored");
   } catch (error) {
     console.error("Failed to fetch CSRF token", error);
   }

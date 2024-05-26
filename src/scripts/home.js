@@ -4,6 +4,7 @@ import "../styles/modal.css";
 import { fetchCsrfToken } from "./utils/csrfUtils.js";
 import { handleSubscriptionFormSubmit } from "./utils/apiUtils.js";
 import { addInputEventListeners } from "./utils/inputEventListeners.js";
+import { validateForm } from "./utils/validationUtils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
@@ -37,24 +38,9 @@ closeBtn.addEventListener("click", () => {
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const nameInput = form.querySelector('input[name="name"]');
-  const emailInput = form.querySelector('input[name="email"]');
-  let valid = true;
-
-  if (!nameInput.value.trim()) {
-    showError("#nameError");
-    valid = false;
+  if (!validateForm(form)) {
+    return;
   }
-
-  if (!emailInput.value.trim()) {
-    showError("#emailEmptyError");
-    valid = false;
-  } else if (!isValidEmail(emailInput.value.trim())) {
-    showError("#emailInvalidError");
-    valid = false;
-  }
-
-  if (!valid) return;
 
   try {
     await handleSubscriptionFormSubmit(form);
@@ -84,9 +70,4 @@ function showSuccessMessage() {
   setTimeout(() => {
     successMessage.classList.add("success-hidden");
   }, 3000);
-}
-
-function isValidEmail(email) {
-  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return re.test(email);
 }
