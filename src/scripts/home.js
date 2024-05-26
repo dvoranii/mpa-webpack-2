@@ -4,7 +4,7 @@ import "../styles/modal.css";
 import { fetchCsrfToken } from "./utils/csrfUtils.js";
 import { handleSubscriptionFormSubmit } from "./utils/apiUtils.js";
 import { addInputEventListeners } from "./utils/inputEventListeners.js";
-import { validateForm } from "./utils/validationUtils.js";
+import { validateForm, showSuccessMessage } from "./utils/validationUtils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
@@ -55,12 +55,3 @@ form.addEventListener("submit", async (e) => {
     alert("Failed to subscribe. Please try again later.");
   }
 });
-
-function showSuccessMessage() {
-  const successMessage = document.querySelector("#successMessage");
-  successMessage.classList.remove("success-hidden");
-
-  setTimeout(() => {
-    successMessage.classList.add("success-hidden");
-  }, 3000);
-}

@@ -7,7 +7,7 @@ import {
   handleContactFormSubmit,
 } from "./utils/apiUtils.js";
 import { showLoader, hideLoader } from "./utils/loadingSpinner.js";
-import { validateForm } from "./utils/validationUtils.js";
+import { validateForm, showSuccessMessage } from "./utils/validationUtils.js";
 import { addInputEventListeners } from "./utils/inputEventListeners.js";
 import { fetchCsrfToken } from "./utils/csrfUtils.js";
 
@@ -50,12 +50,3 @@ submitBtn.addEventListener("click", async (e) => {
     hideLoader(".loader", ".submit-btn");
   }
 });
-
-function showSuccessMessage() {
-  const successMessage = document.querySelector("#successMessage");
-  successMessage.classList.remove("success-hidden");
-
-  setTimeout(() => {
-    successMessage.classList.add("success-hidden");
-  }, 3000);
-}
