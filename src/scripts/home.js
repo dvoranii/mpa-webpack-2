@@ -56,13 +56,6 @@ form.addEventListener("submit", async (e) => {
   }
 });
 
-function showError(selector) {
-  const errorElement = document.querySelector(selector);
-  if (errorElement) {
-    errorElement.classList.remove("error-hidden");
-  }
-}
-
 function showSuccessMessage() {
   const successMessage = document.querySelector("#successMessage");
   successMessage.classList.remove("success-hidden");
