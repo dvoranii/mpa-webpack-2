@@ -1,11 +1,7 @@
 "use strict";
 import "../styles/home.css";
 import "../styles/modal.css";
-import {
-  fetchCsrfToken,
-  getCsrfToken,
-  appendCsrfToken,
-} from "./utils/csrfUtils.js";
+import { fetchCsrfToken } from "./utils/csrfUtils.js";
 import { handleSubscriptionFormSubmit } from "./utils/apiUtils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
