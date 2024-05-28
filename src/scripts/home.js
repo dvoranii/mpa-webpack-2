@@ -1,6 +1,7 @@
 "use strict";
 import "../styles/home.css";
 import "../styles/modal.css";
+import "../styles/messages.css";
 import { fetchCsrfToken } from "./utils/csrfUtils.js";
 import { handleSubscriptionFormSubmit } from "./utils/apiUtils.js";
 import { addInputEventListeners } from "./utils/inputEventListeners.js";

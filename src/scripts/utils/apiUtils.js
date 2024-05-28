@@ -69,7 +69,7 @@ export async function handleContactFormSubmit(form) {
       ["name", "email", "message"]
     );
   } catch (error) {
-    alert("Failed to submit the form. Please try again later.");
+    console.error(`Contact form error: ${error} `);
   }
 }
 
@@ -80,8 +80,7 @@ export async function handleSubscriptionFormSubmit(form) {
       "http://localhost:4444/subscribe",
       ["name", "email"]
     );
-    console.log("Subscription successful!");
   } catch (error) {
-    alert("Failed to subscribe. Please try again later.");
+    console.error(`Subscription error: ${error} `);
   }
 }

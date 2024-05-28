@@ -14,7 +14,7 @@ const __dirname = path.dirname(__filename);
 const buildPath = path.resolve(__dirname, "dist");
 const templatePath = path.resolve(__dirname, "src", "templates");
 
-const pages = ["home", "about", "contact", "404"];
+const pages = ["home", "about", "contact", "quote", "404"];
 
 export default (env, argv) => {
   const isProduction = argv.mode === "production";
@@ -131,6 +131,7 @@ export default (env, argv) => {
           { from: /^\/about\/?$/, to: "/about.html" },
           { from: /^\/contact\/?$/, to: "/contact.html" },
           { from: /^\/$/, to: "/home.html" },
+          { from: /^\/quote\/?$/, to: "/quote.html" },
           { from: /./, to: "/404.html" },
         ],
       },

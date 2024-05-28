@@ -24,6 +24,11 @@
 .nav-links a:visited {
   color: black;
 }
+
+.nav-links a.current-page {
+  color: red; /* Change this to your preferred highlight color */
+  font-weight: bold; /* Optional: Make it bold */
+}
 /* Dropdown styles */
 .dropdown-content {
   display: none;
@@ -79,6 +84,19 @@
     display: flex;
     transform: translateX(0);
     padding-top: 48px;
+  }
+
+  .dropdown-content {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: none;
+    margin-left: 12px;
+  }
+
+  .dropdown-content.active {
+    display: block;
   }
 
   .burger-menu {

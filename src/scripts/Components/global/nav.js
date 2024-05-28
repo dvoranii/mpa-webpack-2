@@ -13,12 +13,19 @@ export function createNav() {
           <li class="dropdown">
             <a href="#">Services</a>
             <ul class="dropdown-content">
-              <li><a href="/service1">Service 1</a></li>
-              <li><a href="/service2">Service 2</a></li>
+              <li><a href="/service1">•&nbsp;Service 1</a></li>
+              <li><a href="/service2">•&nbsp;Service 2</a></li>
             </ul>
           </li>
           <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="/quote">Quote</a></li>
+          <li class="dropdown">
+          <a href="/contact">Contact</a>
+          <ul class="dropdown-content">
+          <li><a href="/ontario">•&nbsp;Ontario Office</a></li>
+          <li><a href="/quebec">•&nbsp;Quebec Office</a></li>
+          </ul>
+          </li>
         </ul>
       </nav>
     `;
@@ -35,12 +42,44 @@ export function setupNav() {
 
   const dropdowns = document.querySelectorAll(".dropdown");
 
+  const toggleDropdown = (e) => {
+    e.preventDefault();
+    if (window.innerWidth <= 768) {
+      const dropdownContent =
+        e.currentTarget.querySelector(".dropdown-content");
+      dropdownContent.classList.toggle("active");
+    }
+  };
+
   dropdowns.forEach((dropdown) => {
-    dropdown.addEventListener("click", (e) => {
-      if (window.innerWidth <= 768) {
-        const dropdownContent = dropdown.querySelector(".dropdown-content");
-        dropdownContent.classList.toggle("active");
-      }
+    dropdown.addEventListener("click", toggleDropdown);
+    dropdown.addEventListener("touchstart", toggleDropdown);
+  });
+
+  const submenuLinks = document.querySelectorAll(".dropdown-content a");
+  submenuLinks.forEach((link) => {
+    link.addEventListener("click", (e) => {
+      window.location.href = link.href;
     });
+    link.addEventListener("touchstart", (e) => {
+      window.location.href = link.href;
+    });
+  });
+
+  highlightCurrentPage();
+}
+
+function highlightCurrentPage() {
+  const currentPage = window.location.pathname;
+  const navLinks = document.querySelectorAll(".nav-links a");
+
+  navLinks.forEach((link) => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("current-page");
+      const parentDropdown = link.closest(".dropdown-content");
+      if (parentDropdown) {
+        parentDropdown.previousElementSibling.classList.add("current-page");
+      }
+    }
   });
 }

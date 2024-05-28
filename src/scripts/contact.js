@@ -1,6 +1,7 @@
 "use strict";
 
 import "../styles/contact.css";
+import "../styles/messages.css";
 import { loadScript } from "./utils/domUtils.js";
 import {
   initializeRecaptchaToken,
@@ -45,7 +46,6 @@ submitBtn.addEventListener("click", async (e) => {
     form.reset();
   } catch (error) {
     console.error("Form submission error:", error);
-    alert("Failed to submit the form. Please try again later.");
   } finally {
     hideLoader(".loader", ".submit-btn");
   }
