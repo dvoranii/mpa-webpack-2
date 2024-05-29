@@ -32,15 +32,23 @@
             >Please enter a valid email address.</span
           >
 
-          <button class="modal-subscribe__btn" type="submit">Subscribe</button>
-          <button class="modal-close__btn" type="button">✖</button>
+          <div class="btn-container">
+            <button class="modal-subscribe__btn" type="submit">
+              Subscribe
+            </button>
+            <div class="loader loader-hidden"></div>
+          </div>
+          <input
+            type="hidden"
+            id="recaptchaResponse"
+            name="recaptchaResponse"
+          />
+          <div id="successMessage" class="success-message success-hidden">
+            Subscription successful!
+          </div>
         </form>
-        <div id="successMessage" class="success-message success-hidden">
-          Subscription successful!
-        </div>
+        <button class="modal-close__btn" type="button">✖</button>
       </div>
     </div>
-
-    <script type="module" src="path/to/your/home.js"></script>
   </body>
 </html>

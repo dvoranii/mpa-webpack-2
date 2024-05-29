@@ -1,13 +1,9 @@
-export function showLoader(loaderSelector, triggerSelector) {
-  const loader = document.querySelector(loaderSelector);
-  const trigger = document.querySelector(triggerSelector);
+export function showLoader(loader, triggerBtn) {
   loader.classList.remove("loader-hidden");
-  trigger.style.visibility = "hidden";
+  triggerBtn.style.visibility = "hidden";
 }
 
-export function hideLoader(loaderSelector, triggerSelector) {
-  const loader = document.querySelector(loaderSelector);
-  const trigger = document.querySelector(triggerSelector);
+export function hideLoader(loader, triggerBtn) {
   loader.classList.add("loader-hidden");
-  trigger.style.visibility = "visible";
+  triggerBtn.style.visibility = "visible";
 }

@@ -1,21 +1,16 @@
 "use strict";
 import "../styles/contact.css";
 import "../styles/messages.css";
-import { loadScript } from "./utils/domUtils.js";
-import {
-  initializeRecaptchaToken,
-  handleContactFormSubmit,
-} from "./utils/apiUtils.js";
+import "../styles/loader.css";
+import { initializeRecaptcha } from "./utils/recaptcha.js";
+import { handleContactFormSubmit } from "./utils/apiUtils.js";
 import { showLoader, hideLoader } from "./utils/loadingSpinner.js";
 import { validateForm, showSuccessMessage } from "./utils/validationUtils.js";
 import { addInputEventListeners } from "./utils/inputEventListeners.js";
 import { fetchCsrfToken } from "./utils/csrfUtils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
-  loadScript(
-    "https://www.google.com/recaptcha/api.js?render=6LddpsMpAAAAAD-7Uj4O_xlo84BMGwjJp_rQBkX1",
-    initializeRecaptchaToken
-  );
+  initializeRecaptcha();
 
   const form = document.querySelector(".contact-form");
   addInputEventListeners(form);
@@ -29,6 +24,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 const submitBtn = document.querySelector(".submit-btn");
 const form = document.querySelector(".contact-form");
+const loader = document.querySelector(".loader");
 
 submitBtn.addEventListener("click", async (e) => {
   e.preventDefault();
@@ -37,7 +33,7 @@ submitBtn.addEventListener("click", async (e) => {
     return;
   }
 
-  showLoader(".loader", ".submit-btn");
+  showLoader(loader, submitBtn);
 
   try {
     await handleContactFormSubmit(form);
@@ -46,6 +42,6 @@ submitBtn.addEventListener("click", async (e) => {
   } catch (error) {
     console.error("Form submission error:", error);
   } finally {
-    hideLoader(".loader", ".submit-btn");
+    hideLoader(loader, submitBtn);
   }
 });

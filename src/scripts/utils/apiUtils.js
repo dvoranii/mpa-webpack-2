@@ -2,26 +2,6 @@
 import { sanitizeInput } from "./domUtils.js";
 import { getCsrfToken, appendCsrfToken } from "./csrfUtils.js";
 
-function setupRecaptcha(callback) {
-  if (typeof grecaptcha === "undefined") {
-    console.error("reCAPTCHA library not loaded!");
-    return;
-  }
-  grecaptcha.ready(() => {
-    grecaptcha
-      .execute("6LddpsMpAAAAAD-7Uj4O_xlo84BMGwjJp_rQBkX1", { action: "submit" })
-      .then((token) => {
-        callback(token);
-      });
-  });
-}
-
-export function initializeRecaptchaToken() {
-  setupRecaptcha((token) => {
-    document.getElementById("recaptchaResponse").value = token;
-  });
-}
-
 // abstracted this logic to avoid nested callbacks
 async function submitForm(url, formData) {
   try {
