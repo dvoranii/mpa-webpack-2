@@ -1,5 +1,4 @@
 "use strict";
-
 import "../styles/contact.css";
 import "../styles/messages.css";
 import { loadScript } from "./utils/domUtils.js";

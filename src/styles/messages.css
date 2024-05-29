@@ -17,6 +17,8 @@
 
 /* Success Message */
 .success-message {
+  position: absolute;
+  bottom: 0;
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-size: 0.8rem;
