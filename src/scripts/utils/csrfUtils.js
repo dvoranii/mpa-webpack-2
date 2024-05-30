@@ -2,25 +2,25 @@ let csrfToken = null;
 
 export async function fetchCsrfToken() {
   try {
-    const response = await fetch("http://localhost:4444/csrf-token", {
+    const response = await fetch(`http://localhost:4444/csrf-token`, {
       credentials: "include",
     });
-    console.log("Response status:", response.status);
-    console.log("Response headers:", response.headers.get("content-type"));
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
-    if (!response.headers.get("content-type").includes("application/json")) {
-      throw new Error("Expected JSON response");
-    }
-
+    checkValidResponse(response);
     const data = await response.json();
     csrfToken = data.csrfToken;
   } catch (error) {
     console.error("Error fetching CSRF token:", error);
     throw error;
+  }
+}
+
+function checkValidResponse(response) {
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
+  }
+
+  if (!response.headers.get("content-type").includes("application/json")) {
+    throw new Error("Expected JSON response");
   }
 }
 

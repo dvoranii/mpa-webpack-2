@@ -1,4 +1,3 @@
-"use strict";
 import { sanitizeInput } from "./domUtils.js";
 import { getCsrfToken, appendCsrfToken } from "./csrfUtils.js";
 

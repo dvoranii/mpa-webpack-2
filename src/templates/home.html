@@ -8,46 +8,49 @@
     <link rel="stylesheet" href="path/to/your/modal.css" />
   </head>
   <body>
-    <section>
-      <h1>Home</h1>
-    </section>
+    <div class="page-wrapper">
+      <section>
+        <h1>Home</h1>
+      </section>
 
-    <div class="modal-bg">
-      <div class="modal">
-        <h2>Subscribe to our Newsletter!</h2>
+      <!-- newsletter modal form -->
+      <div class="modal-bg">
+        <div class="modal">
+          <h2>Subscribe to our Newsletter!</h2>
 
-        <form class="newsletter-form">
-          <label for="name">Name:</label>
-          <input type="text" name="name" id="name" />
-          <span id="nameError" class="error-message error-hidden"
-            >Please enter a valid name.</span
-          >
+          <form class="newsletter-form">
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" />
+            <span id="nameError" class="error-message error-hidden"
+              >Please enter a valid name.</span
+            >
 
-          <label for="email">Email:</label>
-          <input type="text" name="email" id="email" />
-          <span id="emailEmptyError" class="error-message error-hidden"
-            >Email is required.</span
-          >
-          <span id="emailInvalidError" class="error-message error-hidden"
-            >Please enter a valid email address.</span
-          >
+            <label for="email">Email:</label>
+            <input type="text" name="email" id="email" />
+            <span id="emailEmptyError" class="error-message error-hidden"
+              >Email is required.</span
+            >
+            <span id="emailInvalidError" class="error-message error-hidden"
+              >Please enter a valid email address.</span
+            >
 
-          <div class="btn-container">
-            <button class="modal-subscribe__btn" type="submit">
-              Subscribe
-            </button>
-            <div class="loader loader-hidden"></div>
-          </div>
-          <input
-            type="hidden"
-            id="recaptchaResponse"
-            name="recaptchaResponse"
-          />
-          <div id="successMessage" class="success-message success-hidden">
-            Subscription successful!
-          </div>
-        </form>
-        <button class="modal-close__btn" type="button">✖</button>
+            <div class="btn-container">
+              <button class="modal-subscribe__btn" type="submit">
+                Subscribe
+              </button>
+              <div class="loader loader-hidden"></div>
+            </div>
+            <input
+              type="hidden"
+              id="recaptchaResponse"
+              name="recaptchaResponse"
+            />
+            <div id="successMessage" class="success-message success-hidden">
+              Subscription successful!
+            </div>
+          </form>
+          <button class="modal-close__btn" type="button">✖</button>
+        </div>
       </div>
     </div>
   </body>

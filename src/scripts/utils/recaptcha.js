@@ -16,7 +16,7 @@ function setupRecaptcha(callback) {
   });
 }
 
-export function initializeRecaptchaToken() {
+function initializeRecaptchaToken() {
   setupRecaptcha((token) => {
     const recaptchaElem = document.getElementById("recaptchaResponse");
     if (recaptchaElem) {

@@ -2,7 +2,14 @@ import "../../../styles/nav.css";
 
 export function createNav() {
   return `
-      <nav class="main-nav">
+      <nav class="main-nav navbar">
+      <div class="wrapper">
+      <div class="logo-wrapper">
+        <img src="../../assets/images/CGL-logo.png">
+      </div>
+      <div class="backdrop">
+      <img src="../../assets/images/nav-banner.svg">
+      </div>
         <div class="burger-menu" id="burgerMenu">
           <span></span>
           <span></span>
@@ -27,7 +34,9 @@ export function createNav() {
           </ul>
           </li>
         </ul>
+        </div>
       </nav>
+
     `;
 }
 

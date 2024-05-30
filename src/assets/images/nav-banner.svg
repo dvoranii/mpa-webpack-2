@@ -1,0 +1,17 @@
+ <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1200 180"
+        class="banner-svg"
+        preserveAspectRatio="xMidYMid slice"
+      >
+        <defs>
+          <filter id="f1" x="0" y="0">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="16" />
+          </filter>
+        </defs>
+        <path
+          d="M-30-30S-64.348,87.478-20,110s355,27.478,620,0,627,0,627,0V-30Z"
+          fill="#fff"
+          filter="url(#f1)"
+        />
+      </svg>
