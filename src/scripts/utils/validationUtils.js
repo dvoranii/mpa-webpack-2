@@ -16,8 +16,8 @@ const inputValidationConfig = {
     errorIds: ["#companyError"],
   },
   phone: {
-    validators: [isNotEmpty],
-    errorIds: ["#phoneError"],
+    validators: [isNotEmpty, isValidPhoneNumber],
+    errorIds: ["#phoneError-1", "#phoneError-2"],
   },
   "pickup-address": {
     validators: [isNotEmpty],
@@ -90,6 +90,14 @@ function isValidEmail(value) {
   }
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(value);
+}
+
+function isValidPhoneNumber(value) {
+  if (!isNotEmpty(value)) {
+    return true;
+  }
+  const phoneRegex = /^\+?[1-9]\d{1,14}$/; // Basic regex for international phone numbers
+  return phoneRegex.test(value);
 }
 
 function isNumberBetween(min, max) {
