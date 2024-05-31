@@ -29,7 +29,7 @@ body {
 }
 
 body {
-  /* background-color: black; */
+  height: 100%;
 }
 
 h1 {
@@ -45,7 +45,8 @@ h2 {
   margin-bottom: 1.2rem;
 }
 
-label {
+label,
+legend {
   font-size: 0.8rem;
   font-family: "Roboto", sans-serif;
   font-weight: 100;
@@ -54,5 +55,5 @@ label {
 section {
   max-width: 80vw;
   margin: 0 auto;
-  height: 90vh;
+  height: 100vh;
 }
