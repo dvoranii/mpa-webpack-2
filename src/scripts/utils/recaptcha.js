@@ -1,4 +1,3 @@
-// src/utils/recaptcha.js
 "use strict";
 import { loadScript } from "./domUtils.js";
 

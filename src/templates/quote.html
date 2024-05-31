@@ -7,144 +7,169 @@
     <link rel="stylesheet" href="styles/quote-form.css" />
   </head>
   <body>
-    <main>
-      <section>
-        <h1>Request a Quote</h1>
+    <main class="quote-content">
+      <h1>Request a Quote</h1>
 
-        <form id="quote-form" class="quote-form">
-          <fieldset>
-            <legend>Company Information</legend>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">*Your Name</label>
-                <input type="text" id="name" name="name" required />
-              </div>
-              <div class="form-group">
-                <label for="email">*Email</label>
-                <input type="email" id="email" name="email" required />
-              </div>
-              <div class="form-group">
-                <label for="company">Company Name</label>
-                <input type="text" id="company" name="company" />
-              </div>
-              <div class="form-group">
-                <label for="phone">*Phone Number</label>
-                <input type="tel" id="phone" name="phone" required />
-              </div>
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend>Pickup Information</legend>
+      <form id="quote-form" class="quote-form">
+        <fieldset>
+          <legend>Company Information</legend>
+          <div class="form-row">
             <div class="form-group">
-              <label for="pickup-address"
-                >*Pickup Address or Origin Airport Port</label
-              >
-              <textarea
-                id="pickup-address"
-                name="pickup-address"
-                required
-              ></textarea>
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend>Shipping Information</legend>
-            <div class="form-group">
-              <label for="shipping-address"
-                >*Shipping Address, Origin or Airport Port</label
-              >
-              <textarea
-                id="shipping-address"
-                name="shipping-address"
-                required
-              ></textarea>
-            </div>
-          </fieldset>
-
-          <fieldset>
-            <legend>Shipment Details</legend>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="skids">*Number of Skids (max 20)</label>
-                <input
-                  type="number"
-                  id="skids"
-                  name="skids"
-                  max="20"
-                  required
-                />
-              </div>
-              <div class="form-group">
-                <label for="pieces">*Number of Pieces</label>
-                <input type="number" id="pieces" name="pieces" required />
-              </div>
-              <div class="form-group">
-                <label for="service">*Service</label>
-                <select id="service" name="service" required>
-                  <option value="">Select Service</option>
-                  <!-- Add options here -->
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="weight">*Weight</label>
-                <input type="number" id="weight" name="weight" required />
-              </div>
-              <div class="form-group">
-                <label for="units">*Units (Lbs or Kg)</label>
-                <select id="units" name="units" required>
-                  <option value="lbs">Lbs</option>
-                  <option value="kg">Kg</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="commodity">Commodity and HS Codes</label>
-                <input type="text" id="commodity" name="commodity" />
-              </div>
-              <div class="form-group">
-                <label for="hazardous">*Hazardous (Yes or No)</label>
-                <select id="hazardous" name="hazardous" required>
-                  <option value="yes">Yes</option>
-                  <option value="no">No</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <input type="checkbox" id="non-personal" name="non-personal" />
-                <label for="non-personal">Non Personal Effects</label>
-              </div>
-            </div>
-            <div class="form-row">
-              <div class="form-group">
-                <label for="type">Type (Skid, Carton, Tube, etc.)</label>
-                <input type="text" id="type" name="type" />
-              </div>
-              <div class="form-group">
-                <label for="length">Length</label>
-                <input type="number" id="length" name="length" />
-              </div>
-              <div class="form-group">
-                <label for="width">Width</label>
-                <input type="number" id="width" name="width" />
-              </div>
-              <div class="form-group">
-                <label for="height">Height</label>
-                <input type="number" id="height" name="height" />
-              </div>
+              <label for="name">*Your Name</label>
+              <input type="text" id="name" name="name" />
+              <span id="nameError" class="error-message error-hidden"
+                >Please enter name
+              </span>
             </div>
             <div class="form-group">
-              <label for="additional-info"
-                >Additional Information or Special Instructions</label
+              <label for="email">*Email</label>
+              <input type="email" id="email" name="email" />
+              <span id="emailEmptyError" class="error-message error-hidden"
+                >Email is
+              </span>
+              <span id="emailInvalidError" class="error-message error-hidden"
+                >Invalid email</span
               >
-              <textarea id="additional-info" name="additional-info"></textarea>
             </div>
-          </fieldset>
-
-          <div class="form-actions">
-            <button type="submit" class="submit-btn">Submit</button>
-            <button type="reset" class="clear-btn">Clear</button>
+            <div class="form-group">
+              <label for="company">Company Name</label>
+              <input type="text" id="companyName" name="company" />
+              <span id="companyError" class="error-message error-hidden"
+                >Please enter a company name (Enter N/A if not applicable)</span
+              >
+            </div>
+            <div class="form-group">
+              <label for="phone">*Phone Number</label>
+              <input type="tel" id="phone" name="phone" />
+              <span id="phoneError" class="error-message error-hidden"
+                >Phone number is
+              </span>
+            </div>
           </div>
-        </form>
-      </section>
+        </fieldset>
+
+        <fieldset>
+          <legend>Pickup Information</legend>
+          <div class="form-group">
+            <label for="pickup-address"
+              >*Pickup Address or Origin Airport Port</label
+            >
+            <textarea id="pickup-address" name="pickup-address"></textarea>
+            <span id="pickupAddressError" class="error-message error-hidden"
+              >Please enter a valid pickup address
+            </span>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Shipping Information</legend>
+          <div class="form-group">
+            <label for="shipping-address"
+              >*Shipping Address, Origin or Airport Port</label
+            >
+            <textarea id="shipping-address" name="shipping-address"></textarea>
+            <span id="shippingAddressError" class="error-message error-hidden"
+              >Please enter a valid shipping address
+            </span>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Shipment Details</legend>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="skids">*Number of Skids (max 20)</label>
+              <input type="number" id="skids" name="skids" max="20" />
+              <span id="skidsError-1" class="error-message error-hidden"
+                >Please enter a number of skids
+              </span>
+              <span id="skidsError-2" class="error-message error-hidden"
+                >Please enter a number between 1 and 20</span
+              >
+            </div>
+            <div class="form-group">
+              <label for="pieces">*Number of Pieces</label>
+              <input type="number" id="pieces" name="pieces" />
+              <span id="piecesError" class="error-message error-hidden"
+                >Number of pieces is
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="service">*Service</label>
+              <select id="service" name="service">
+                <option id="placeholder" value="" disabled selected hidden>
+                  Select a Service*
+                </option>
+                <option value="Air" id="air">Air</option>
+                <option value="Ocean">Ocean</option>
+              </select>
+              <span id="serviceError" class="error-message error-hidden"
+                >Choose a service
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="weight">*Weight</label>
+              <input type="number" id="weight" name="weight" />
+              <span id="weightError" class="error-message error-hidden"
+                >Please add a weight
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="units">*Units (Lbs or Kg)</label>
+              <select id="units" name="units">
+                <option value="lbs">Lbs</option>
+                <option value="kg">Kg</option>
+              </select>
+              <span id="unitsError" class="error-message error-hidden"
+                >Please select a unit
+              </span>
+            </div>
+            <div class="form-group">
+              <label for="HSCode">Commodity and HS Codes</label>
+              <input type="text" id="HSCode" name="HSCode" />
+              <span id="HSCodeError" class="error-message error-hidden"
+                >Please enter an HS/Commodity code</span
+              >
+            </div>
+            <div class="form-group">
+              <label for="hazardous">*Hazardous (Yes or No)</label>
+              <select id="hazardous" name="hazardous">
+                <option value="" disabled selected hidden>
+                  Select an option
+                </option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+              <span id="hazardousError" class="error-message error-hidden"
+                >Please indicate whether the shipment contains hazardous
+                materials</span
+              >
+            </div>
+            <div class="form-group personal-effects">
+              <input type="checkbox" id="non-personal" name="non-personal" />
+              <label for="non-personal" class="non-personal"
+                >Non Personal Effects</label
+              >
+            </div>
+          </div>
+          <div class="dynamic-rows-content"></div>
+          <div class="form-group">
+            <label for="additional-info"
+              >Additional Information or Special Instructions</label
+            >
+            <textarea id="additional-info" name="additional-info"></textarea>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="submit" class="submit-btn">Submit</button>
+          <button type="reset" class="clear-btn">Clear</button>
+        </div>
+      </form>
+      <input type="hidden" id="recaptchaResponse" name="recaptchaResponse" />
+      <div id="successMessage" class="success-message success-hidden">
+        Form submitted successfully!
+      </div>
     </main>
   </body>
 </html>

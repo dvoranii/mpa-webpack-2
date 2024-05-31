@@ -1,9 +1,11 @@
 main {
-  margin-top: 10vw;
+  padding-bottom: 2.4rem;
+  max-width: 80vw;
+  margin: 10vw auto;
 }
 
-.quote-section h1 {
-  padding-bottom: 1.2rem;
+main h1 {
+  padding-bottom: 2.4rem;
 }
 
 form {
@@ -30,6 +32,18 @@ legend {
   gap: 10px;
 }
 
+.form-row__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.dimensions-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
 .form-group {
   flex: 1;
   min-width: 220px;
@@ -37,8 +51,23 @@ legend {
   flex-direction: column;
 }
 
+.form-group.personal-effects {
+  flex-direction: row;
+}
+
 label {
   margin-bottom: 5px;
+}
+
+label.non-personal {
+  display: flex;
+  align-self: center;
+  margin-left: 8px;
+}
+
+#non-personal {
+  display: flex;
+  align-self: center;
 }
 
 input[type="text"],
@@ -98,5 +127,13 @@ button {
   .form-actions {
     flex-direction: column;
     gap: 10px;
+  }
+
+  .form-row__grid {
+    grid-template-columns: 1fr;
+  }
+
+  label {
+    padding-bottom: 0.25rem;
   }
 }
