@@ -6,7 +6,7 @@ const formConfig = {
   name: ["#nameError"],
   email: ["#emailEmptyError", "#emailInvalidError"],
   companyName: ["#companyError"],
-  phone: ["#phoneError-1", "#phoneError-2"],
+  phone: ["#phoneErrorEmpty", "#phoneErrorInvalid"],
   "pickup-address": ["#pickupAddressError"],
   "shipping-address": ["#shippingAddressError"],
   skids: ["#skidsError-1", "#skidsError-2"],
@@ -22,14 +22,18 @@ export function addInputEventListeners(form) {
   const nameInput = form.querySelector("#name");
   const emailInput = form.querySelector("#email");
 
-  nameInput.addEventListener("input", () => {
-    hideError("#nameError");
-  });
+  if (nameInput) {
+    nameInput.addEventListener("input", () => {
+      hideError("#nameError");
+    });
+  }
 
-  emailInput.addEventListener("input", () => {
-    hideError("#emailEmptyError");
-    hideError("#emailInvalidError");
-  });
+  if (emailInput) {
+    emailInput.addEventListener("input", () => {
+      hideError("#emailEmptyError");
+      hideError("#emailInvalidError");
+    });
+  }
 }
 
 export function addQuoteInputEventListeners(form) {

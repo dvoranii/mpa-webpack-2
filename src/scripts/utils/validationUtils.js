@@ -2,6 +2,7 @@
 
 import { hideError, showError } from "./errorUtils.js";
 
+// Configuration object mapping input field IDs to their respective validators and error message IDs
 const inputValidationConfig = {
   name: {
     validators: [isNotEmpty],
@@ -11,13 +12,13 @@ const inputValidationConfig = {
     validators: [isNotEmpty, isValidEmail],
     errorIds: ["#emailEmptyError", "#emailInvalidError"],
   },
-  company: {
+  companyName: {
     validators: [isNotEmpty],
     errorIds: ["#companyError"],
   },
   phone: {
     validators: [isNotEmpty, isValidPhoneNumber],
-    errorIds: ["#phoneError-1", "#phoneError-2"],
+    errorIds: ["#phoneErrorEmpty", "#phoneErrorInvalid"],
   },
   "pickup-address": {
     validators: [isNotEmpty],
@@ -60,26 +61,30 @@ const inputValidationConfig = {
 export function validateForm(form) {
   let isValid = true;
 
+  // Validate each input based on the configuration object
   Object.keys(inputValidationConfig).forEach((id) => {
     const { validators, errorIds } = inputValidationConfig[id];
     const input = form.querySelector(`#${id}`);
     const value = input ? input.value.trim() : "";
 
-    validators.forEach((validator, index) => {
-      const errorId = errorIds[index];
+    if (input) {
+      validators.forEach((validator, index) => {
+        const errorId = errorIds[index];
 
-      if (validator(value)) {
-        hideError(errorId);
-      } else {
-        showError(errorId);
-        isValid = false;
-      }
-    });
+        if (validator(value)) {
+          hideError(errorId);
+        } else {
+          showError(errorId);
+          isValid = false;
+        }
+      });
+    }
   });
 
   return isValid;
 }
 
+// Validator functions
 function isNotEmpty(value) {
   return value !== "";
 }
@@ -94,7 +99,7 @@ function isValidEmail(value) {
 
 function isValidPhoneNumber(value) {
   if (!isNotEmpty(value)) {
-    return true;
+    return true; // If empty, it should be handled by isNotEmpty
   }
   const phoneRegex = /^\+?[1-9]\d{1,14}$/; // Basic regex for international phone numbers
   return phoneRegex.test(value);
