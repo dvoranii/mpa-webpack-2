@@ -59,7 +59,6 @@ form.addEventListener("submit", async (e) => {
     }, 3000);
   } catch (error) {
     console.error("Subscription error:", error);
-    alert("Failed to subscribe. Please try again later.");
   } finally {
     hideLoader(loader, subscribeBtn);
   }

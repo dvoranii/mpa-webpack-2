@@ -11,7 +11,6 @@ import { fetchCsrfToken } from "./utils/csrfUtils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   initializeRecaptcha();
-
   const form = document.querySelector(".contact-form");
   addInputEventListeners(form);
 
@@ -26,7 +25,7 @@ const submitBtn = document.querySelector(".submit-btn");
 const form = document.querySelector(".contact-form");
 const loader = document.querySelector(".loader");
 
-submitBtn.addEventListener("click", async (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   if (!validateForm(form)) {

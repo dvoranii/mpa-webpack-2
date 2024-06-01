@@ -27,6 +27,7 @@ async function handleFormSubmit(form, url, fields) {
   appendCsrfToken(form, csrfToken);
 
   const formData = new FormData(form);
+
   fields.forEach((field) => {
     formData.set(field, sanitizeInput(formData.get(field)));
   });
@@ -44,11 +45,14 @@ export async function handleContactFormSubmit(form) {
   try {
     const data = await handleFormSubmit(
       form,
-      "http://localhost:4444/submit-form",
+      "http://localhost:4444/contact-form",
       ["name", "email", "message"]
     );
+    // Assuming handleFormSubmit returns the response data
+    console.log("Form submitted successfully:", data);
   } catch (error) {
-    console.error(`Contact form error: ${error} `);
+    console.error(`Contact form error: ${error}`);
+    alert("There was an error submitting the form. Please try again later.");
   }
 }
 
