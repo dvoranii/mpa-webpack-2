@@ -59,4 +59,19 @@ export function addQuoteInputEventListeners(form) {
       }
     }
   });
+
+  addDynamicInputEventListeners(form);
+}
+
+export function addDynamicInputEventListeners(form) {
+  const dynamicFields = form.querySelectorAll(
+    ".form-group__grid--1 input, .form-group__grid--2 input, .form-group__grid--3 input, .form-group__grid--4 input"
+  );
+
+  dynamicFields.forEach((input) => {
+    const errorId = `#${input.id}Error`;
+    input.addEventListener("input", () => {
+      hideError(errorId);
+    });
+  });
 }

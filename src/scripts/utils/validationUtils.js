@@ -60,7 +60,6 @@ const inputValidationConfig = {
 export function validateForm(form) {
   let isValid = true;
 
-  // Validate each input based on the configuration object
   Object.keys(inputValidationConfig).forEach((id) => {
     const { validators, errorIds } = inputValidationConfig[id];
     const input = form.querySelector(`#${id}`);

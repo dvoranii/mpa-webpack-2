@@ -4,7 +4,10 @@ import "../styles/loader.css";
 import { html, render } from "lit-html";
 import { initializeRecaptcha } from "./utils/recaptcha.js";
 import { fetchCsrfToken } from "./utils/csrfUtils.js";
-import { addQuoteInputEventListeners } from "./utils/inputEventListeners.js";
+import {
+  addQuoteInputEventListeners,
+  addDynamicInputEventListeners,
+} from "./utils/inputEventListeners.js";
 import {
   validateForm,
   validateDynamicFields,
@@ -94,6 +97,7 @@ const generateRows = (number) => {
   }
 
   render(html`${rows}`, document.querySelector(".dynamic-rows-content"));
+  addDynamicInputEventListeners(form);
 };
 
 form.addEventListener("submit", async (e) => {
