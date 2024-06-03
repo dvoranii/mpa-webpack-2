@@ -2,7 +2,6 @@
 
 import { hideError, showError } from "./errorUtils.js";
 
-// Configuration object mapping input field IDs to their respective validators and error message IDs
 const inputValidationConfig = {
   name: {
     validators: [isNotEmpty],
@@ -18,7 +17,7 @@ const inputValidationConfig = {
   },
   phone: {
     validators: [isNotEmpty, isValidPhoneNumber],
-    errorIds: ["#phoneErrorEmpty", "#phoneErrorInvalid"],
+    errorIds: ["#phoneError-1", "#phoneError-2"],
   },
   "pickup-address": {
     validators: [isNotEmpty],
@@ -84,14 +83,39 @@ export function validateForm(form) {
   return isValid;
 }
 
-// Validator functions
+export function validateDynamicFields(form) {
+  let areDynamicFieldsValid = true;
+  const dynamicInputs = form.querySelectorAll(
+    ".form-group__grid--1 input, .form-group__grid--2 input, .form-group__grid--3 input, .form-group__grid--4 input"
+  );
+
+  dynamicInputs.forEach((input) => {
+    const value = input.value.trim();
+    const errorId = `#${input.id}Error`;
+    const errorElement = document.querySelector(errorId);
+
+    if (isNotEmpty(value)) {
+      if (errorElement) {
+        errorElement.classList.add("error-hidden");
+      }
+    } else {
+      if (errorElement) {
+        errorElement.classList.remove("error-hidden");
+      }
+      areDynamicFieldsValid = false;
+    }
+  });
+
+  return areDynamicFieldsValid;
+}
+
 function isNotEmpty(value) {
   return value !== "";
 }
 
 function isValidEmail(value) {
   if (!isNotEmpty(value)) {
-    return true; // If empty, it should be handled by isNotEmpty
+    return true;
   }
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return emailRegex.test(value);
@@ -99,16 +123,16 @@ function isValidEmail(value) {
 
 function isValidPhoneNumber(value) {
   if (!isNotEmpty(value)) {
-    return true; // If empty, it should be handled by isNotEmpty
+    return true;
   }
-  const phoneRegex = /^\+?[1-9]\d{1,14}$/; // Basic regex for international phone numbers
+  const phoneRegex = /^\+?[1-9]\d{1,14}$/;
   return phoneRegex.test(value);
 }
 
 function isNumberBetween(min, max) {
   return (value) => {
     if (!isNotEmpty(value)) {
-      return true; // If empty, it should be handled by isNotEmpty
+      return true;
     }
     const number = parseInt(value, 10);
     return !isNaN(number) && number >= min && number <= max;

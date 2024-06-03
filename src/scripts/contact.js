@@ -10,7 +10,7 @@ import { addInputEventListeners } from "./utils/inputEventListeners.js";
 import { fetchCsrfToken } from "./utils/csrfUtils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
-  initializeRecaptcha();
+  initializeRecaptcha("recaptchaResponseContact");
   const form = document.querySelector(".contact-form");
   addInputEventListeners(form);
 

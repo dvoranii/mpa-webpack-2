@@ -18,6 +18,7 @@ function setupRecaptcha(callback) {
 function initializeRecaptchaToken() {
   setupRecaptcha((token) => {
     const recaptchaElem = document.getElementById("recaptchaResponse");
+    console.log(`Recaptcha token: ${token}`);
     if (recaptchaElem) {
       recaptchaElem.value = token;
     } else {
@@ -26,9 +27,9 @@ function initializeRecaptchaToken() {
   });
 }
 
-export function initializeRecaptcha(inputId) {
+export function initializeRecaptcha(inputID) {
   loadScript(
     "https://www.google.com/recaptcha/api.js?render=6LddpsMpAAAAAD-7Uj4O_xlo84BMGwjJp_rQBkX1",
-    () => initializeRecaptchaToken(inputId)
+    () => initializeRecaptchaToken(inputID)
   );
 }

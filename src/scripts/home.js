@@ -11,7 +11,7 @@ import { validateForm, showSuccessMessage } from "./utils/validationUtils.js";
 import { showLoader, hideLoader } from "./utils/loadingSpinner.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
-  initializeRecaptcha();
+  initializeRecaptcha("recaptchaResponse");
   const form = document.querySelector(".newsletter-form");
   addInputEventListeners(form);
   try {

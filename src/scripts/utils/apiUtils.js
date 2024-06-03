@@ -46,7 +46,7 @@ export async function handleContactFormSubmit(form) {
     const data = await handleFormSubmit(
       form,
       "http://localhost:4444/contact-form",
-      ["name", "email", "message"]
+      ["name", "email", "message", "recaptchaResponse"]
     );
     // Assuming handleFormSubmit returns the response data
     console.log("Form submitted successfully:", data);
@@ -61,7 +61,7 @@ export async function handleSubscriptionFormSubmit(form) {
     const data = await handleFormSubmit(
       form,
       "http://localhost:4444/subscribe",
-      ["name", "email"]
+      ["name", "email", "recaptchaResponse"]
     );
   } catch (error) {
     console.error(`Subscription error: ${error} `);

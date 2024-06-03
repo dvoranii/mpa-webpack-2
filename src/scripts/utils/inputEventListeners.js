@@ -6,7 +6,7 @@ const formConfig = {
   name: ["#nameError"],
   email: ["#emailEmptyError", "#emailInvalidError"],
   companyName: ["#companyError"],
-  phone: ["#phoneErrorEmpty", "#phoneErrorInvalid"],
+  phone: ["#phoneError-1", "#phoneError-2"],
   "pickup-address": ["#pickupAddressError"],
   "shipping-address": ["#shippingAddressError"],
   skids: ["#skidsError-1", "#skidsError-2"],

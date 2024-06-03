@@ -1,13 +1,21 @@
 import "../styles/quote.css";
 import "../styles/messages.css";
+import "../styles/loader.css";
 import { html, render } from "lit-html";
 import { initializeRecaptcha } from "./utils/recaptcha.js";
 import { fetchCsrfToken } from "./utils/csrfUtils.js";
 import { addQuoteInputEventListeners } from "./utils/inputEventListeners.js";
-import { validateForm, showSuccessMessage } from "./utils/validationUtils.js";
+import {
+  validateForm,
+  validateDynamicFields,
+  showSuccessMessage,
+} from "./utils/validationUtils.js";
+import { showLoader, hideLoader } from "./utils/loadingSpinner.js";
 
 const clearBtn = document.querySelector(".clear-btn");
 const form = document.querySelector(".quote-form");
+const submitBtn = document.querySelector(".submit-btn");
+const loader = document.querySelector(".loader");
 
 clearBtn.addEventListener("click", (e) => {
   e.preventDefault();
@@ -15,7 +23,7 @@ clearBtn.addEventListener("click", (e) => {
 });
 
 document.addEventListener("DOMContentLoaded", async () => {
-  initializeRecaptcha();
+  initializeRecaptcha("recaptchaResponse");
   renderRows();
   addQuoteInputEventListeners(form);
   try {
@@ -42,26 +50,43 @@ const renderRows = () => {
 const generateRows = (number) => {
   const rows = [];
   for (let i = 0; i < number; i++) {
+    const typeId = `type-${i}`;
+    const lengthId = `length-${i}`;
+    const widthId = `width-${i}`;
+    const heightId = `height-${i}`;
+
     rows.push(html`
       <div class="form-row__grid">
         <div class="type-wrapper">
           <div class="form-group__grid--1">
             <label for="type-${i}">Type (Skid, Carton, Tube, etc.)</label>
-            <input type="text" id="type-${i}" name="type-${i}" />
+            <input type="text" id="${typeId}" name="type-${i}" />
+            <span id="${typeId}Error" class="error-message error-hidden"
+              >Please enter a type</span
+            >
           </div>
         </div>
         <div class="dimensions-wrapper">
           <div class="form-group__grid--2">
             <label for="length-${i}">Length</label>
-            <input type="number" id="length-${i}" name="length-${i}" />
+            <input type="number" id="${lengthId}" name="length-${i}" />
+            <span id="${lengthId}Error" class="error-message error-hidden"
+              >Please enter a valid length</span
+            >
           </div>
           <div class="form-group__grid--3">
             <label for="width-${i}">Width</label>
-            <input type="number" id="width-${i}" name="width-${i}" />
+            <input type="number" id="${widthId}" name="width-${i}" />
+            <span id="${widthId}Error" class="error-message error-hidden"
+              >Please enter a valid width</span
+            >
           </div>
           <div class="form-group__grid--4">
             <label for="height-${i}">Height</label>
-            <input type="number" id="height-${i}" name="height-${i}" />
+            <input type="number" id="${heightId}" name="height-${i}" />
+            <span id="${heightId}Error" class="error-message error-hidden"
+              >Please enter a valid height</span
+            >
           </div>
         </div>
       </div>
@@ -70,20 +95,29 @@ const generateRows = (number) => {
 
   render(html`${rows}`, document.querySelector(".dynamic-rows-content"));
 };
-const submitBtn = document.querySelector(".submit-btn");
 
-submitBtn.addEventListener("click", async (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  if (!validateForm(form)) {
+  const isFormValid = validateForm(form);
+  const areDynamicFieldsValid = validateDynamicFields(form);
+
+  if (!isFormValid || !areDynamicFieldsValid) {
     return;
   }
 
+  if (!isFormValid) {
+    return;
+  }
+
+  showLoader(loader, submitBtn);
+
   try {
-    console.log("Submitting form...");
+    await handleQuoteFormSubmit(form);
     showSuccessMessage();
-    // Implement form submission logic here
   } catch (error) {
     console.error("Form submission error:", error);
+  } finally {
+    hideLoader(loader, submitBtn);
   }
 });
