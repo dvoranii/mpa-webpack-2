@@ -19,11 +19,11 @@ const inputValidationConfig = {
     validators: [isNotEmpty, isValidPhoneNumber],
     errorIds: ["#phoneError-1", "#phoneError-2"],
   },
-  "pickup-address": {
+  pickupAddress: {
     validators: [isNotEmpty],
     errorIds: ["#pickupAddressError"],
   },
-  "shipping-address": {
+  shippingAddress: {
     validators: [isNotEmpty],
     errorIds: ["#shippingAddressError"],
   },

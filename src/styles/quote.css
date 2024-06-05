@@ -60,13 +60,13 @@ label {
   margin-bottom: 5px;
 }
 
-label.non-personal {
+label.nonPersonal {
   display: flex;
   align-self: center;
   margin-left: 8px;
 }
 
-#non-personal {
+#nonPersonal {
   display: flex;
   align-self: center;
 }

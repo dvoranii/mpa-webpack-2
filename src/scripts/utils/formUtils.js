@@ -87,7 +87,6 @@ export async function handleSubscriptionFormSubmit(form) {
   }
 }
 
-// needs complete restructuring
 export async function handleQuoteFormSubmit(form) {
   try {
     const fields = [
