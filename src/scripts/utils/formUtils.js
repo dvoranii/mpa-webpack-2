@@ -107,9 +107,9 @@ export async function handleQuoteFormSubmit(form) {
       "nonPersonal",
       "recaptchaResponse",
       "additionalInfo",
+      "recaptchaResponse",
     ];
 
-    // needs to be restructured in a better way
     const skidsCount = parseInt(form.querySelector("#skids").value, 10);
     for (let i = 0; i < skidsCount; i++) {
       fields.push(`type-${i}`);
