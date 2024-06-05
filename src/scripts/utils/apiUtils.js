@@ -28,20 +28,24 @@ function appendDynamicFields(form, formData) {
   });
 }
 
-async function handleFormSubmit(form, url, fields) {
+function sanitizeFormFields(formData, fields) {
+  fields.forEach((field) => {
+    formData.set(field, sanitizeInput(formData.get(field)));
+  });
+}
+
+function handleCsrfToken(form) {
   const csrfToken = getCsrfToken();
   if (!csrfToken) {
     throw new Error("CSRF token not available");
   }
-
   appendCsrfToken(form, csrfToken);
+}
 
+async function handleFormSubmit(form, url, fields) {
+  handleCsrfToken(form);
   const formData = new FormData(form);
-
-  fields.forEach((field) => {
-    formData.set(field, sanitizeInput(formData.get(field)));
-  });
-
+  sanitizeFormFields(formData, fields);
   appendDynamicFields(form, formData);
 
   try {
@@ -60,7 +64,7 @@ export async function handleContactFormSubmit(form) {
       "http://localhost:4444/contact-form",
       ["name", "email", "message", "recaptchaResponse"]
     );
-    // Assuming handleFormSubmit returns the response data
+
     console.log("Form submitted successfully:", data);
   } catch (error) {
     console.error(`Contact form error: ${error}`);
