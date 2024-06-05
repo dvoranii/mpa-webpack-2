@@ -3,7 +3,7 @@ import "../styles/contact.css";
 import "../styles/messages.css";
 import "../styles/loader.css";
 import { initializeRecaptcha } from "./utils/recaptcha.js";
-import { handleContactFormSubmit } from "./utils/apiUtils.js";
+import { handleContactFormSubmit } from "./utils/formUtils.js";
 import { showLoader, hideLoader } from "./utils/loadingSpinner.js";
 import { validateForm, showSuccessMessage } from "./utils/validationUtils.js";
 import { addInputEventListeners } from "./utils/inputEventListeners.js";

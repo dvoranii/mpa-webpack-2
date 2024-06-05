@@ -8,7 +8,7 @@ import {
   addQuoteInputEventListeners,
   addDynamicInputEventListeners,
 } from "./utils/inputEventListeners.js";
-import { handleQuoteFormSubmit } from "./utils/apiUtils.js";
+import { handleQuoteFormSubmit } from "./utils/formUtils.js";
 import {
   validateForm,
   validateDynamicFields,

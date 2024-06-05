@@ -42,6 +42,9 @@ function handleCsrfToken(form) {
   appendCsrfToken(form, csrfToken);
 }
 
+// need to structure the data BEFORE the FormData object is created
+// understand how FormData grabs the inputs
+
 async function handleFormSubmit(form, url, fields) {
   handleCsrfToken(form);
   const formData = new FormData(form);
@@ -92,8 +95,8 @@ export async function handleQuoteFormSubmit(form) {
       "email",
       "company",
       "phone",
-      "pickup-address",
-      "shipping-address",
+      "pickupAddress",
+      "shippingAddress",
       "skids",
       "pieces",
       "service",
@@ -101,9 +104,12 @@ export async function handleQuoteFormSubmit(form) {
       "units",
       "HSCode",
       "hazardous",
+      "nonPersonal",
       "recaptchaResponse",
+      "additionalInfo",
     ];
 
+    // needs to be restructured in a better way
     const skidsCount = parseInt(form.querySelector("#skids").value, 10);
     for (let i = 0; i < skidsCount; i++) {
       fields.push(`type-${i}`);

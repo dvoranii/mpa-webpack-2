@@ -5,7 +5,7 @@ import "../styles/messages.css";
 import "../styles/loader.css";
 import { initializeRecaptcha } from "./utils/recaptcha.js";
 import { fetchCsrfToken } from "./utils/csrfUtils.js";
-import { handleSubscriptionFormSubmit } from "./utils/apiUtils.js";
+import { handleSubscriptionFormSubmit } from "./utils/formUtils.js";
 import { addInputEventListeners } from "./utils/inputEventListeners.js";
 import { validateForm, showSuccessMessage } from "./utils/validationUtils.js";
 import { showLoader, hideLoader } from "./utils/loadingSpinner.js";
