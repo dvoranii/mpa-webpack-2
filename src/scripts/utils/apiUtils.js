@@ -18,6 +18,16 @@ async function submitForm(url, formData) {
   }
 }
 
+function appendDynamicFields(form, formData) {
+  const dynamicFields = form.querySelectorAll(
+    ".form-group__grid--1 input, .form-group__grid--2 input, .form-group__grid--3 input, .form-group__grid--4 input"
+  );
+
+  dynamicFields.forEach((input) => {
+    formData.set(input.name, sanitizeInput(input.value));
+  });
+}
+
 async function handleFormSubmit(form, url, fields) {
   const csrfToken = getCsrfToken();
   if (!csrfToken) {
@@ -31,6 +41,8 @@ async function handleFormSubmit(form, url, fields) {
   fields.forEach((field) => {
     formData.set(field, sanitizeInput(formData.get(field)));
   });
+
+  appendDynamicFields(form, formData);
 
   try {
     const data = await submitForm(url, formData);
@@ -65,5 +77,44 @@ export async function handleSubscriptionFormSubmit(form) {
     );
   } catch (error) {
     console.error(`Subscription error: ${error} `);
+  }
+}
+
+// needs complete restructuring
+export async function handleQuoteFormSubmit(form) {
+  try {
+    const fields = [
+      "name",
+      "email",
+      "company",
+      "phone",
+      "pickup-address",
+      "shipping-address",
+      "skids",
+      "pieces",
+      "service",
+      "weight",
+      "units",
+      "HSCode",
+      "hazardous",
+      "recaptchaResponse",
+    ];
+
+    const skidsCount = parseInt(form.querySelector("#skids").value, 10);
+    for (let i = 0; i < skidsCount; i++) {
+      fields.push(`type-${i}`);
+      fields.push(`length-${i}`);
+      fields.push(`width-${i}`);
+      fields.push(`height-${i}`);
+    }
+
+    const data = await handleFormSubmit(
+      form,
+      "http://localhost:4444/quote-form",
+      fields
+    );
+    console.log("Quote form submitted successfully:", data);
+  } catch (error) {
+    console.error(`Quote form error: ${error}`);
   }
 }
