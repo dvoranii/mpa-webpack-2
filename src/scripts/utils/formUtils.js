@@ -122,7 +122,6 @@ export async function handleQuoteFormSubmit(form) {
       "http://localhost:4444/quote-form",
       fields
     );
-    console.log("Quote form submitted successfully:", data);
   } catch (error) {
     console.error(`Quote form error: ${error}`);
   }
