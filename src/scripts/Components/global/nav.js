@@ -5,7 +5,7 @@ export function createNav() {
       <nav class="main-nav navbar">
       <div class="wrapper">
       <div class="logo-wrapper">
-        <img src="../../assets/images/CGL-logo.png">
+        <img src="../../assets/images/cgl-logo-no-text.png">
       </div>
       <div class="backdrop">
       <img src="../../assets/images/nav-banner.svg">

@@ -6,49 +6,115 @@
     <title>Home</title>
   </head>
   <body>
-    <div class="page-wrapper">
-      <section class="home">
-        <h1>Home</h1>
-      </section>
-
-      <!-- newsletter modal form -->
-      <div class="modal-bg">
-        <div class="modal">
-          <h2>Subscribe to our Newsletter!</h2>
-
-          <form class="newsletter-form">
-            <label for="name">Name:</label>
-            <input type="text" name="name" id="name" />
-            <span id="nameError" class="error-message error-hidden"
-              >Please enter a valid name.</span
-            >
-
-            <label for="email">Email:</label>
-            <input type="text" name="email" id="email" />
-            <span id="emailEmptyError" class="error-message error-hidden"
-              >Email is required.</span
-            >
-            <span id="emailInvalidError" class="error-message error-hidden"
-              >Please enter a valid email address.</span
-            >
-
-            <div class="btn-container">
-              <button class="modal-subscribe__btn" type="submit">
-                Subscribe
-              </button>
-              <div class="loader loader-hidden"></div>
-            </div>
-            <input
-              type="hidden"
-              id="recaptchaResponse"
-              name="recaptchaResponse"
-            />
-            <div id="successMessage" class="success-message success-hidden">
-              Subscription successful!
-            </div>
-          </form>
-          <button class="modal-close__btn" type="button">✖</button>
+    <div class="hero__wrapper hero__wrapper--outer">
+      <div class="hero__wrapper hero__wrapper--inner">
+        <div class="hero__wrapper hero__wrapper--left">
+          <img src="../assets/images/CGL-logo.png" alt="CGL Logo" />
+          <h2 class="hero__title">
+            Providing personal long lasting solutions<br />
+            for your supply chain needs
+          </h2>
+          <p class="hero__subtitle">
+            — Discover the ease of managing your supply chain with CGL's
+            comprehensive logistics services. Let's navigate the global market
+            together.
+          </p>
+          <div class="hero--btn-container">
+            <button class="cta-btn color-9">GET STARTED</button>
+          </div>
         </div>
+      </div>
+      <div class="hero__canvas-wrapper"></div>
+
+      <div class="scroll-down"></div>
+    </div>
+
+    <section class="home-section home-section--1">
+      <h2>Empowering Global Trade, One Shipment at a Time</h2>
+      <p>
+        Welcome to Canadian Global Logistics®, your trusted partner in
+        comprehensive logistics solutions. With a global reach and a locally
+        grounded team, we take the complexity out of shipping. Our experienced
+        professionals excel in managing air, ocean, and ground transportation to
+        ensure your goods reach their destination safely and on time.
+      </p>
+      <p>
+        We do more than just transportation. From consolidation services to
+        legalization and banking procedures, we provide a suite of services
+        tailored to your business needs. With strategic locations near
+        international airports and a commitment to customer-first service, we're
+        uniquely positioned to navigate the challenges of global trade
+        efficiently.
+      </p>
+
+      <div class="home-section__img-container">
+        <div class="home-section__logo-wrapper">
+          <img
+            src="../assets/images/CGL-logo-no-shadow.png"
+            alt="CGL Logo without shadow"
+          />
+        </div>
+      </div>
+      <p class="home-section__intro-paragraph">
+        At Canadian Global Logistics<sup style="font-size: 12px">®</sup>, we're
+        not just moving cargo; we're moving businesses forward.<br />
+        <i
+          >Join us in the journey to <b>simplify</b> logistics and
+          <b>empower</b> your business growth.</i
+        >
+      </p>
+    </section>
+
+    <div class="scroll-img--container">
+      <img
+        src="../assets/images/scroll-grid-pattern.png"
+        class="scroll-img"
+        alt=""
+      />
+      <img
+        src="../assets/images/scroll-grid-pattern.png"
+        class="scroll-img-2"
+        alt=""
+      />
+    </div>
+
+    <!-- newsletter modal form -->
+    <div class="modal-bg">
+      <div class="modal">
+        <h2>Subscribe to our Newsletter!</h2>
+
+        <form class="newsletter-form">
+          <label for="name">Name:</label>
+          <input type="text" name="name" id="name" />
+          <span id="nameError" class="error-message error-hidden"
+            >Please enter a valid name.</span
+          >
+
+          <label for="email">Email:</label>
+          <input type="text" name="email" id="email" />
+          <span id="emailEmptyError" class="error-message error-hidden"
+            >Email is required.</span
+          >
+          <span id="emailInvalidError" class="error-message error-hidden"
+            >Please enter a valid email address.</span
+          >
+
+          <div class="btn-container">
+            <button class="modal-subscribe__btn" type="submit">
+              Subscribe
+            </button>
+            <div class="loader loader-hidden"></div>
+          </div>
+          <input
+            type="hidden"
+            id="recaptchaResponse"
+            name="recaptchaResponse"
+          />
+          <div id="successMessage" class="success-message success-hidden">
+            Subscription successful!
+          </div>
+        </form>
+        <button class="modal-close__btn" type="button">✖</button>
       </div>
     </div>
   </body>

@@ -9,6 +9,7 @@ import { handleSubscriptionFormSubmit } from "./utils/formUtils.js";
 import { addInputEventListeners } from "./utils/inputEventListeners.js";
 import { validateForm, showSuccessMessage } from "./utils/validationUtils.js";
 import { showLoader, hideLoader } from "./utils/loadingSpinner.js";
+import basicScroll from "basicscroll";
 
 document.addEventListener("DOMContentLoaded", async () => {
   initializeRecaptcha("recaptchaResponse");
@@ -19,6 +20,33 @@ document.addEventListener("DOMContentLoaded", async () => {
   } catch (error) {
     console.error("Failed to fetch CSRF token", error);
   }
+
+  const scrollImg = basicScroll.create({
+    elem: document.querySelector(".scroll-img"),
+    from: "top-bottom",
+    to: "bottom-top",
+    props: {
+      "--translateX": {
+        from: "-40vw",
+        to: "40vw",
+      },
+    },
+  });
+
+  const scrollImg2 = basicScroll.create({
+    elem: document.querySelector(".scroll-img-2"),
+    from: "top-bottom",
+    to: "bottom-top",
+    props: {
+      "--translateX": {
+        from: "40vw",
+        to: "-40vw",
+      },
+    },
+  });
+
+  scrollImg.start();
+  scrollImg2.start();
 });
 
 const modalBg = document.querySelector(".modal-bg");

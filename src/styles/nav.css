@@ -25,7 +25,7 @@
 }
 
 .logo-wrapper img {
-  max-width: 18vw;
+  max-width: 6vw;
   margin-left: 50px;
 }
 
@@ -75,15 +75,12 @@
 }
 
 .nav-links a.current-page {
-  color: red; /* Change this to your preferred highlight color */
-  font-weight: bold; /* Optional: Make it bold */
+  color: blue;
+  font-weight: bold;
 }
-/* Dropdown styles */
+
 .dropdown-content {
-  transform: translateY(-4px);
-  visibility: hidden;
-  opacity: hidden;
-  transition: all 150ms ease;
+  display: none;
   position: absolute;
   list-style: none;
   top: 40px;
@@ -97,9 +94,7 @@
 }
 
 .dropdown:hover .dropdown-content {
-  visibility: visible;
-  opacity: 1;
-  transform: translateY(0px);
+  display: block;
 }
 
 /* Mobile styles */
@@ -114,7 +109,7 @@
 .burger-menu span {
   width: 25px;
   height: 3px;
-  background: black;
+  background: grey;
   margin: 2px;
   transition: 0.3s;
 }
@@ -126,13 +121,14 @@
 }
 
 @media (max-width: 768px) {
-  .backdrop img {
+  .logo-wrapper,
+  .backdrop {
     display: none;
   }
 
-  .dropdown-content {
-    top: 100%;
-  }
+  /* .dropdown-content {
+    top: 100% !important;
+  } */
   .nav-links {
     display: none;
     flex-direction: column;
