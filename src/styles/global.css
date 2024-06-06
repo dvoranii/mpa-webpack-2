@@ -13,6 +13,11 @@
   src: url("../assets/fonts/Roboto-Bold.ttf");
   font-weight: 700;
 }
+@font-face {
+  font-family: "Nunito";
+  src: url("../assets/fonts/Nunito-VariableFont_wght.ttf");
+  font-weight: 400;
+}
 
 *,
 *::before,
@@ -47,7 +52,7 @@ h2 {
 
 p {
   font-size: 1rem;
-  font-family: "Roboto", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 100;
   margin-bottom: 1.2rem;
   font-weight: 400;

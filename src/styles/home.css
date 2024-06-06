@@ -66,6 +66,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
+  background: rgba(0, 0, 0, var(--bgOpacity));
 }
 
 .home-section__logo-wrapper img {
@@ -169,6 +170,7 @@
 }
 
 .scroll-img--container {
+  padding-top: 10vh;
   display: flex;
 }
 
