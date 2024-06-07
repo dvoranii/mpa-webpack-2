@@ -14,4 +14,10 @@
   display: block;
   width: 100%;
   height: auto;
+  opacity: 0;
+  transition: opacity 500ms ease;
+}
+
+.carousel-cell img.lazyloaded {
+  opacity: 1;
 }

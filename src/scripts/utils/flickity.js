@@ -1,4 +1,5 @@
 import "flickity/css/flickity.css";
+import "lazysizes";
 import "../../styles/flickity.css";
 import Flickity from "flickity";
 
@@ -13,6 +14,8 @@ export function initFlickity() {
       autoPlay: 5000,
       prevNextButtons: true,
       pageDots: true,
+      autoPlay: false,
+      lazyLoad: 0,
     });
   }
 }

@@ -208,7 +208,7 @@
 .scroll-img.scroll-img--1 {
   opacity: 0.4;
   transform: translateX(var(--translateX1, 0));
-  margin-left: -10vw;
+  margin-left: -20vw;
 }
 
 .scroll-img.scroll-img--2 {

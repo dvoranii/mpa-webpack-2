@@ -64,15 +64,21 @@ li {
   margin-bottom: 1.2rem;
   font-weight: 400;
 }
-label,
+
 legend {
-  font-size: clamp(1.4rem, 2vw, 1.8rem);
-  font-family: "Roboto", sans-serif;
-  font-weight: 100;
+  font-family: "Nunitop", sans-serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding: 0 10px;
+}
+
+label {
+  font-family: "Nunitop", sans-serif;
+  font-size: 1.2rem;
+  margin-top: 1rem;
 }
 
 section {
   max-width: 80vw;
   margin: 0 auto;
-  /* height: 100vh; */
 }
