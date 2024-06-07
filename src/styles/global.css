@@ -39,20 +39,28 @@ body {
 }
 
 h1 {
-  font-size: clamp(3.2rem, 6vw, 4.2rem);
+  font-size: clamp(2.4rem, 5vw, 4rem);
   font-family: "Roboto", sans-serif;
   font-weight: 700;
 }
 
 h2 {
-  font-size: clamp(2rem, 2.4vw, 2.8rem);
+  font-size: clamp(2rem, 4vw, 3.2rem);
   font-family: "Roboto", sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   margin-bottom: 1.2rem;
 }
+
+h3 {
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+}
+
 h4 {
-  font-size: clamp(1.8rem, 2vw, 2.4rem);
+  font-size: clamp(1.6rem, 3vw, 2rem);
   font-family: "Nunito", sans-serif;
+  font-weight: 400;
 }
 
 p,
@@ -66,7 +74,7 @@ li {
 }
 
 legend {
-  font-family: "Nunitop", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 1.4rem;
   font-weight: bold;
   padding: 0 10px;

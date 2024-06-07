@@ -246,8 +246,6 @@
   align-items: center;
   justify-content: space-between;
   box-shadow: 2px 2px 12px rgba(0, 0, 0, var(--shadowOpacity, 0));
-  /* box-shadow: 2px 2px var(--shadowBlur, 0px)
-    rgba(0, 0, 0, var(--shadowOpacity, 0)); */
   background-color: white;
   border-radius: 5px;
   width: 90%;

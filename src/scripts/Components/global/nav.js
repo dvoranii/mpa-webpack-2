@@ -26,12 +26,8 @@ export function createNav() {
           </li>
           <li><a href="/about">About</a></li>
           <li><a href="/quote">Quote</a></li>
-          <li class="dropdown">
-          <a href="/contact">Contact<span class="nav-triangle">▾</span></a>
-          <ul class="dropdown-content">
-          <li><a href="/ontario">•&nbsp;Ontario Office</a></li>
-          <li><a href="/quebec">•&nbsp;Quebec Office</a></li>
-          </ul>
+          <li>
+          <a href="/contact">Contact</a>
           </li>
         </ul>
         </div>

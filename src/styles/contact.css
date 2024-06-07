@@ -1,7 +1,82 @@
+section.contact-section {
+  max-width: 60vw;
+}
+p {
+  margin-bottom: 0;
+}
+
+.title-wrapper {
+  display: flex;
+  margin: 20vh auto 0 auto;
+}
+
+.title-wrapper img {
+  width: 50px;
+  height: 50px;
+  margin-right: 1.2rem;
+}
+
+/* .title-wrapper h1 {
+} */
+
+h1.quebec-title {
+  background-image: linear-gradient(to right, #8fd6ab, #0047be);
+  background-repeat: no-repeat;
+  background-size: 100% 3px;
+  background-position: bottom;
+  padding-bottom: 1.2rem;
+}
+
+/* MAP SECTION */
+.map-section--wrapper {
+  display: flex;
+  align-items: center;
+  margin: 0 auto 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+/* Map Container */
+.map-container {
+  width: 100%;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.map-container iframe {
+  min-width: 350px;
+  width: 100%;
+  height: 40vh;
+  border: none;
+  border-radius: 8px;
+}
+
+.office-container,
+.cargo-wrapper--outer {
+  padding: 8px 16px;
+}
+/* Contact Info Section */
+
+.contact-form--wrapper {
+  width: 100%;
+  background: linear-gradient(to top, lightgray, white);
+  margin-bottom: 3.2rem;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2.4rem;
+  width: 100%;
+}
+
 .contact-form {
   position: relative;
   max-width: 600px;
-  margin: 20vh auto;
+  margin: 0 auto;
   padding: 20px;
   box-sizing: border-box;
 }
@@ -9,6 +84,15 @@
 .contact-form h2 {
   text-align: center;
   padding-bottom: 0.8rem;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+/* override general/global styles */
+label {
+  font-size: 1.4rem;
 }
 /* wrappers */
 
@@ -63,6 +147,8 @@ button {
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+  text-transform: uppercase;
+  font-family: "Nunito", sans-serif;
 }
 
 button:hover {
