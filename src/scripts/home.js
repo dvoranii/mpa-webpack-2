@@ -10,6 +10,7 @@ import { addInputEventListeners } from "./utils/inputEventListeners.js";
 import { validateForm, showSuccessMessage } from "./utils/validationUtils.js";
 import { showLoader, hideLoader } from "./utils/loadingSpinner.js";
 import { initializeBasicScroll } from "./utils/basicScroll.js";
+import VanillaTilt from "vanilla-tilt";
 
 document.addEventListener("DOMContentLoaded", async () => {
   initializeRecaptcha("recaptchaResponse");
@@ -22,13 +23,22 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   initializeBasicScroll();
+
+  VanillaTilt.init(document.querySelectorAll(".card"), {
+    max: 10,
+    speed: 300,
+    glare: true,
+    "max-glare": 0.8,
+    reverse: true,
+    reset: true,
+  });
 });
 
 const modalBg = document.querySelector(".modal-bg");
 const modal = document.querySelector(".modal");
-const closeBtn = document.querySelector(".modal-close__btn");
+const closeBtn = document.querySelector(".modal__close-btn");
 const form = document.querySelector(".newsletter-form");
-const subscribeBtn = document.querySelector(".modal-subscribe__btn");
+const subscribeBtn = document.querySelector(".modal__subscribe-btn");
 const loader = document.querySelector(".loader");
 
 setTimeout(() => {
@@ -68,3 +78,24 @@ form.addEventListener("submit", async (e) => {
     hideLoader(loader, subscribeBtn);
   }
 });
+
+const cglLogo = document.querySelector(".home-section__logo");
+
+let observer = new IntersectionObserver(
+  (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.intersectionRatio > 0.5) {
+        entry.target.classList.add("home-section__logo--visible");
+      } else {
+        entry.target.classList.remove("home-section__logo--visible");
+      }
+    });
+  },
+  {
+    root: null,
+    rootMargin: "-150px",
+    threshold: 0.5,
+  }
+);
+
+observer.observe(cglLogo);

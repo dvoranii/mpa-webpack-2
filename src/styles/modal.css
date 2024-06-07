@@ -42,7 +42,7 @@ form {
   margin: 16px 0px 8px 0px;
 }
 
-.modal-close__btn {
+.modal__close-btn {
   position: absolute;
   top: 0;
   right: 0;
@@ -52,12 +52,12 @@ form {
   transition: all 150ms ease;
 }
 
-.modal-close__btn:hover {
+.modal__close-btn:hover {
   cursor: pointer;
   color: grey;
 }
 
-.modal-subscribe__btn {
+.modal__subscribe-btn {
   width: fit-content;
   margin: 20px auto;
   padding: 8px;
@@ -67,7 +67,7 @@ form {
   transition: 150ms ease;
 }
 
-.modal-subscribe__btn:hover {
+.modal__subscribe-btn:hover {
   cursor: pointer;
   filter: brightness(0.9);
 }

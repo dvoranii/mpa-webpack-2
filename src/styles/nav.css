@@ -55,7 +55,6 @@
   list-style: none;
   position: relative;
   z-index: 1;
-  top: -24px;
 }
 
 .nav-links li {
@@ -63,6 +62,7 @@
 }
 
 .nav-links a {
+  font-size: 1.6rem;
   color: black;
   text-decoration: none;
   padding: 1rem;

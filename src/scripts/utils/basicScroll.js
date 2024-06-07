@@ -20,7 +20,7 @@ export function initializeBasicScroll() {
     },
   });
 
-  createBasicScroll(".scroll-img-2", "top-bottom", "bottom-top", {
+  createBasicScroll(".scroll-img--2", "top-bottom", "bottom-top", {
     "--translateX": {
       from: "40vw",
       to: "-20vw",
@@ -28,9 +28,16 @@ export function initializeBasicScroll() {
   });
 
   createBasicScroll(".home-section__logo-wrapper", "top-bottom", "top-center", {
-    "--bgOpacity": {
+    "--logoBgOpacity": {
       from: "0",
       to: "0.7",
+    },
+  });
+
+  createBasicScroll(".bg", "viewport-top", "top-middle", {
+    "--bg-opacity": {
+      from: "1",
+      to: "0.01",
     },
   });
 }

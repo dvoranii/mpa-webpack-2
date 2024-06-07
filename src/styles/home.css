@@ -1,3 +1,7 @@
+.bg {
+  background-color: rgba(0, 0, 0, var(--bg-opacity));
+}
+
 .newsletter-form {
   position: relative;
 }
@@ -13,10 +17,6 @@
   height: 100vh;
 }
 
-.home-section {
-  margin-top: 10vh;
-}
-
 .hero__wrapper--outer {
   height: 100vh;
   background: black;
@@ -30,7 +30,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  /* border-right: 1px solid white; */
 }
 
 .hero__wrapper--inner img {
@@ -42,6 +41,7 @@
 }
 
 .hero__title {
+  padding-top: 3.2rem;
   color: white;
 }
 
@@ -66,19 +66,37 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  background: rgba(0, 0, 0, var(--bgOpacity));
+  background: rgba(0, 0, 0, var(--logoBgOpacity));
 }
 
-.home-section__logo-wrapper img {
+.home-section__logo {
+  opacity: 0;
+  transform: translateY(20%);
+  transition: all 1s ease;
   width: 30vw;
   position: absolute;
+}
+
+.home-section__logo--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.home-section.home-section--1 h2 {
+  padding-top: 10vh;
+  text-align: center;
+  padding-bottom: 1.2rem;
 }
 
 .home-section__intro-paragraph {
   text-align: center;
 }
 
-.scroll-down {
+.home-section__intro-paragraph--1 {
+  margin-top: 2rem;
+}
+
+.hero__scroll-down {
   position: absolute;
   left: 50%;
   bottom: 30px;
@@ -91,7 +109,7 @@
 }
 
 /* Advanced CTA Button */
-.hero--btn-container {
+.hero__btn-container {
   width: 100%;
   display: flex;
   justify-content: center;
@@ -152,7 +170,7 @@
   outline: none;
 }
 
-.cta-btn.color-9 {
+.cta-btn--color-9 {
   background-image: linear-gradient(
     to right,
     #25aae1,
@@ -169,7 +187,7 @@
   transform: scale(1);
 }
 
-.scroll-img--container {
+.scroll-img__container {
   padding-top: 10vh;
   display: flex;
 }
@@ -181,12 +199,48 @@
   margin-left: -40vw;
 }
 
-.scroll-img-2 {
+.scroll-img--2 {
   margin-left: 70vw;
   opacity: 0.5;
   height: 60px;
   margin-top: 80px;
   transform: translateX(var(--translateX, 0));
+}
+
+/* Cards */
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  place-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.356);
+  /* box-shadow: 2px 2px var(--shadowBlur, 0px)
+    rgba(0, 0, 0, var(--shadowOpacity, 0)); */
+  background-color: white;
+  border-radius: 5px;
+  width: 90%;
+  padding: 40px;
+  text-align: center;
+  position: relative;
+  max-height: 330px;
+}
+
+.card h4 {
+  text-align: center;
+}
+
+.card img {
+  padding: 16px;
+}
+
+.card p {
+  text-align: center;
 }
 
 /* animations */
@@ -204,4 +258,11 @@
     transform: translateY(10px) rotate(45deg);
     opacity: 0;
   }
+}
+
+.modal__btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
 }
