@@ -19,7 +19,42 @@ document.addEventListener("DOMContentLoaded", async () => {
   } catch (error) {
     console.error("Failed to fetch CSRF token", error);
   }
+
+  const tabs = document.querySelectorAll(".tab-link");
+  tabs.forEach((tab) => {
+    tab.addEventListener("click", (e) => {
+      e.preventDefault();
+      const office = tab.getAttribute("data-office");
+      showOffice(office);
+    });
+  });
+
+  showOffice("ontario");
 });
+
+function showOffice(office) {
+  const offices = document.querySelectorAll(".office-section");
+  offices.forEach((section) => {
+    section.style.display = "none";
+  });
+
+  const activeSection = document.getElementById(office);
+  if (activeSection) {
+    activeSection.style.display = "block";
+  }
+
+  const tabs = document.querySelectorAll(".tab-link");
+  tabs.forEach((tab) => {
+    tab.classList.remove("active");
+  });
+
+  const activeTab = document.querySelector(
+    `.tab-link[data-office="${office}"]`
+  );
+  if (activeTab) {
+    activeTab.classList.add("active");
+  }
+}
 
 const submitBtn = document.querySelector(".submit-btn");
 const form = document.querySelector(".contact-form");
