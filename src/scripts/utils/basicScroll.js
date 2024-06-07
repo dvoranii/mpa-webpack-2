@@ -53,4 +53,11 @@ export function initializeBasicScroll() {
       to: "0.01",
     },
   });
+
+  createBasicScroll(".card", "top-bottom", "bottom-center", {
+    "--shadowOpacity": {
+      from: "0.0",
+      to: "0.6",
+    },
+  });
 }

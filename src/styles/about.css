@@ -10,3 +10,12 @@
 .deal-banner {
   width: 100%;
 }
+
+.about-section a,
+.about-section a:visited {
+  color: black;
+}
+
+.about-section a:hover {
+  font-weight: bold;
+}
