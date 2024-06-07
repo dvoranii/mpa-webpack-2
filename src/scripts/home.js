@@ -10,7 +10,7 @@ import { addInputEventListeners } from "./utils/inputEventListeners.js";
 import { validateForm, showSuccessMessage } from "./utils/validationUtils.js";
 import { showLoader, hideLoader } from "./utils/loadingSpinner.js";
 import { initializeBasicScroll } from "./utils/basicScroll.js";
-import VanillaTilt from "vanilla-tilt";
+import { setupVanillaTilt } from "./utils/vanillaTilt.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   initializeRecaptcha("recaptchaResponse");
@@ -23,15 +23,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   initializeBasicScroll();
-
-  VanillaTilt.init(document.querySelectorAll(".card"), {
-    max: 10,
-    speed: 300,
-    glare: true,
-    "max-glare": 0.8,
-    reverse: true,
-    reset: true,
-  });
+  setupVanillaTilt();
 });
 
 const modalBg = document.querySelector(".modal-bg");
@@ -41,12 +33,12 @@ const form = document.querySelector(".newsletter-form");
 const subscribeBtn = document.querySelector(".modal__subscribe-btn");
 const loader = document.querySelector(".loader");
 
-setTimeout(() => {
-  modalBg.classList.add("bg-active");
-  requestAnimationFrame(() => {
-    modal.classList.add("show");
-  });
-}, 5000);
+// setTimeout(() => {
+//   modalBg.classList.add("bg-active");
+//   requestAnimationFrame(() => {
+//     modal.classList.add("show");
+//   });
+// }, 5000);
 
 function closeModal() {
   modal.classList.remove("show");

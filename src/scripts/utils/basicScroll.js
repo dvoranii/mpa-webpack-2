@@ -13,20 +13,33 @@ function createBasicScroll(elem, from, to, props) {
 }
 
 export function initializeBasicScroll() {
-  createBasicScroll(".scroll-img", "top-bottom", "bottom-top", {
-    "--translateX": {
-      from: "-20vw",
-      to: "40vw",
+  createBasicScroll(".scroll-img--1", "top-bottom", "bottom-top", {
+    "--translateX1": {
+      from: "20vw",
+      to: "-40vw",
     },
   });
 
   createBasicScroll(".scroll-img--2", "top-bottom", "bottom-top", {
-    "--translateX": {
+    "--translateX2": {
       from: "40vw",
-      to: "-20vw",
+      to: "0vw",
     },
   });
 
+  createBasicScroll(".scroll-img--3", "top-bottom", "bottom-top", {
+    "--translateX3": {
+      from: "20vw",
+      to: "-40vw",
+    },
+  });
+
+  createBasicScroll(".scroll-img--4", "top-bottom", "bottom-top", {
+    "--translateX4": {
+      from: "40vw",
+      to: "0vw",
+    },
+  });
   createBasicScroll(".home-section__logo-wrapper", "top-bottom", "top-center", {
     "--logoBgOpacity": {
       from: "0",
@@ -34,7 +47,7 @@ export function initializeBasicScroll() {
     },
   });
 
-  createBasicScroll(".bg", "viewport-top", "top-middle", {
+  createBasicScroll(".bg", "viewport-top", "top-top", {
     "--bg-opacity": {
       from: "1",
       to: "0.01",
