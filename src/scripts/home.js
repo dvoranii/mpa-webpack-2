@@ -11,6 +11,7 @@ import { validateForm, showSuccessMessage } from "./utils/validationUtils.js";
 import { showLoader, hideLoader } from "./utils/loadingSpinner.js";
 import { initializeBasicScroll } from "./utils/basicScroll.js";
 import { setupVanillaTilt } from "./utils/vanillaTilt.js";
+import { initFlickity } from "./utils/flickity.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   initializeRecaptcha("recaptchaResponse");
@@ -24,6 +25,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   initializeBasicScroll();
   setupVanillaTilt();
+  initFlickity();
 });
 
 const modalBg = document.querySelector(".modal-bg");

@@ -1,0 +1,17 @@
+.flickity-page-dots {
+  bottom: 0px;
+  padding-bottom: 1.2rem;
+}
+.carousel {
+  padding-bottom: 3.2rem;
+}
+.carousel-cell {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-cell img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
