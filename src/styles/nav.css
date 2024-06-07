@@ -7,10 +7,6 @@
   width: 100%;
 }
 
-.nav-triangle {
-  font-size: 14px;
-}
-
 .navbar .wrapper {
   z-index: 1;
   display: flex;
@@ -126,9 +122,6 @@
     display: none;
   }
 
-  /* .dropdown-content {
-    top: 100% !important;
-  } */
   .nav-links {
     display: none;
     flex-direction: column;

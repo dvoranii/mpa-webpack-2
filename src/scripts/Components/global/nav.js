@@ -18,7 +18,7 @@ export function createNav() {
         <ul class="nav-links" id="navLinks">
           <li><a href="/">Home</a></li>
           <li class="dropdown">
-            <a href="#">Services<span class="nav-triangle">▼</span></a>
+            <a href="#">Services<span class="nav-triangle">▾</span></a>
             <ul class="dropdown-content">
               <li><a href="/service1">•&nbsp;Service 1</a></li>
               <li><a href="/service2">•&nbsp;Service 2</a></li>
@@ -27,7 +27,7 @@ export function createNav() {
           <li><a href="/about">About</a></li>
           <li><a href="/quote">Quote</a></li>
           <li class="dropdown">
-          <a href="/contact">Contact<span class="nav-triangle">▼</span></a>
+          <a href="/contact">Contact<span class="nav-triangle">▾</span></a>
           <ul class="dropdown-content">
           <li><a href="/ontario">•&nbsp;Ontario Office</a></li>
           <li><a href="/quebec">•&nbsp;Quebec Office</a></li>
