@@ -20,8 +20,8 @@ export function createNav() {
           <li class="dropdown">
             <a href="#">Services<span class="nav-triangle">▾</span></a>
             <ul class="dropdown-content">
-              <li><a href="/service1">•&nbsp;Service 1</a></li>
-              <li><a href="/service2">•&nbsp;Service 2</a></li>
+              <li><a href="/service1">•&nbsp;Transportation<span class="nav-triangle">▾</span></a></li>
+              <li><a href="/service2">•&nbsp;Sporting Goods</a></li>
             </ul>
           </li>
           <li><a href="/about">About</a></li>

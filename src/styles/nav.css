@@ -53,8 +53,26 @@
   z-index: 1;
 }
 
-.nav-links li {
+.nav-links > li {
   position: relative;
+  list-style: none; /* Optional: Remove default list style */
+  padding-bottom: 5px; /* Add some padding to ensure space for the underline */
+}
+
+.nav-links > li::before {
+  content: "";
+  position: absolute;
+  top: 31px;
+  left: 50%;
+  width: 0;
+  height: 3px; /* Adjust the height of the underline */
+  background-image: linear-gradient(to right, #8fd6ab, #0047be);
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+.nav-links > li:hover::before {
+  width: 100%;
+  left: 0;
 }
 
 .nav-links a {
@@ -141,6 +159,7 @@
     display: flex;
     transform: translateX(0);
     padding-top: 48px;
+    padding-left: 20px;
   }
 
   .dropdown-content {

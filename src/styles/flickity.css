@@ -44,7 +44,7 @@
 
 .overlay-text {
   color: white;
-  font-size: 3.2rem;
+  font-size: clamp(1.5rem, 2.5vw, 3.2rem);
   text-align: center;
   padding: 1rem;
   font-family: "Roboto", sans-serif;
@@ -56,4 +56,12 @@
 .carousel-cell a:hover .overlay {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media screen and (max-width: 553px) {
+  .flickity-prev-next-button {
+    top: 43%;
+    width: 30px;
+    height: 30px;
+  }
 }
