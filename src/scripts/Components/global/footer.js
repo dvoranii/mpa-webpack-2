@@ -25,10 +25,10 @@ export function createFooter() {
           <div class="footer-section social">
             <h2>Follow Us</h2>
             <div class="social-icons">
-              <a href="#"><img src="/assets/icons/facebook.svg" alt="Facebook"></a>
-              <a href="#"><img src="/assets/icons/twitter.svg" alt="Twitter"></a>
-              <a href="#"><img src="/assets/icons/instagram.svg" alt="Instagram"></a>
-              <a href="#"><img src="/assets/icons/linkedin.svg" alt="LinkedIn"></a>
+              <a href="#"><img src="../assets/images/icons/fb-1.png" alt="Facebook">Facebook</a>
+              <a href="#"><img src="../assets/images/icons/twitter-1.png" alt="Twitter">Twitter</a>
+              <a href="#"><img src="../assets/images/icons/ig-1.png" alt="Instagram">Instagram</a>
+              <a href="#"><img src="../assets/images/icons/li-1.png" alt="LinkedIn">LinkedIn</a>
             </div>
           </div>
         </div>

@@ -43,6 +43,20 @@
   text-decoration: none;
 }
 
+.social-icons a {
+  display: flex;
+  color: white;
+  text-decoration: none;
+  font-size: 1.6rem;
+}
+
+.social-icons a:hover {
+  text-decoration: underline;
+}
+
+.social-icons a img {
+  margin-right: 0.8rem;
+}
 .footer-section ul li a:hover {
   text-decoration: underline;
 }
@@ -55,7 +69,6 @@
 .social-icons a img {
   width: 24px;
   height: 24px;
-  filter: invert(1);
 }
 
 .footer-bottom {
