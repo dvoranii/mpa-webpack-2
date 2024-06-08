@@ -16,19 +16,25 @@ export function createNav() {
           <span></span>
         </div>
         <ul class="nav-links" id="navLinks">
-          <li><a href="/">Home</a></li>
-          <li class="dropdown">
-            <a href="#">Services<span class="nav-triangle">▾</span></a>
-            <ul class="dropdown-content">
-              <li><a href="/service1">•&nbsp;Transportation<span class="nav-triangle">▾</span></a></li>
-              <li><a href="/service2">•&nbsp;Sporting Goods</a></li>
-            </ul>
-          </li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/quote">Quote</a></li>
-          <li>
-          <a href="/contact">Contact</a>
-          </li>
+        <li><a href="/">Home</a></li>
+        <li class="dropdown">
+          <a href="#">Services<span class="nav-triangle">▾</span></a>
+          <ul class="dropdown-content">
+            <li class="dropdown-secondary">
+              <a href="/service1">Transportation<span class="nav-triangle">▾</span></a>
+              <ul class="dropdown-secondary-content">
+                <li><a href="/air">Air</a></li>
+                <li><a href="/ocean">Ocean</a></li>
+                <li><a href="/truck">Truck</a></li>
+                <li><a href="/warehouse">Warehouse</a></li>
+              </ul>
+            </li>
+            <li><a href="/service2">Sporting Goods</a></li>
+          </ul>
+        </li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/quote">Quote</a></li>
+        <li><a href="/contact">Contact</a></li>
         </ul>
         </div>
       </nav>
