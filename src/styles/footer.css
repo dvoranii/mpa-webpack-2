@@ -43,6 +43,14 @@
   text-decoration: none;
 }
 
+.quick-links--list {
+  margin-left: 2.4rem;
+}
+
+.quick-links--list li a {
+  font-size: 1.6rem;
+}
+
 .social-icons a {
   display: flex;
   color: white;
