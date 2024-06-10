@@ -137,12 +137,3 @@ function isNumberBetween(min, max) {
     return !isNaN(number) && number >= min && number <= max;
   };
 }
-
-export function showSuccessMessage() {
-  const successMessage = document.querySelector("#successMessage");
-  successMessage.classList.remove("success-hidden");
-
-  setTimeout(() => {
-    successMessage.classList.add("success-hidden");
-  }, 3000);
-}

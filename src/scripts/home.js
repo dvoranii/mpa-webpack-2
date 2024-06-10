@@ -7,11 +7,12 @@ import { initializeRecaptcha } from "./utils/recaptcha.js";
 import { fetchCsrfToken } from "./utils/csrfUtils.js";
 import { handleSubscriptionFormSubmit } from "./utils/formUtils.js";
 import { addInputEventListeners } from "./utils/inputEventListeners.js";
-import { validateForm, showSuccessMessage } from "./utils/validationUtils.js";
+import { validateForm } from "./utils/validationUtils.js";
 import { showLoader, hideLoader } from "./utils/loadingSpinner.js";
 import { initializeBasicScroll } from "./utils/basicScroll.js";
 import { setupVanillaTilt } from "./utils/vanillaTilt.js";
 import { initFlickity } from "./utils/flickity.js";
+import { showSuccessMessage } from "./utils/errorUtils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   initializeRecaptcha("recaptchaResponse");
@@ -35,12 +36,12 @@ const form = document.querySelector(".newsletter-form");
 const subscribeBtn = document.querySelector(".modal__subscribe-btn");
 const loader = document.querySelector(".loader");
 
-// setTimeout(() => {
-//   modalBg.classList.add("bg-active");
-//   requestAnimationFrame(() => {
-//     modal.classList.add("show");
-//   });
-// }, 5000);
+setTimeout(() => {
+  modalBg.classList.add("bg-active");
+  requestAnimationFrame(() => {
+    modal.classList.add("show");
+  });
+}, 10000);
 
 function closeModal() {
   modal.classList.remove("show");

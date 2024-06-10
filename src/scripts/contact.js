@@ -5,9 +5,10 @@ import "../styles/loader.css";
 import { initializeRecaptcha } from "./utils/recaptcha.js";
 import { handleContactFormSubmit } from "./utils/formUtils.js";
 import { showLoader, hideLoader } from "./utils/loadingSpinner.js";
-import { validateForm, showSuccessMessage } from "./utils/validationUtils.js";
+import { validateForm } from "./utils/validationUtils.js";
 import { addInputEventListeners } from "./utils/inputEventListeners.js";
 import { fetchCsrfToken } from "./utils/csrfUtils.js";
+import { showSuccessMessage } from "./utils/errorUtils.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   initializeRecaptcha("recaptchaResponseContact");

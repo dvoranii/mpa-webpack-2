@@ -15,3 +15,12 @@ export function hideError(selector) {
   }
   errorElement.classList.add("error-hidden");
 }
+
+export function showSuccessMessage() {
+  const successMessage = document.querySelector("#successMessage");
+  successMessage.classList.remove("success-hidden");
+
+  setTimeout(() => {
+    successMessage.classList.add("success-hidden");
+  }, 3000);
+}

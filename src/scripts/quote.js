@@ -12,9 +12,9 @@ import { handleQuoteFormSubmit } from "./utils/formUtils.js";
 import {
   validateForm,
   validateDynamicFields,
-  showSuccessMessage,
 } from "./utils/validationUtils.js";
 import { showLoader, hideLoader } from "./utils/loadingSpinner.js";
+import { showSuccessMessage } from "./utils/errorUtils.js";
 
 const clearBtn = document.querySelector(".clear-btn");
 const form = document.querySelector(".quote-form");
