@@ -14,20 +14,37 @@ const __dirname = path.dirname(__filename);
 const buildPath = path.resolve(__dirname, "dist");
 const templatePath = path.resolve(__dirname, "src", "templates");
 
-const pages = ["home", "about", "contact", "quote", "404"];
+const pages = [
+  "home",
+  "about",
+  "contact",
+  "quote",
+  "special-handling",
+  "sporting-goods",
+  "air",
+  "truck",
+  "ocean",
+  "warehouse",
+  "404",
+];
+
+const camelCaseToKebabCase = (str) => {
+  return str.replace(/([a-z0-9])([A-Z])/g, "$1-$2").toLowerCase();
+};
 
 export default (env, argv) => {
   const isProduction = argv.mode === "production";
 
   const htmlPluginsInstances = pages.map((page) => {
+    const kebabCasePage = camelCaseToKebabCase(page);
     const chunks = ["global", page];
     if (page === "home") {
       chunks.push("modal");
     }
     return new HtmlWebpackPlugin({
       inject: true,
-      template: path.resolve(templatePath, `${page}.html`),
-      filename: `${page}.html`,
+      template: path.resolve(templatePath, `${kebabCasePage}.html`),
+      filename: `${kebabCasePage}.html`,
       chunks,
     });
   });
@@ -64,12 +81,15 @@ export default (env, argv) => {
   return {
     entry: pages.reduce(
       (entries, page) => {
-        entries[page] = [
-          path.resolve(__dirname, "src", "scripts", `${page}.js`),
+        const camelCasePage = page.replace(/-([a-z])/g, (g) =>
+          g[1].toUpperCase()
+        );
+        entries[camelCasePage] = [
+          path.resolve(__dirname, "src", "scripts", `${camelCasePage}.js`),
         ];
 
         if (page === "home") {
-          entries[page].push(
+          entries[camelCasePage].push(
             path.resolve(__dirname, "src", "styles", "modal.css")
           );
         }
@@ -132,6 +152,12 @@ export default (env, argv) => {
           { from: /^\/contact\/?$/, to: "/contact.html" },
           { from: /^\/$/, to: "/home.html" },
           { from: /^\/quote\/?$/, to: "/quote.html" },
+          { from: /^\/special-handling\/?$/, to: "/special-handling.html" },
+          { from: /^\/sporting-goods\/?$/, to: "/sporting-goods.html" },
+          { from: /^\/air\/?$/, to: "/air.html" },
+          { from: /^\/truck\/?$/, to: "/truck.html" },
+          { from: /^\/ocean\/?$/, to: "/ocean.html" },
+          { from: /^\/warehouse\/?$/, to: "/warehouse.html" },
           { from: /./, to: "/404.html" },
         ],
       },

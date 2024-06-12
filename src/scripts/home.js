@@ -36,12 +36,12 @@ const form = document.querySelector(".newsletter-form");
 const subscribeBtn = document.querySelector(".modal__subscribe-btn");
 const loader = document.querySelector(".loader");
 
-setTimeout(() => {
-  modalBg.classList.add("bg-active");
-  requestAnimationFrame(() => {
-    modal.classList.add("show");
-  });
-}, 10000);
+// setTimeout(() => {
+//   modalBg.classList.add("bg-active");
+//   requestAnimationFrame(() => {
+//     modal.classList.add("show");
+//   });
+// }, 10000);
 
 function closeModal() {
   modal.classList.remove("show");

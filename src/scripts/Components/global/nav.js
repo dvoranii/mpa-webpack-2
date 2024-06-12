@@ -18,10 +18,10 @@ export function createNav() {
         <ul class="nav-links" id="navLinks">
         <li><a href="/">Home</a></li>
         <li class="dropdown">
-          <a href="#">Services<span class="nav-triangle">▾</span></a>
+          <a href="#" class="services-link">Services<span class="nav-triangle">▾</span></a>
           <ul class="dropdown-content">
             <li class="dropdown-secondary">
-              <a href="/service1">Transportation<span class="nav-triangle">▾</span></a>
+              <a href="#" class="transportation-link">Transportation<span class="nav-triangle">▾</span></a>
               <ul class="dropdown-secondary-content">
                 <li><a href="/air">Air</a></li>
                 <li><a href="/ocean">Ocean</a></li>
@@ -29,7 +29,8 @@ export function createNav() {
                 <li><a href="/warehouse">Warehouse</a></li>
               </ul>
             </li>
-            <li><a href="/service2">Sporting Goods</a></li>
+            <li><a href="/special-handling">Special Handling</a></li>
+            <li><a href="/sporting-goods">Sporting Goods</a></li>
           </ul>
         </li>
         <li><a href="/about">About</a></li>

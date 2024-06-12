@@ -41,6 +41,11 @@
   z-index: 0;
 }
 
+.transportation-link,
+.services-link {
+  pointer-events: none;
+}
+
 .backdrop img {
   width: 100%;
   margin-top: -2vw;
