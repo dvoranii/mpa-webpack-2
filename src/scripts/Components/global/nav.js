@@ -100,6 +100,24 @@ export function setupNav() {
   });
 
   highlightCurrentPage();
+  window.addEventListener("resize", handleResize);
+}
+
+function handleResize() {
+  if (window.innerWidth > 768) {
+    const dropdownContents = document.querySelectorAll(".dropdown-content");
+    const secondaryDropdownContents = document.querySelectorAll(
+      ".dropdown-secondary-content"
+    );
+
+    dropdownContents.forEach((content) => {
+      content.classList.remove("active");
+    });
+
+    secondaryDropdownContents.forEach((content) => {
+      content.classList.remove("active");
+    });
+  }
 }
 
 function highlightCurrentPage() {
