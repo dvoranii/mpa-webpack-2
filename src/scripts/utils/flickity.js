@@ -3,8 +3,8 @@ import "lazysizes";
 import "../../styles/flickity.css";
 import Flickity from "flickity";
 
-export function initFlickity() {
-  const carousel = document.querySelector(".carousel");
+export function initFlickity(selector) {
+  const carousel = document.querySelector(selector);
 
   if (carousel) {
     new Flickity(carousel, {

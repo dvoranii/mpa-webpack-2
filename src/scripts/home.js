@@ -26,7 +26,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   initializeBasicScroll();
   setupVanillaTilt();
-  initFlickity();
+  initFlickity(".carousel.carousel-home");
 });
 
 const modalBg = document.querySelector(".modal-bg");

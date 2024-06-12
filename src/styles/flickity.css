@@ -58,6 +58,9 @@
   transform: translateY(0);
 }
 
+.carousel-warehouse > .flickity-viewport {
+  max-height: 550px;
+}
 @media screen and (max-width: 553px) {
   .flickity-prev-next-button {
     top: 43%;

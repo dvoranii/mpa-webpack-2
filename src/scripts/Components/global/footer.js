@@ -33,7 +33,7 @@ export function createFooter() {
           </div>
         </div>
         <div class="footer-bottom">
-          <p>&copy; 2024 Canadian Global Logistics Inc.</p>
+          <p>2024 Canadian Global Logistics Inc. <sup>®</sup></p>
         </div>
       </footer>
     `;

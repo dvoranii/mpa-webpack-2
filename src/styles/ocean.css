@@ -1,0 +1,38 @@
+.ship-icon {
+  width: 70px;
+  height: 70px;
+}
+
+.ocean-freight-bg--wrapper {
+  background: linear-gradient(rgba(0, 0, 0, 0.404), rgba(0, 0, 0, 0.397)),
+    url(../assets/images/ocean-freight-bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 350px;
+  overflow-y: hidden;
+  margin-top: 2.4rem;
+  margin-bottom: 2.4rem;
+}
+
+.copy-container {
+  width: 50%;
+  padding: 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.copy-container p {
+  color: white;
+  line-height: 1.5;
+  font-size: clamp(14px, 1.2vw, 1.8rem);
+  font-style: italic;
+}
+
+.copy-container img {
+  padding-top: 2.4rem;
+  width: 50%;
+}
