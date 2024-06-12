@@ -53,7 +53,9 @@ export function setupNav() {
   });
 
   const dropdowns = document.querySelectorAll(".dropdown");
+  const secondaryDropdowns = document.querySelectorAll(".dropdown-secondary");
 
+  // need to fix this for mobile since we last updated it
   const toggleDropdown = (e) => {
     e.preventDefault();
     if (window.innerWidth <= 768) {
@@ -62,10 +64,29 @@ export function setupNav() {
       dropdownContent.classList.toggle("active");
     }
   };
+  const toggleSecondaryDropdown = (e) => {
+    e.preventDefault();
+    if (window.innerWidth <= 768) {
+      const dropdownSecondaryContent = e.currentTarget.querySelector(
+        ".dropdown-secondary-content"
+      );
+      dropdownSecondaryContent.classList.toggle("active");
+    }
+  };
 
   dropdowns.forEach((dropdown) => {
     dropdown.addEventListener("click", toggleDropdown);
     dropdown.addEventListener("touchstart", toggleDropdown);
+  });
+  secondaryDropdowns.forEach((dropdownSecondary) => {
+    dropdownSecondary.addEventListener("click", (e) => {
+      e.stopPropagation(); // Prevent the primary dropdown from closing
+      toggleSecondaryDropdown(e);
+    });
+    dropdownSecondary.addEventListener("touchstart", (e) => {
+      e.stopPropagation(); // Prevent the primary dropdown from closing
+      toggleSecondaryDropdown(e);
+    });
   });
 
   const submenuLinks = document.querySelectorAll(".dropdown-content a");

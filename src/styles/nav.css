@@ -124,7 +124,8 @@
   font-size: 1.4rem;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown:hover .dropdown-content,
+.dropdown-content.active {
   opacity: 1;
   visibility: visible;
   height: auto;
@@ -147,7 +148,7 @@
 }
 
 .dropdown-secondary:hover .dropdown-secondary-content,
-.dropdown-secondary-content:hover {
+.dropdown-secondary-content.active {
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
@@ -197,6 +198,11 @@
     display: none;
   }
 
+  .transportation-link,
+  .services-link {
+    pointer-events: all;
+  }
+
   .nav-links {
     display: none;
     flex-direction: column;
@@ -229,6 +235,27 @@
 
   .dropdown-content.active {
     display: block;
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+  }
+
+  .dropdown-secondary-content {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    box-shadow: none;
+    margin-left: 12px;
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+  }
+
+  .dropdown-secondary-content.active {
+    opacity: 1;
+    visibility: visible;
+    height: auto;
   }
 
   .burger-menu {

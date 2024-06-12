@@ -37,3 +37,16 @@
 .transport-text--wrapper__bottom {
   padding-top: 2.4rem;
 }
+
+@media screen and (max-width: 768px) {
+  .transport-wrapper {
+    flex-direction: column;
+  }
+  .transport-wrapper img {
+    width: 100%;
+  }
+
+  .transport-text--wrapper {
+    padding-top: 2.4rem;
+  }
+}
