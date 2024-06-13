@@ -1,1 +1,1 @@
-import "../styles/specialty-handling.css";
+import "../styles/special-handling.css";
