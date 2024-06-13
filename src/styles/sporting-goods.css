@@ -1,6 +1,8 @@
 .sporting-title--wrapper {
   width: 100%;
   padding-top: 20vh;
+  display: flex;
+  justify-content: center;
 }
 h1.sporting-title {
   user-select: none;
@@ -12,5 +14,46 @@ h1.sporting-title {
   background-position: bottom;
   margin-bottom: 2.4rem;
   width: fit-content;
+}
+.years-wrapper {
+  user-select: none;
+  margin-bottom: 3.2rem;
+  padding: 2.4rem 0 2.4rem 0;
+  background: linear-gradient(
+    to bottom,
+    rgb(184, 184, 184),
+    rgba(184, 184, 184, 0)
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2.4rem;
+}
+.years-wrapper img {
+  width: 170px;
+  height: auto;
+  margin: 20px;
+}
+.years-wrapper h3 {
+  font-weight: 700;
+  font-family: "Nunito", sans-serif;
   text-align: center;
+}
+
+.sporting-intro--paragraph {
+  text-align: center;
+}
+
+.hockey-banner--wrapper {
+  height: 466px;
+  background: url(../assets/images/hockey-banner.jpg);
+  background-repeat: no-repeat;
+  background-size: contain;
+  display: flex;
+  align-items: center;
+}
+
+.hockey-banner--wrapper img {
+  width: 600px;
+  margin-left: 5.6rem;
 }

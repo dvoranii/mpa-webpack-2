@@ -90,3 +90,10 @@ section {
   max-width: 80vw;
   margin: 0 auto;
 }
+
+@media screen and (max-width: 380px) {
+  h1 {
+    font-size: clamp(1.8rem, 5vw, 4rem);
+    text-align: center;
+  }
+}
