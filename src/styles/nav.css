@@ -57,22 +57,23 @@
   list-style: none;
   position: relative;
   z-index: 1;
+  user-select: none;
   /* height: 25px; */
 }
 
 .nav-links > li {
   position: relative;
-  list-style: none; /* Optional: Remove default list style */
-  padding-bottom: 5px; /* Add some padding to ensure space for the underline */
+  list-style: none;
+  padding-bottom: 5px;
 }
 
 .nav-links > li::before {
   content: "";
   position: absolute;
-  top: 34px; /* Adjust to ensure the underline is part of the hover area */
+  top: 34px;
   left: 50%;
   width: 0;
-  height: 3px; /* Adjust the height of the underline */
+  height: 3px;
   background-image: linear-gradient(to right, #8fd6ab, #0047be);
   transition: width 0.3s ease, left 0.3s ease;
 }
@@ -104,7 +105,7 @@
 .dropdown-content {
   position: absolute;
   list-style: none;
-  top: 38px; /* Adjust to close the gap */
+  top: 38px;
   left: 0;
   background-color: white;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -159,11 +160,6 @@
   padding-right: 20px;
   transition: all 150ms ease;
 }
-
-/* .dropdown-secondary a .nav-triangle {
-  position: absolute;
-  right: 0;
-} */
 
 .dropdown-content a:hover {
   text-shadow: 2px 2px 2px #8fd6abc0;
