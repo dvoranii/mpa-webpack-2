@@ -1,0 +1,16 @@
+.handling-title--wrapper {
+  width: 100%;
+  padding-top: 20vh;
+}
+h1.handling-title {
+  user-select: none;
+  padding-bottom: 1.2rem;
+  padding-top: 4.2rem;
+  background-image: linear-gradient(to right, #8fd6ab, #0047be);
+  background-repeat: no-repeat;
+  background-size: 98% 3px;
+  background-position: bottom;
+  margin-bottom: 2.4rem;
+  width: fit-content;
+  text-align: center;
+}

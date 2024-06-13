@@ -160,10 +160,10 @@
   transition: all 150ms ease;
 }
 
-.dropdown-secondary a .nav-triangle {
+/* .dropdown-secondary a .nav-triangle {
   position: absolute;
   right: 0;
-}
+} */
 
 .dropdown-content a:hover {
   text-shadow: 2px 2px 2px #8fd6abc0;
