@@ -1,3 +1,6 @@
+.hockey-banner--wrapper {
+  margin-top: 4.8rem;
+}
 .sporting-title--wrapper {
   width: 100%;
   padding-top: 20vh;
@@ -52,10 +55,25 @@ h1.sporting-title {
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-content: center;
+  place-items: center;
 }
 
 .hockey-banner--wrapper img {
   grid-column: 1;
   width: 100%;
   margin-left: 5.6rem;
+}
+.hockey-banner--wrapper h2 {
+  font-weight: 700;
+  font-style: italic;
+  padding-top: 2.4rem;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.178);
+}
+
+.hockey-banner--wrapper p {
+  font-size: 1.8rem;
+}
+.hockey-banner--wrapper h2,
+.hockey-banner--wrapper p {
+  grid-column: 1;
 }
