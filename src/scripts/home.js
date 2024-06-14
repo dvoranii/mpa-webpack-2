@@ -13,6 +13,7 @@ import { initializeBasicScroll } from "./utils/basicScroll.js";
 import { setupVanillaTilt } from "./utils/vanillaTilt.js";
 import { initFlickity } from "./utils/flickity.js";
 import { showSuccessMessage } from "./utils/errorUtils.js";
+import { lazyLoadImages, lazyLoadBackgrounds } from "./utils/lazyLoad.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   initializeRecaptcha("recaptchaResponse");
@@ -27,6 +28,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   initializeBasicScroll();
   setupVanillaTilt();
   initFlickity(".carousel.carousel-home");
+  lazyLoadImages();
+  lazyLoadBackgrounds();
 });
 
 const modalBg = document.querySelector(".modal-bg");

@@ -49,11 +49,13 @@ h1.sporting-title {
   background: url(../assets/images/hockey-banner.jpg);
   background-repeat: no-repeat;
   background-size: contain;
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-content: center;
 }
 
 .hockey-banner--wrapper img {
-  width: 600px;
+  grid-column: 1;
+  width: 100%;
   margin-left: 5.6rem;
 }

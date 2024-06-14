@@ -1,4 +1,9 @@
 import "../../../styles/footer.css";
+import { lazyLoadImages } from "../../utils/lazyLoad.js";
+
+window.addEventListener("DOMContentLoaded", () => {
+  lazyLoadImages();
+});
 
 export function createFooter() {
   return `
@@ -25,10 +30,10 @@ export function createFooter() {
           <div class="footer-section social">
             <h2>Follow Us</h2>
             <div class="social-icons">
-              <a href="#"><img src="../assets/images/icons/fb-1.png" alt="Facebook">Facebook</a>
-              <a href="#"><img src="../assets/images/icons/twitter-1.png" alt="Twitter">Twitter</a>
-              <a href="#"><img src="../assets/images/icons/ig-1.png" alt="Instagram">Instagram</a>
-              <a href="#"><img src="../assets/images/icons/li-1.png" alt="LinkedIn">LinkedIn</a>
+              <a href="#"><img data-src="../assets/images/icons/fb-1.png" class="lazy" alt="Facebook">Facebook</a>
+              <a href="#"><img data-src="../assets/images/icons/twitter-1.png" class="lazy" alt="Twitter">Twitter</a>
+              <a href="#"><img data-src="../assets/images/icons/ig-1.png" class="lazy" alt="Instagram">Instagram</a>
+              <a href="#"><img data-src="../assets/images/icons/li-1.png" class="lazy" alt="LinkedIn">LinkedIn</a>
             </div>
           </div>
         </div>

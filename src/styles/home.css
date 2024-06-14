@@ -57,11 +57,25 @@
 }
 
 /* SECTION 1 */
+.lazy-bg {
+  width: 100%;
+  height: 450px;
+  background-attachment: fixed;
+  background-position: -200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.lazy-bg.lazy-bg-loaded {
+  opacity: 1;
+}
 
 .home-section__img-container {
   width: 100%;
   height: 450px;
-  background: url(../assets/images/logistics-deal.jpg);
+  /* background: url(../assets/images/logistics-deal.jpg); */
   background-attachment: fixed;
   background-position: -200px;
   background-size: cover;

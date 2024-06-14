@@ -27,6 +27,11 @@
   box-sizing: border-box;
 }
 
+::selection {
+  background-color: #0047be;
+  color: white;
+}
+
 html,
 body {
   position: relative;
@@ -61,6 +66,14 @@ h4 {
   font-size: clamp(1.6rem, 3vw, 2rem);
   font-family: "Nunito", sans-serif;
   font-weight: 400;
+}
+
+img,
+h1,
+h2,
+h3,
+h4 {
+  user-select: none;
 }
 
 p,

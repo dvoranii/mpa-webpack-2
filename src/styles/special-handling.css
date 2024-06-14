@@ -2,8 +2,10 @@
   width: 100%;
   padding-top: 20vh;
 }
+.handling-title--wrapper p {
+  text-align: center;
+}
 h1.handling-title {
-  user-select: none;
   padding-bottom: 1.2rem;
   padding-top: 4.2rem;
   background-image: linear-gradient(to right, #8fd6ab, #0047be);
@@ -13,4 +15,47 @@ h1.handling-title {
   margin-bottom: 2.4rem;
   width: fit-content;
   text-align: center;
+}
+
+.delivery-section--1 {
+  margin-top: 4.8rem;
+  display: flex;
+}
+
+.delivery-section--1__p2 {
+  padding-left: 2.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.delivery-ribbon--wrapper {
+  display: flex;
+  justify-content: center;
+  user-select: none;
+}
+
+.delivery-section--1__p2 img {
+  width: 45%;
+}
+
+.handling-services__section-2 h2 {
+  font-weight: 700;
+  padding-top: 3.2rem;
+}
+
+.handling-services__section-2 ul {
+  margin-left: 3.2rem;
+}
+
+.quote-link,
+.contact-link,
+.quote-link:visited,
+.contact-link:visited {
+  color: black;
+}
+
+.quote-link:hover,
+.contact-link:hover {
+  font-weight: 700;
 }
