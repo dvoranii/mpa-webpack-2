@@ -135,6 +135,11 @@ export default (env, argv) => {
           test: /\.(woff|woff2|eot|ttf|otf)$/i,
           type: "asset/resource",
         },
+        {
+          test: /\.(glsl|vs|fs)$/,
+          use: "shader-loader",
+          exclude: /node_modules/,
+        },
       ],
     },
     devtool: isProduction ? false : "source-map",

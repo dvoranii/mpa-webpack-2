@@ -14,6 +14,7 @@ import { setupVanillaTilt } from "./utils/vanillaTilt.js";
 import { initFlickity } from "./utils/flickity.js";
 import { showSuccessMessage } from "./utils/errorUtils.js";
 import { lazyLoadImages, lazyLoadBackgrounds } from "./utils/lazyLoad.js";
+import { initGlobe } from "./utils/threeGlobe.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   initializeRecaptcha("recaptchaResponse");
@@ -30,6 +31,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   initFlickity(".carousel.carousel-home");
   lazyLoadImages();
   lazyLoadBackgrounds();
+  initGlobe();
 });
 
 const modalBg = document.querySelector(".modal-bg");

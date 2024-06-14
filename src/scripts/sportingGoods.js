@@ -1,5 +1,5 @@
 import "../styles/sporting-goods.css";
-import { lazyLoadImages } from "../scripts/utils/lazyLoad.js";
+import { lazyLoadImages } from "./utils/lazyLoad.js";
 
 window.addEventListener("DOMContentLoaded", () => {
   lazyLoadImages();

@@ -68,10 +68,13 @@ h1.sporting-title {
   font-style: italic;
   padding-top: 2.4rem;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.178);
+  color: #0141b0;
 }
 
 .hockey-banner--wrapper p {
   font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.25px;
 }
 .hockey-banner--wrapper h2,
 .hockey-banner--wrapper p {
