@@ -17,12 +17,28 @@ export function initGlobe() {
   renderer.setSize(canvas.clientWidth, canvas.clientHeight);
   renderer.setPixelRatio(window.devicePixelRatio);
 
-  // create sphere
-  const geometry = new THREE.SphereGeometry(5, 32, 32);
-  const material = new THREE.MeshBasicMaterial({
-    map: new THREE.TextureLoader().load("../assets/images/earth-uv.jpg"),
-  });
+  function createStarField() {
+    const starGeometry = new THREE.BufferGeometry();
+    const startMaterial = new THREE.PointsMaterial({ color: 0xffffff });
 
+    const starVertices = [];
+
+    for (let i = 0; i < 1000; i++) {
+      const x = (Math.random() - 0.5) * 2000;
+      const y = (Math.random() - 0.5) * 2000;
+      const z = -Math.random() * 2000;
+      starVertices.push(x, y, z);
+    }
+
+    starGeometry.setAttribute(
+      "position",
+      new THREE.Float32BufferAttribute(starVertices, 3)
+    );
+    const stars = new THREE.Points(starGeometry, startMaterial);
+    scene.add(stars);
+  }
+
+  // create sphere
   const sphere = new THREE.Mesh(
     new THREE.SphereGeometry(5, 50, 50),
     new THREE.ShaderMaterial({
@@ -37,9 +53,11 @@ export function initGlobe() {
       },
     })
   );
-  scene.add(sphere);
 
-  camera.position.z = 12;
+  scene.add(sphere);
+  createStarField();
+
+  camera.position.z = 13;
 
   function animate() {
     requestAnimationFrame(animate);
