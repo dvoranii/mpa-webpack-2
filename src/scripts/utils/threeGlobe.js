@@ -69,20 +69,36 @@ export function initGlobe() {
 
   atmosphere.scale.set(1.4, 1.4, 1.4);
 
-  scene.add(sphere);
   scene.add(atmosphere);
 
   createStarField();
 
+  const group = new THREE.Group();
+  group.add(sphere);
+  scene.add(group);
+
   camera.position.z = 13;
+
+  const mouse = {
+    x: undefined,
+    y: undefined,
+  };
 
   function animate() {
     requestAnimationFrame(animate);
-    sphere.rotation.y += 0.003;
     renderer.render(scene, camera);
+    sphere.rotation.y += 0.005;
+    group.rotation.y = mouse.x * 0.1;
+    group.rotation.x = -mouse.y * 0.1;
   }
 
   animate();
+
+  addEventListener("mousemove", () => {
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    console.log(mouse);
+  });
 
   window.addEventListener("resize", () => {
     const width = canvas.clientWidth;
