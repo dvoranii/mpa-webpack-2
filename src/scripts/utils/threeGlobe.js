@@ -1,6 +1,8 @@
 import * as THREE from "three";
 import vertexShader from "../../shaders/vertex.glsl";
 import fragmentShader from "../../shaders/fragment.glsl";
+import atmosphereVertexShader from "../../shaders/atmosphereVertex.glsl";
+import atmosphereFragmentShader from "../../shaders/atmosphereFragment.glsl";
 
 export function initGlobe() {
   const canvas = document.getElementById("globe-canvas");
@@ -17,6 +19,7 @@ export function initGlobe() {
   renderer.setSize(canvas.clientWidth, canvas.clientHeight);
   renderer.setPixelRatio(window.devicePixelRatio);
 
+  // create stars
   function createStarField() {
     const starGeometry = new THREE.BufferGeometry();
     const startMaterial = new THREE.PointsMaterial({ color: 0xffffff });
@@ -54,7 +57,21 @@ export function initGlobe() {
     })
   );
 
+  const atmosphere = new THREE.Mesh(
+    new THREE.SphereGeometry(5, 50, 50),
+    new THREE.ShaderMaterial({
+      vertexShader: atmosphereVertexShader,
+      fragmentShader: atmosphereFragmentShader,
+      blending: THREE.AdditiveBlending,
+      side: THREE.BackSide,
+    })
+  );
+
+  atmosphere.scale.set(1.4, 1.4, 1.4);
+
   scene.add(sphere);
+  scene.add(atmosphere);
+
   createStarField();
 
   camera.position.z = 13;
