@@ -82,7 +82,7 @@ export function initGlobe() {
 
   function createPoint(lat, lng) {
     const point = new THREE.Mesh(
-      new THREE.SphereGeometry(0.1, 50, 50),
+      new THREE.BoxGeometry(0.12, 0.12, 0.8),
       new THREE.MeshBasicMaterial({ color: 0xff0000 })
     );
     const latitude = (lat / 180) * Math.PI;
@@ -97,21 +97,34 @@ export function initGlobe() {
     point.position.y = y;
     point.position.z = z;
 
+    point.lookAt(new THREE.Vector3(0, 0, 0));
+
+    point.geometry.applyMatrix4(
+      new THREE.Matrix4().makeTranslation(0, 0, -0.4)
+    );
+
     group.add(point);
   }
 
-  // create file for countries/cities and their coords, then read from said file
-  createPoint(23.6345, -102.5528);
-  createPoint(6.5244, 3.3792);
-  createPoint(20.5937, 78.9629);
-  createPoint(35.8617, 104.1954);
-  createPoint(37.0902, -95.7129);
+  async function getCities() {
+    try {
+      const res = await fetch("../assets/cities.json");
+      const data = await res.json();
+      for (const key in data) {
+        createPoint(data[key].lat, data[key].lng);
+      }
+    } catch (error) {
+      console.error("Failed to fetch cities", error, error.statusText);
+    }
+  }
+
+  getCities();
 
   sphere.rotation.y = -Math.PI / 2;
 
   const mouse = {
-    x: 0,
-    y: 0,
+    x: undefined,
+    y: undefined,
   };
 
   function animate() {
@@ -119,11 +132,13 @@ export function initGlobe() {
     renderer.render(scene, camera);
     // sphere.rotation.y += 0.005;
 
-    gsap.to(group.rotation, {
-      x: -mouse.y * 0.1,
-      y: mouse.x * 1.5,
-      duration: 1,
-    });
+    if (mouse.x) {
+      gsap.to(group.rotation, {
+        x: -mouse.y * 0.1,
+        y: mouse.x * 1.5,
+        duration: 1,
+      });
+    }
   }
 
   animate();

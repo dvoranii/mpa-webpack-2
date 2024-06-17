@@ -18,7 +18,6 @@ function setupRecaptcha(callback) {
 function initializeRecaptchaToken() {
   setupRecaptcha((token) => {
     const recaptchaElem = document.getElementById("recaptchaResponse");
-    console.log(`Recaptcha token: ${token}`);
     if (recaptchaElem) {
       recaptchaElem.value = token;
     } else {
