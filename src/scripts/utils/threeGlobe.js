@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import gsap from "gsap";
 import vertexShader from "../../shaders/vertex.glsl";
 import fragmentShader from "../../shaders/fragment.glsl";
 import atmosphereVertexShader from "../../shaders/atmosphereVertex.glsl";
@@ -79,17 +80,50 @@ export function initGlobe() {
 
   camera.position.z = 13;
 
+  function createPoint(lat, lng) {
+    const point = new THREE.Mesh(
+      new THREE.SphereGeometry(0.1, 50, 50),
+      new THREE.MeshBasicMaterial({ color: 0xff0000 })
+    );
+    const latitude = (lat / 180) * Math.PI;
+    const longitude = (lng / 180) * Math.PI;
+    const radius = 5;
+
+    const x = radius * Math.cos(latitude) * Math.sin(longitude);
+    const y = radius * Math.sin(latitude);
+    const z = radius * Math.cos(latitude) * Math.cos(longitude);
+
+    point.position.x = x;
+    point.position.y = y;
+    point.position.z = z;
+
+    group.add(point);
+  }
+
+  // create file for countries/cities and their coords, then read from said file
+  createPoint(23.6345, -102.5528);
+  createPoint(6.5244, 3.3792);
+  createPoint(20.5937, 78.9629);
+  createPoint(35.8617, 104.1954);
+  createPoint(37.0902, -95.7129);
+
+  sphere.rotation.y = -Math.PI / 2;
+
   const mouse = {
-    x: undefined,
-    y: undefined,
+    x: 0,
+    y: 0,
   };
 
   function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
-    sphere.rotation.y += 0.005;
-    group.rotation.y = mouse.x * 0.1;
-    group.rotation.x = -mouse.y * 0.1;
+    // sphere.rotation.y += 0.005;
+
+    gsap.to(group.rotation, {
+      x: -mouse.y * 0.1,
+      y: mouse.x * 1.5,
+      duration: 1,
+    });
   }
 
   animate();
@@ -97,7 +131,6 @@ export function initGlobe() {
   addEventListener("mousemove", () => {
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
-    console.log(mouse);
   });
 
   window.addEventListener("resize", () => {
