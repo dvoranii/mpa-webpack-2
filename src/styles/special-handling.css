@@ -1,6 +1,8 @@
+.handling-intro__section-1 {
+  padding-top: 20vh;
+}
 .handling-title--wrapper {
   width: 100%;
-  padding-top: 20vh;
 }
 .handling-title--wrapper p {
   text-align: center;
@@ -59,12 +61,18 @@ h1.handling-title {
 .contact-link:hover {
   font-weight: 700;
 }
-
-@media screen and (max-width: 1175px) {
+@media screen and (max-width: 1366px) {
+  .handling-intro__section-1 {
+    padding-top: 10vh;
+  }
   .delivery-section--1__p1 img {
     width: 44vw;
   }
 }
+
+/* @media screen and (max-width: 1175px) {
+
+} */
 
 @media screen and (max-width: 768px) {
   .delivery-section--1 {
