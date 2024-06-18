@@ -417,6 +417,12 @@
   }
 }
 
+@media screen and (max-width: 1200px) and (max-height: 820px) {
+  .home-section__logo--visible {
+    width: 60vw;
+  }
+}
+
 @media screen and (max-width: 1024px) {
   .hero__wrapper--outer {
     grid-template-columns: 1fr;
@@ -429,7 +435,6 @@
     flex-direction: column;
     align-items: flex-start;
   }
-
   .hockey-img--wrapper {
     display: flex;
     justify-content: center;
@@ -438,7 +443,6 @@
     min-width: 94%;
     width: 94%;
   }
-
   .hockey-text--wrapper p,
   .hockey-list li {
     font-size: clamp(1.4rem, 2vw, 1.8rem);
@@ -447,12 +451,10 @@
     min-width: 100%;
     padding: 1.6rem;
   }
-
   .hockey-list {
     margin-left: 0;
     margin-top: 1rem;
   }
-
   .hockey--learn-more__link {
     margin-top: 1.6rem;
     font-size: 1.6rem;
@@ -460,9 +462,6 @@
 }
 
 @media screen and (max-width: 1024px) and (max-height: 1366px) {
-  .hero__wrapper--outer {
-    grid-template-columns: 1fr;
-  }
   .hero__wrapper--left {
     width: 80%;
     padding: 0 1.2rem;
@@ -471,7 +470,6 @@
     width: 100%;
     height: 60vh;
   }
-
   .hero__wrapper--inner {
     height: 60vh;
   }
@@ -488,7 +486,11 @@
     font-size: clamp(2rem, 4vw, 2.4rem);
   }
   .home-section__img-container {
+    height: 350px;
     background-position: -1000px 0px;
+  }
+  .home-section__logo--visible {
+    width: 70vw;
   }
   .hockey-img--wrapper img {
     min-width: 100%;
@@ -504,7 +506,6 @@
   .scroll-img.scroll-img--3 {
     margin-left: -40vw;
   }
-
   .scroll-img.scroll-img--2,
   .scroll-img.scroll-img--4 {
     margin-top: 80px;
@@ -513,9 +514,6 @@
 }
 
 @media screen and (max-width: 768px) {
-  .hero__wrapper--outer {
-    grid-template-columns: 1fr;
-  }
   .hero__wrapper--left {
     width: 100%;
     padding: 0 3.4rem;
@@ -524,11 +522,9 @@
     width: 100%;
     height: 60vh;
   }
-
   .hero__wrapper--inner {
     height: 60vh;
   }
-
   .hero__scroll-down {
     bottom: 388px;
   }
@@ -544,12 +540,10 @@
   .scroll-img {
     height: 35px;
   }
-
   .scroll-img.scroll-img--1,
   .scroll-img.scroll-img--3 {
     margin-left: -30vw;
   }
-
   .scroll-img.scroll-img--2,
   .scroll-img.scroll-img--4 {
     margin-left: 20vw;
@@ -565,14 +559,12 @@
   .scroll-img.scroll-img--4 {
     margin-top: 60px;
   }
-
   .hero__wrapper--inner {
     height: 50vh;
   }
   .hero__scroll-down {
     bottom: 388px;
   }
-
   .home-section.home-section--1 h2 {
     padding-top: 12vh;
   }
@@ -583,20 +575,16 @@
   .scroll-img.scroll-img--3 {
     margin-left: -60vw;
   }
-
   .scroll-img.scroll-img--2,
   .scroll-img.scroll-img--4 {
     margin-left: 20vw;
   }
-
   .hero__scroll-down {
     bottom: 430px;
   }
-
   .home-content__outer {
     margin-top: 10vh;
   }
-
   .home-section.home-section--1 h2 {
     padding-top: 5vh;
   }
