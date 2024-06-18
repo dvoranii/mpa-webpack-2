@@ -195,6 +195,11 @@ class Globe {
       event.preventDefault();
       const deltaX = event.clientX - this.mouse.xPrev;
       const deltaY = event.clientY - this.mouse.yPrev;
+
+      if (!this.group.rotation.offset) {
+        this.group.rotation.offset = { x: 0, y: 0 };
+      }
+
       this.group.rotation.offset.x += deltaY * 0.001;
       this.group.rotation.offset.y += deltaX * 0.005;
       this.mouse.xPrev = event.clientX;
@@ -218,34 +223,39 @@ class Globe {
 
   debounce(func, wait) {
     let timeout;
-    return function (...args) {
+    return (...args) => {
       clearTimeout(timeout);
       timeout = setTimeout(() => func.apply(this, args), wait);
     };
   }
 
   animate() {
-    requestAnimationFrame(this.animate.bind(this));
-    this.renderer.render(this.scene, this.camera);
+    const render = () => {
+      requestAnimationFrame(render);
+      this.renderer.render(this.scene, this.camera);
 
-    this.raycaster.setFromCamera(this.mouse, this.camera);
-    this.group.rotation.y += 0.003;
+      this.raycaster.setFromCamera(this.mouse, this.camera);
+      this.group.rotation.y += 0.003;
 
-    const intersects = this.raycaster.intersectObjects(
-      this.group.children.filter((mesh) => mesh.geometry.type === "BoxGeometry")
-    );
+      const intersects = this.raycaster.intersectObjects(
+        this.group.children.filter(
+          (mesh) => mesh.geometry.type === "BoxGeometry"
+        )
+      );
 
-    this.group.children.forEach((mesh) => (mesh.material.opacity = 0.4));
-    gsap.set(this.popupEl, { display: "none" });
+      this.group.children.forEach((mesh) => (mesh.material.opacity = 0.4));
+      gsap.set(this.popupEl, { display: "none" });
 
-    intersects.forEach((intersect) => {
-      intersect.object.material.opacity = 1;
-      gsap.set(this.popupEl, { display: "block" });
-      this.cityName.innerHTML = intersect.object.city;
-      this.countryFlag.innerHTML = intersect.object.flag;
-    });
+      intersects.forEach((intersect) => {
+        intersect.object.material.opacity = 1;
+        gsap.set(this.popupEl, { display: "block" });
+        this.cityName.innerHTML = intersect.object.city;
+        this.countryFlag.innerHTML = intersect.object.flag;
+      });
 
-    this.renderer.render(this.scene, this.camera);
+      this.renderer.render(this.scene, this.camera);
+    };
+    render();
   }
 }
 
