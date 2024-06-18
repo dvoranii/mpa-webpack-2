@@ -72,6 +72,30 @@
   color: white;
 }
 
+.country-label--wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  background-color: black;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+#city-name {
+  color: white;
+  z-index: 9999;
+  margin-bottom: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+#country-flag {
+  color: white;
+  font-size: 1.8rem;
+}
+
 /* SECTION 1 */
 .lazy-bg {
   width: 100%;

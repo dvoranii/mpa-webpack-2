@@ -1,62 +1,107 @@
 {
-  "New York": {
+  "1": {
+    "city": "New York",
+    "country": "USA",
     "lat": 40.7128,
-    "lng": -74.0059
+    "lng": -74.0059,
+    "flag": "🇺🇸"
   },
-  "London": {
+  "2": {
+    "city": "London",
+    "country": "UK",
     "lat": 51.505,
-    "lng": -0.09
+    "lng": -0.09,
+    "flag": "🇬🇧"
   },
-  "Tokyo": {
+  "3": {
+    "city": "Tokyo",
+    "country": "Japan",
     "lat": 35.6895,
-    "lng": 139.6917
+    "lng": 139.6917,
+    "flag": "🇯🇵"
   },
-  "Sao Paulo": {
+  "4": {
+    "city": "Sao Paulo",
+    "country": "Brazil",
     "lat": -23.5505,
-    "lng": -46.6333
+    "lng": -46.6333,
+    "flag": "🇧🇷"
   },
-  "Lagos": {
+  "5": {
+    "city": "Lagos",
+    "country": "Nigeria",
     "lat": 6.5244,
-    "lng": 3.3792
+    "lng": 3.3792,
+    "flag": "🇳🇬"
   },
-  "Beijing": {
+  "6": {
+    "city": "Beijing",
+    "country": "China",
     "lat": 39.9042,
-    "lng": 116.4074
+    "lng": 116.4074,
+    "flag": "🇨🇳"
   },
-  "Mexico City": {
+  "7": {
+    "city": "Mexico City",
+    "country": "Mexico",
     "lat": 19.4326,
-    "lng": -99.1332
+    "lng": -99.1332,
+    "flag": "🇲🇽"
   },
-  "Capetown": {
+  "8": {
+    "city": "Capetown",
+    "country": "South Africa",
     "lat": -33.9249,
-    "lng": 18.4241
+    "lng": 18.4241,
+    "flag": "🇿🇦"
   },
-  "Toronto": {
+  "9": {
+    "city": "Toronto",
+    "country": "Canada",
     "lat": 43.7,
-    "lng": -79.42
+    "lng": -79.42,
+    "flag": "🇨🇦"
   },
-  "Los Angeles": {
+  "10": {
+    "city": "Los Angeles",
+    "country": "USA",
     "lat": 34.0522,
-    "lng": -118.2437
+    "lng": -118.2437,
+    "flag": "🇺🇸"
   },
-  "Moscow": {
+  "11": {
+    "city": "Moscow",
+    "country": "Russia",
     "lat": 55.7558,
-    "lng": 37.6176
+    "lng": 37.6176,
+    "flag": "🇷🇺"
   },
-  "New Dheli": {
+  "12": {
+    "city": "New Delhi",
+    "country": "India",
     "lat": 28.6139,
-    "lng": 77.209
+    "lng": 77.209,
+    "flag": "🇮🇳"
   },
-  "Cartagena": {
+  "13": {
+    "city": "Cartagena",
+    "country": "Colombia",
     "lat": 10.391,
-    "lng": -75.4794
+    "lng": -75.4794,
+    "flag": "🇨🇴"
   },
-  "Khartoum": {
+  "14": {
+    "city": "Khartoum",
+    "country": "Sudan",
     "lat": 15.5007,
-    "lng": 32.5599
+    "lng": 32.5599,
+    "flag": "🇸🇩"
   },
-  "Sydney": {
+  "15": {
+    "city": "Sydney",
+    "country": "Australia",
     "lat": -33.8688,
-    "lng": 151.2093
+    "lng": 151.2093,
+    "flag": "🇦🇺"
   }
 }

@@ -80,10 +80,14 @@ export function initGlobe() {
 
   camera.position.z = 13;
 
-  function createPoint(lat, lng) {
-    const point = new THREE.Mesh(
-      new THREE.BoxGeometry(0.12, 0.12, 0.8),
-      new THREE.MeshBasicMaterial({ color: 0xff0000 })
+  function createBox({ lat, lng, country, city, flag }) {
+    const box = new THREE.Mesh(
+      new THREE.BoxGeometry(0.18, 0.18, 0.8),
+      new THREE.MeshBasicMaterial({
+        color: 0x90d7ac,
+        opacity: 0.4,
+        transparent: true,
+      })
     );
     const latitude = (lat / 180) * Math.PI;
     const longitude = (lng / 180) * Math.PI;
@@ -93,17 +97,28 @@ export function initGlobe() {
     const y = radius * Math.sin(latitude);
     const z = radius * Math.cos(latitude) * Math.cos(longitude);
 
-    point.position.x = x;
-    point.position.y = y;
-    point.position.z = z;
+    box.position.x = x;
+    box.position.y = y;
+    box.position.z = z;
 
-    point.lookAt(new THREE.Vector3(0, 0, 0));
+    box.lookAt(new THREE.Vector3(0, 0, 0));
 
-    point.geometry.applyMatrix4(
-      new THREE.Matrix4().makeTranslation(0, 0, -0.4)
-    );
+    box.geometry.applyMatrix4(new THREE.Matrix4().makeTranslation(0, 0, -0.4));
 
-    group.add(point);
+    group.add(box);
+
+    gsap.to(box.scale, {
+      z: 0.1,
+      duration: 1.4,
+      repeat: -1,
+      yoyo: true,
+      ease: "linear",
+      delay: Math.random(),
+    });
+
+    box.country = country;
+    box.city = city;
+    box.flag = flag;
   }
 
   async function getCities() {
@@ -111,7 +126,13 @@ export function initGlobe() {
       const res = await fetch("../assets/cities.json");
       const data = await res.json();
       for (const key in data) {
-        createPoint(data[key].lat, data[key].lng);
+        createBox({
+          lat: data[key].lat,
+          lng: data[key].lng,
+          country: data[key].country,
+          city: data[key].city,
+          flag: data[key].flag,
+        });
       }
     } catch (error) {
       console.error("Failed to fetch cities", error, error.statusText);
@@ -127,25 +148,66 @@ export function initGlobe() {
     y: undefined,
   };
 
+  const raycaster = new THREE.Raycaster();
+
+  const popupEl = document.getElementById("popupEl");
+  const cityName = document.getElementById("city-name");
+  const countryFlag = document.getElementById("country-flag");
+
   function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
-    // sphere.rotation.y += 0.005;
+    group.rotation.y += 0.002;
 
-    if (mouse.x) {
-      gsap.to(group.rotation, {
-        x: -mouse.y * 0.1,
-        y: mouse.x * 1.5,
-        duration: 1,
+    // if (mouse.x) {
+    //   gsap.to(group.rotation, {
+    //     x: -mouse.y * 0.1,
+    //     y: mouse.x * 1.5,
+    //     duration: 1,
+    //   });
+    // }
+
+    raycaster.setFromCamera(mouse, camera);
+
+    const intersects = raycaster.intersectObjects(
+      group.children.filter((mesh) => {
+        return mesh.geometry.type === "BoxGeometry";
+      })
+    );
+
+    group.children.forEach((mesh) => {
+      mesh.material.opacity = 0.4;
+    });
+
+    gsap.set(popupEl, {
+      display: "none",
+    });
+
+    for (let i = 0; i < intersects.length; i++) {
+      intersects[i].object.material.opacity = 1;
+
+      gsap.set(popupEl, {
+        display: "block",
       });
+
+      cityName.innerHTML = intersects[i].object.city;
+      countryFlag.innerHTML = intersects[i].object.flag;
+      console.log(countryFlag.innerHTML);
     }
+
+    renderer.render(scene, camera);
   }
 
   animate();
 
-  addEventListener("mousemove", () => {
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  addEventListener("mousemove", (event) => {
+    mouse.x = ((event.clientX - innerWidth / 2) / (innerWidth / 2)) * 2 - 1;
+    mouse.y = -(event.clientY / innerHeight) * 2 + 1;
+
+    gsap.set(popupEl, {
+      x: event.clientX,
+      y: event.clientY,
+    });
   });
 
   window.addEventListener("resize", () => {
