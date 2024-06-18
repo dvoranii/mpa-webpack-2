@@ -97,10 +97,24 @@
     width: 100%;
     flex-direction: column;
     align-items: center;
-    padding: 0;
+    padding: 1.2rem;
   }
 
   .footer-section {
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 444px) {
+  .footer-section h2 {
+    margin-bottom: 2.4rem;
+  }
+
+  .social-icons {
+    flex-direction: column;
+    align-items: center;
+  }
+  .quick-links--list {
+    margin-left: 0;
   }
 }

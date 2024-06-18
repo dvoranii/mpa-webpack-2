@@ -1,14 +1,15 @@
 section.contact-section {
   max-width: 60vw;
+  margin: 20vh auto 0 auto;
 }
 p {
   margin-bottom: 0;
 }
 
 .tabs {
-  margin: 20vh auto 0 auto;
   display: flex;
   justify-content: flex-end;
+  padding-bottom: 2.4rem;
 }
 
 .tab-link {
@@ -79,11 +80,14 @@ h1.ontario-title {
   padding: 8px 16px;
 }
 /* Contact Info Section */
-
-.contact-form--wrapper {
+.contact-form--wrapper__outer {
   width: 100%;
+}
+.contact-form--wrapper__inner {
+  width: 100%;
+  margin: 0 auto 3.2rem auto;
   background: linear-gradient(to top, lightgray, white);
-  margin-bottom: 3.2rem;
+
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
@@ -174,4 +178,34 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+@media screen and (max-width: 1167px) {
+  .map-section--wrapper {
+    flex-direction: column;
+  }
+  .contact-info {
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 651px) {
+  .tabs {
+    justify-content: center;
+    padding-bottom: 2.4rem;
+    gap: 1.4rem;
+    border-bottom: 1px solid grey;
+    margin-bottom: 2.4rem;
+  }
+
+  section.contact-section {
+    margin: 10vh auto 0 auto;
+    max-width: 80vw;
+  }
+}
+
+@media screen and (max-width: 455px) {
+  .map-container iframe {
+    height: 280px;
+  }
 }

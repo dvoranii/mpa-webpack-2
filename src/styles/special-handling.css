@@ -59,3 +59,22 @@ h1.handling-title {
 .contact-link:hover {
   font-weight: 700;
 }
+
+@media screen and (max-width: 1175px) {
+  .delivery-section--1__p1 img {
+    width: 44vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .delivery-section--1 {
+    flex-direction: column;
+  }
+  .delivery-section--1__p1 img {
+    width: 100%;
+  }
+  .delivery-section--1__p2 {
+    padding-left: 0;
+    padding-top: 2.4rem;
+  }
+}
