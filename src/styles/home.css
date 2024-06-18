@@ -41,6 +41,7 @@
 }
 
 .hero__wrapper--inner {
+  user-select: none;
   height: 100vh;
   width: 100%;
   display: flex;
@@ -115,7 +116,6 @@
 .home-section__img-container {
   width: 100%;
   height: 450px;
-  /* background: url(../assets/images/logistics-deal.jpg); */
   background-attachment: fixed;
   background-position: -200px;
   background-size: cover;
@@ -418,6 +418,13 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .hero__wrapper--outer {
+    grid-template-columns: 1fr;
+  }
+  .hero__wrapper--left {
+    width: 90%;
+    padding-left: 1.2rem;
+  }
   .hockey-wrapper {
     flex-direction: column;
     align-items: flex-start;
@@ -452,7 +459,34 @@
   }
 }
 
+@media screen and (max-width: 1024px) and (max-height: 1366px) {
+  .hero__wrapper--outer {
+    grid-template-columns: 1fr;
+  }
+  .hero__wrapper--left {
+    width: 80%;
+    padding: 0 1.2rem;
+  }
+  .hero__wrapper--right {
+    width: 100%;
+    height: 60vh;
+  }
+
+  .hero__wrapper--inner {
+    height: 60vh;
+  }
+  .home-content__outer {
+    margin-top: 15vh;
+  }
+  .hero__scroll-down {
+    bottom: -180px;
+  }
+}
+
 @media screen and (max-width: 853px) {
+  h2.hero__title {
+    font-size: clamp(2rem, 4vw, 2.4rem);
+  }
   .home-section__img-container {
     background-position: -1000px 0px;
   }
@@ -475,6 +509,34 @@
   .scroll-img.scroll-img--4 {
     margin-top: 80px;
     margin-left: 30vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .hero__wrapper--outer {
+    grid-template-columns: 1fr;
+  }
+  .hero__wrapper--left {
+    width: 100%;
+    padding: 0 3.4rem;
+  }
+  .hero__wrapper--right {
+    width: 100%;
+    height: 60vh;
+  }
+
+  .hero__wrapper--inner {
+    height: 60vh;
+  }
+
+  .hero__scroll-down {
+    bottom: 388px;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-height: 1024px) {
+  .home-content__outer {
+    margin-top: 20vh;
   }
 }
 
@@ -503,6 +565,17 @@
   .scroll-img.scroll-img--4 {
     margin-top: 60px;
   }
+
+  .hero__wrapper--inner {
+    height: 50vh;
+  }
+  .hero__scroll-down {
+    bottom: 388px;
+  }
+
+  .home-section.home-section--1 h2 {
+    padding-top: 12vh;
+  }
 }
 
 @media screen and (max-width: 436px) {
@@ -514,6 +587,18 @@
   .scroll-img.scroll-img--2,
   .scroll-img.scroll-img--4 {
     margin-left: 20vw;
+  }
+
+  .hero__scroll-down {
+    bottom: 430px;
+  }
+
+  .home-content__outer {
+    margin-top: 10vh;
+  }
+
+  .home-section.home-section--1 h2 {
+    padding-top: 5vh;
   }
 }
 

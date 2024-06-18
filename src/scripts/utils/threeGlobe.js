@@ -9,15 +9,15 @@ export function initGlobe() {
   const canvas = document.getElementById("globe-canvas");
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(
+  let camera = new THREE.PerspectiveCamera(
     75,
-    canvas.clientWidth / canvas.clientHeight,
+    canvas.offsetWidth / canvas.offsetHeight,
     0.1,
     1000
   );
 
   const renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true });
-  renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+  renderer.setSize(canvas.offsetWidth, canvas.offsetHeight);
   renderer.setPixelRatio(window.devicePixelRatio);
 
   // create stars
@@ -109,7 +109,7 @@ export function initGlobe() {
 
     gsap.to(box.scale, {
       z: 0.1,
-      duration: 1.4,
+      duration: 1.8,
       repeat: -1,
       yoyo: true,
       ease: "linear",
@@ -142,10 +142,17 @@ export function initGlobe() {
   getCities();
 
   sphere.rotation.y = -Math.PI / 2;
+  group.rotation.offset = {
+    x: 0,
+    y: 0,
+  };
 
   const mouse = {
     x: undefined,
     y: undefined,
+    down: false,
+    xPrev: undefined,
+    yPrev: undefined,
   };
 
   const raycaster = new THREE.Raycaster();
@@ -157,18 +164,9 @@ export function initGlobe() {
   function animate() {
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
-    group.rotation.y += 0.002;
-
-    // if (mouse.x) {
-    //   gsap.to(group.rotation, {
-    //     x: -mouse.y * 0.1,
-    //     y: mouse.x * 1.5,
-    //     duration: 1,
-    //   });
-    // }
 
     raycaster.setFromCamera(mouse, camera);
-
+    group.rotation.y += 0.003;
     const intersects = raycaster.intersectObjects(
       group.children.filter((mesh) => {
         return mesh.geometry.type === "BoxGeometry";
@@ -192,13 +190,21 @@ export function initGlobe() {
 
       cityName.innerHTML = intersects[i].object.city;
       countryFlag.innerHTML = intersects[i].object.flag;
-      console.log(countryFlag.innerHTML);
     }
 
     renderer.render(scene, camera);
   }
 
   animate();
+
+  canvas.addEventListener("mousedown", ({ clientX, clientY }) => {
+    mouse.down = true;
+    mouse.xPrev = clientX;
+    mouse.yPrev = clientY;
+  });
+  addEventListener("mouseup", () => {
+    mouse.down = false;
+  });
 
   addEventListener("mousemove", (event) => {
     mouse.x = ((event.clientX - innerWidth / 2) / (innerWidth / 2)) * 2 - 1;
@@ -208,13 +214,43 @@ export function initGlobe() {
       x: event.clientX,
       y: event.clientY,
     });
+
+    if (mouse.down) {
+      event.preventDefault();
+
+      const deltaX = event.clientX - mouse.xPrev;
+      const deltaY = event.clientY - mouse.yPrev;
+
+      group.rotation.offset.x += deltaY * 0.001;
+      group.rotation.offset.y += deltaX * 0.005;
+
+      mouse.xPrev = event.clientX;
+      mouse.yPrev = event.clientY;
+
+      gsap.to(group.rotation, {
+        x: group.rotation.offset.x,
+        y: group.rotation.offset.y,
+        duration: 2,
+      });
+    }
   });
 
-  window.addEventListener("resize", () => {
-    const width = canvas.clientWidth;
-    const height = canvas.clientHeight;
+  function debounce(func, wait) {
+    let timeout;
+    return function (...args) {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => func.apply(this, args), wait);
+    };
+  }
+
+  const handleResize = debounce(() => {
+    const width = canvas.offsetWidth;
+    const height = canvas.offsetHeight;
+
     renderer.setSize(width, height);
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
-  });
+  }, 100);
+
+  window.addEventListener("resize", handleResize);
 }
