@@ -424,6 +424,9 @@
 }
 
 @media screen and (max-width: 1024px) {
+  .scroll-img__container {
+    display: none;
+  }
   .hero__wrapper--outer {
     grid-template-columns: 1fr;
   }

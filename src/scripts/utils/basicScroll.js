@@ -67,10 +67,20 @@ function initializeBasicScrollInstances() {
 }
 
 export function initializeBasicScroll() {
-  let scrollInstances = initializeBasicScrollInstances();
+  let scrollInstances = [];
 
-  window.addEventListener("resize", () => {
-    scrollInstances.forEach((instance) => instance.destroy());
-    scrollInstances = initializeBasicScrollInstances();
-  });
+  function setupScrollInstances() {
+    if (scrollInstances.length > 0) {
+      scrollInstances.forEach((instance) => instance.destroy());
+      scrollInstances = [];
+    }
+
+    if (window.innerWidth > 1024) {
+      scrollInstances = initializeBasicScrollInstances();
+    }
+  }
+
+  setupScrollInstances();
+
+  window.addEventListener("resize", setupScrollInstances);
 }
