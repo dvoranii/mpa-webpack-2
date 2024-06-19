@@ -44,12 +44,14 @@ body {
 }
 
 h1 {
+  color: #222222;
   font-size: clamp(2.4rem, 5vw, 4rem);
   font-family: "Roboto", sans-serif;
   font-weight: 700;
 }
 
 h2 {
+  color: #222222;
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-family: "Roboto", sans-serif;
   font-weight: 500;
@@ -57,15 +59,24 @@ h2 {
 }
 
 h3 {
+  color: #222222;
   font-size: clamp(1.8rem, 3.5vw, 2.4rem);
   font-family: "Roboto", sans-serif;
   font-weight: 500;
 }
 
 h4 {
+  color: #222222;
   font-size: clamp(1.6rem, 3vw, 2rem);
   font-family: "Nunito", sans-serif;
   font-weight: 400;
+}
+
+h1:hover,
+h2:hover,
+h3:hover,
+h4:hover {
+  cursor: default;
 }
 
 img,
@@ -94,7 +105,7 @@ legend {
 }
 
 label {
-  font-family: "Nunitop", sans-serif;
+  font-family: "Nunito", sans-serif;
   font-size: 1.2rem;
   margin-top: 1rem;
 }

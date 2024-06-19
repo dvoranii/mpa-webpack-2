@@ -11,6 +11,9 @@
   flex-wrap: wrap;
   padding: 0 80px;
 }
+.footer-content h2 {
+  color: #fffeee;
+}
 
 .footer-section {
   flex: 1;

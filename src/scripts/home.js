@@ -32,6 +32,12 @@ document.addEventListener("DOMContentLoaded", async () => {
   lazyLoadImages();
   lazyLoadBackgrounds();
   initGlobe();
+
+  const ctaButton = document.querySelector(".cta-btn--color-9");
+  const windowLocation = window.location.href;
+  ctaButton.addEventListener("click", () => {
+    window.location.href = `${windowLocation}quote`;
+  });
 });
 
 const modalBg = document.querySelector(".modal-bg");
@@ -41,12 +47,12 @@ const form = document.querySelector(".newsletter-form");
 const subscribeBtn = document.querySelector(".modal__subscribe-btn");
 const loader = document.querySelector(".loader");
 
-// setTimeout(() => {
-//   modalBg.classList.add("bg-active");
-//   requestAnimationFrame(() => {
-//     modal.classList.add("show");
-//   });
-// }, 10000);
+setTimeout(() => {
+  modalBg.classList.add("bg-active");
+  requestAnimationFrame(() => {
+    modal.classList.add("show");
+  });
+}, 1000);
 
 function closeModal() {
   modal.classList.remove("show");
@@ -93,7 +99,7 @@ let observer = new IntersectionObserver(
   },
   {
     root: null,
-    rootMargin: "-150px",
+    rootMargin: "-50px",
     threshold: 0.5,
   }
 );

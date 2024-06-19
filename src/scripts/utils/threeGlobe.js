@@ -166,7 +166,7 @@ export function initGlobe() {
     renderer.render(scene, camera);
 
     raycaster.setFromCamera(mouse, camera);
-    group.rotation.y += 0.001;
+    group.rotation.y += 0.0025;
     const intersects = raycaster.intersectObjects(
       group.children.filter((mesh) => {
         return mesh.geometry.type === "BoxGeometry";

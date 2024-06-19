@@ -146,6 +146,9 @@
   opacity: 1;
   transform: translateY(0);
 }
+.home-section--1 {
+  padding-top: clamp(2.8rem, 4vh, 5.6rem);
+}
 
 .home-section.home-section--1 h2 {
   padding-top: 10vh;
@@ -516,11 +519,11 @@
     padding-top: 3.2rem;
   }
   .home-section__img-container {
-    height: 350px;
+    height: 255px;
     background-position: -1000px 0px;
   }
   .home-section__logo--visible {
-    width: 70vw;
+    width: 75vw;
   }
   .hockey-img--wrapper img {
     min-width: 100%;
@@ -613,6 +616,10 @@
   }
   .home-section.home-section--1 h2 {
     padding-top: 5vh;
+  }
+
+  .hero__wrapper--left {
+    padding-top: 4.8rem;
   }
 }
 
