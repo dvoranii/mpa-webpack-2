@@ -40,6 +40,9 @@ h1.handling-title {
 .delivery-section--1__p2 img {
   width: 45%;
 }
+.handling-services__section-2 {
+  padding-bottom: 4.8rem;
+}
 
 .handling-services__section-2 h2 {
   font-weight: 700;
@@ -70,13 +73,15 @@ h1.handling-title {
   }
 }
 
-/* @media screen and (max-width: 1175px) {
-
-} */
-
 @media screen and (max-width: 768px) {
+  .handling-title--wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .delivery-section--1 {
     flex-direction: column;
+    margin-top: 1.2rem;
   }
   .delivery-section--1__p1 img {
     width: 100%;

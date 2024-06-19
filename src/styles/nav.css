@@ -118,6 +118,7 @@
   visibility: visible;
   height: auto;
   z-index: 99;
+  background: transparent;
 }
 
 /* Secondary dropdown styles */
@@ -139,6 +140,7 @@
   opacity: 1;
   visibility: visible;
   transform: translateX(0);
+  background: transparent;
 }
 
 .dropdown-secondary a {
