@@ -1,10 +1,13 @@
+.transportation-section {
+  margin-top: 15vh;
+}
+
 .title-wrapper {
   display: flex;
   align-items: center;
   padding-top: 2.4rem;
   padding-bottom: 1.2rem;
   font-family: "Roboto", sans-serif;
-  margin-top: 15vh;
 }
 
 .title-wrapper h1 {
@@ -36,6 +39,12 @@
 
 .transport-text--wrapper__bottom {
   padding-top: 2.4rem;
+}
+
+@media screen and (max-width: 1366px) {
+  .transportation-section {
+    margin-top: 4vh;
+  }
 }
 
 @media screen and (max-width: 768px) {

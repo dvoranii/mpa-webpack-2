@@ -1,3 +1,7 @@
+#nav-container {
+  height: fit-content;
+  /* padding-left: 12px; */
+}
 .main-nav {
   position: fixed;
   top: 0;

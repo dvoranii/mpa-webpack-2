@@ -1,46 +1,53 @@
 import "../../../styles/nav.css";
+import { html, render } from "lit-html";
 
 export function createNav() {
-  return `
-      <nav class="main-nav navbar">
+  let navContainer = document.getElementById("nav-container");
+  let navHtml = html`
+    <nav class="main-nav navbar">
       <div class="wrapper">
-      <div class="logo-wrapper">
-        <img src="../../assets/images/cgl-logo-no-text.png">
-      </div>
-      <div class="backdrop">
-      <img src="../../assets/images/nav-banner.svg">
-      </div>
+        <div class="logo-wrapper">
+          <img src="../../assets/images/cgl-logo-no-text.png" />
+        </div>
+        <div class="backdrop">
+          <img src="../../assets/images/nav-banner.svg" />
+        </div>
         <div class="burger-menu" id="burgerMenu">
           <span></span>
           <span></span>
           <span></span>
         </div>
         <ul class="nav-links" id="navLinks">
-        <li><a href="/">Home</a></li>
-        <li class="dropdown">
-          <a href="#" class="services-link">Services<span class="nav-triangle">▾</span></a>
-          <ul class="dropdown-content">
-            <li class="dropdown-secondary">
-              <a href="#" class="transportation-link">Transportation<span class="nav-triangle">▾</span></a>
-              <ul class="dropdown-secondary-content">
-                <li><a href="/air">Air</a></li>
-                <li><a href="/ocean">Ocean</a></li>
-                <li><a href="/truck">Truck</a></li>
-                <li><a href="/warehouse">Warehouse</a></li>
-              </ul>
-            </li>
-            <li><a href="/special-handling">Special Handling</a></li>
-            <li><a href="/sporting-goods">Sporting Goods</a></li>
-          </ul>
-        </li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/quote">Quote</a></li>
-        <li><a href="/contact">Contact</a></li>
+          <li><a href="/">Home</a></li>
+          <li class="dropdown">
+            <a href="#" class="services-link"
+              >Services<span class="nav-triangle">▾</span></a
+            >
+            <ul class="dropdown-content">
+              <li class="dropdown-secondary">
+                <a href="#" class="transportation-link"
+                  >Transportation<span class="nav-triangle">▾</span></a
+                >
+                <ul class="dropdown-secondary-content">
+                  <li><a href="/air">Air</a></li>
+                  <li><a href="/ocean">Ocean</a></li>
+                  <li><a href="/truck">Truck</a></li>
+                  <li><a href="/warehouse">Warehouse</a></li>
+                </ul>
+              </li>
+              <li><a href="/special-handling">Special Handling</a></li>
+              <li><a href="/sporting-goods">Sporting Goods</a></li>
+            </ul>
+          </li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/quote">Quote</a></li>
+          <li><a href="/contact">Contact</a></li>
         </ul>
-        </div>
-      </nav>
+      </div>
+    </nav>
+  `;
 
-    `;
+  return render(navHtml, navContainer);
 }
 
 export function setupNav() {

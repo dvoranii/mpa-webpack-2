@@ -87,6 +87,9 @@ h1.sporting-title {
 }
 
 @media screen and (max-width: 1366px) {
+  .sporting-section {
+    padding-top: 10vh;
+  }
   .hockey-banner--wrapper h2,
   .hockey-banner--wrapper p {
     padding-left: 2.4rem;
@@ -98,9 +101,6 @@ h1.sporting-title {
 }
 
 @media screen and (max-width: 938px) {
-  .sporting-section {
-    padding-top: 10vh;
-  }
   .hockey-banner--wrapper h2 {
     font-size: 2.4rem;
     padding-top: 0;
