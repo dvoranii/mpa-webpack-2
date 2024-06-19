@@ -5,7 +5,7 @@
 .home-section h2,
 .hero__title {
   font-weight: 700;
-  padding-top: 3.2rem;
+  padding-top: 2.4rem;
 }
 
 .newsletter-form {
@@ -64,6 +64,7 @@
 }
 
 .hero__wrapper--left {
+  padding-top: 6.4rem;
   width: 50%;
 }
 

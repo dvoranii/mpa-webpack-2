@@ -7,10 +7,16 @@ export function createNav() {
     <nav class="main-nav navbar">
       <div class="wrapper">
         <div class="logo-wrapper">
-          <img src="../../assets/images/cgl-logo-no-text.png" />
+          <img
+            src="../../assets/images/nav-logo-optimized(2).webp"
+            alt="nav CGL Logo"
+          />
         </div>
         <div class="backdrop">
-          <img src="../../assets/images/nav-banner.svg" />
+          <img
+            src="../../assets/images/nav-banner.svg"
+            alt="nav background image"
+          />
         </div>
         <div class="burger-menu" id="burgerMenu">
           <span></span>

@@ -3,7 +3,10 @@ import "../styles/home.css";
 import "../styles/modal.css";
 import "../styles/messages.css";
 import "../styles/loader.css";
-import { initializeRecaptcha } from "./utils/recaptcha.js";
+import {
+  initializeRecaptcha,
+  stopRecaptchaTokenRefresh,
+} from "./utils/recaptcha.js";
 import { fetchCsrfToken } from "./utils/csrfUtils.js";
 import { handleSubscriptionFormSubmit } from "./utils/formUtils.js";
 import { addInputEventListeners } from "./utils/inputEventListeners.js";
@@ -38,6 +41,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   ctaButton.addEventListener("click", () => {
     window.location.href = `${windowLocation}quote`;
   });
+});
+
+window.addEventListener("beforeunload", () => {
+  stopRecaptchaTokenRefresh();
 });
 
 const modalBg = document.querySelector(".modal-bg");

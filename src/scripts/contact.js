@@ -2,7 +2,10 @@
 import "../styles/contact.css";
 import "../styles/messages.css";
 import "../styles/loader.css";
-import { initializeRecaptcha } from "./utils/recaptcha.js";
+import {
+  initializeRecaptcha,
+  stopRecaptchaTokenRefresh,
+} from "./utils/recaptcha.js";
 import { handleContactFormSubmit } from "./utils/formUtils.js";
 import { showLoader, hideLoader } from "./utils/loadingSpinner.js";
 import { validateForm } from "./utils/validationUtils.js";
@@ -31,6 +34,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   });
 
   showOffice("ontario");
+});
+
+window.addEventListener("beforeunload", () => {
+  stopRecaptchaTokenRefresh();
 });
 
 function showOffice(office) {

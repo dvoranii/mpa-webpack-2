@@ -65,8 +65,7 @@ h1.sporting-title {
 
 .hockey-banner--wrapper img {
   grid-column: 1;
-  width: 100%;
-  margin-left: 5.6rem;
+  width: 70%;
 }
 .hockey-banner--wrapper h2 {
   font-weight: 700;

@@ -2,7 +2,10 @@ import "../styles/quote.css";
 import "../styles/messages.css";
 import "../styles/loader.css";
 import { html, render } from "lit-html";
-import { initializeRecaptcha } from "./utils/recaptcha.js";
+import {
+  initializeRecaptcha,
+  stopRecaptchaTokenRefresh,
+} from "./utils/recaptcha.js";
 import { fetchCsrfToken } from "./utils/csrfUtils.js";
 import {
   addQuoteInputEventListeners,
@@ -35,6 +38,10 @@ document.addEventListener("DOMContentLoaded", async () => {
   } catch (error) {
     console.error("Failed to fetch CSRF token", error);
   }
+});
+
+window.addEventListener("beforeunload", () => {
+  stopRecaptchaTokenRefresh();
 });
 
 const renderRows = () => {
