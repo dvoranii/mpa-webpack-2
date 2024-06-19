@@ -58,7 +58,7 @@ export function setupNav() {
   // need to fix this for mobile since we last updated it
   const toggleDropdown = (e) => {
     e.preventDefault();
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1366) {
       const dropdownContent =
         e.currentTarget.querySelector(".dropdown-content");
       dropdownContent.classList.toggle("active");
@@ -66,7 +66,7 @@ export function setupNav() {
   };
   const toggleSecondaryDropdown = (e) => {
     e.preventDefault();
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 1366) {
       const dropdownSecondaryContent = e.currentTarget.querySelector(
         ".dropdown-secondary-content"
       );
@@ -92,6 +92,7 @@ export function setupNav() {
   const submenuLinks = document.querySelectorAll(".dropdown-content a");
   submenuLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
+      e.preventDefault();
       window.location.href = link.href;
     });
     link.addEventListener("touchstart", (e) => {
@@ -104,7 +105,7 @@ export function setupNav() {
 }
 
 function handleResize() {
-  if (window.innerWidth > 768) {
+  if (window.innerWidth > 1366) {
     const dropdownContents = document.querySelectorAll(".dropdown-content");
     const secondaryDropdownContents = document.querySelectorAll(
       ".dropdown-secondary-content"

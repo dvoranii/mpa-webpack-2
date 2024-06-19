@@ -36,3 +36,14 @@
   padding-top: 2.4rem;
   width: 50%;
 }
+@media screen and (max-width: 683px) {
+  .copy-container {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 487px) {
+  .copy-container {
+    width: 100%;
+  }
+}
