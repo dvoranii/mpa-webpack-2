@@ -59,7 +59,7 @@ setTimeout(() => {
   requestAnimationFrame(() => {
     modal.classList.add("show");
   });
-}, 1000);
+}, 10000);
 
 function closeModal() {
   modal.classList.remove("show");

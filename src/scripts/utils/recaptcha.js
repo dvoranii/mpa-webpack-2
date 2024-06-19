@@ -1,6 +1,8 @@
 "use strict";
 import { loadScript } from "./domUtils.js";
 
+let refreshTokenInterval;
+
 function setupRecaptcha(callback) {
   if (typeof grecaptcha === "undefined") {
     console.error("reCAPTCHA library not loaded!");
@@ -25,8 +27,9 @@ function initializeRecaptchaToken() {
     }
   });
 }
+
 function refreshRecaptchaToken() {
-  setInterval(() => {
+  refreshTokenInterval = setInterval(() => {
     setupRecaptcha((token) => {
       const recaptchaElem = document.getElementById("recaptchaResponse");
       if (recaptchaElem) {

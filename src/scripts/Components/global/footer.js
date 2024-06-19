@@ -39,28 +39,28 @@ export function createFooter() {
               ><img
                 data-src="../assets/images/icons/fb-1.png"
                 class="lazy"
-                alt="Facebook"
+                alt="Facebook Icon"
               />Facebook</a
             >
             <a href="#"
               ><img
                 data-src="../assets/images/icons/twitter-1.png"
                 class="lazy"
-                alt="Twitter"
+                alt="Twitter Icon"
               />Twitter</a
             >
             <a href="#"
               ><img
                 data-src="../assets/images/icons/ig-1.png"
                 class="lazy"
-                alt="Instagram"
+                alt="Instagram Icon"
               />Instagram</a
             >
             <a href="#"
               ><img
                 data-src="../assets/images/icons/li-1.png"
                 class="lazy"
-                alt="LinkedIn"
+                alt="LinkedIn Icon"
               />LinkedIn</a
             >
           </div>
