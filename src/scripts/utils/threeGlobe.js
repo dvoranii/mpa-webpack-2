@@ -82,7 +82,7 @@ export function initGlobe() {
 
   function createBox({ lat, lng, country, city, flag }) {
     const box = new THREE.Mesh(
-      new THREE.BoxGeometry(0.18, 0.18, 0.8),
+      new THREE.BoxGeometry(0.25, 0.25, 0.8),
       new THREE.MeshBasicMaterial({
         color: 0x90d7ac,
         opacity: 0.4,
