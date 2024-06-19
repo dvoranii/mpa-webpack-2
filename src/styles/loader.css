@@ -8,7 +8,7 @@
 }
 
 .loader {
-  position: fixed;
+  position: absolute;
   display: flex;
   width: 40px;
   height: 40px;

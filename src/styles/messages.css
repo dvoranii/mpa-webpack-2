@@ -21,12 +21,21 @@
   display: none;
   bottom: 0;
   font-family: "Roboto", sans-serif;
-  font-weight: 400;
-  font-size: 0.8rem;
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: 0.25px;
   color: green;
   margin-top: 10px;
   width: 100%;
   text-align: center;
+}
+
+.success-message.contact-success {
+  bottom: 8px;
+}
+
+.success-message.quote-success {
+  bottom: -20px;
 }
 
 .success-message:not(.success-hidden) {

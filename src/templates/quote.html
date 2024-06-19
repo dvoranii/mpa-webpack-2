@@ -176,13 +176,16 @@
           <button type="submit" class="submit-btn">Submit</button>
           <button type="reset" class="clear-btn">Clear</button>
           <div class="loader loader-hidden"></div>
+          <div
+            id="successMessage"
+            class="success-message success-hidden quote-success"
+          >
+            Form submitted successfully!
+          </div>
         </div>
+
         <input type="hidden" id="recaptchaResponse" name="recaptchaResponse" />
       </form>
-
-      <div id="successMessage" class="success-message success-hidden">
-        Form submitted successfully!
-      </div>
     </main>
   </body>
 </html>
