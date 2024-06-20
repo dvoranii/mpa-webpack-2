@@ -42,9 +42,6 @@ function handleCsrfToken(form) {
   appendCsrfToken(form, csrfToken);
 }
 
-// need to structure the data BEFORE the FormData object is created
-// understand how FormData grabs the inputs
-
 async function handleFormSubmit(form, url, fields) {
   handleCsrfToken(form);
   const formData = new FormData(form);
