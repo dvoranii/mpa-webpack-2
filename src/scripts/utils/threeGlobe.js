@@ -21,9 +21,48 @@ export function initGlobe() {
   renderer.setPixelRatio(window.devicePixelRatio);
 
   // create stars
+  function createStarTexture() {
+    const size = 50;
+    const canvas = document.createElement("canvas");
+    canvas.width = size;
+    canvas.height = size;
+
+    const context = canvas.getContext("2d");
+
+    // Draw a circular gradient
+    const gradient = context.createRadialGradient(
+      size / 2,
+      size / 2,
+      0,
+      size / 2,
+      size / 2,
+      size / 2
+    );
+    gradient.addColorStop(0, "rgba(255, 255, 255, 1)");
+    gradient.addColorStop(0.2, "rgba(255, 255, 255, 0.6)");
+    gradient.addColorStop(0.4, "rgba(255, 255, 255, 0.2)");
+    gradient.addColorStop(1, "rgba(255, 255, 255, 0)");
+
+    context.fillStyle = gradient;
+    context.beginPath();
+    context.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+    context.fill();
+
+    const texture = new THREE.Texture(canvas);
+    texture.needsUpdate = true;
+    return texture;
+  }
+
   function createStarField() {
     const starGeometry = new THREE.BufferGeometry();
-    const startMaterial = new THREE.PointsMaterial({ color: 0xffffff });
+    const starMaterial = new THREE.PointsMaterial({
+      color: 0xffffff,
+      size: 10, // Adjust the size as needed
+      map: createStarTexture(),
+      transparent: true,
+      blending: THREE.AdditiveBlending, // For a glowing effect
+      depthWrite: false,
+    });
 
     const starVertices = [];
 
@@ -38,9 +77,12 @@ export function initGlobe() {
       "position",
       new THREE.Float32BufferAttribute(starVertices, 3)
     );
-    const stars = new THREE.Points(starGeometry, startMaterial);
+
+    const stars = new THREE.Points(starGeometry, starMaterial);
     scene.add(stars);
   }
+
+  createStarField();
 
   // create sphere
   const sphere = new THREE.Mesh(
@@ -71,8 +113,6 @@ export function initGlobe() {
   atmosphere.scale.set(1.4, 1.4, 1.4);
 
   scene.add(atmosphere);
-
-  createStarField();
 
   const group = new THREE.Group();
   group.add(sphere);
