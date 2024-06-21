@@ -1,6 +1,10 @@
 import { sanitizeInput } from "./domUtils.js";
 import { getCsrfToken, appendCsrfToken } from "./csrfUtils.js";
 
+const backendURL = process.env.BACKEND_URL;
+
+console.log(backendURL);
+
 // abstracted this logic to avoid nested callbacks
 async function submitForm(url, formData) {
   try {
@@ -59,11 +63,12 @@ async function handleFormSubmit(form, url, fields) {
 
 export async function handleContactFormSubmit(form) {
   try {
-    const data = await handleFormSubmit(
-      form,
-      "http://localhost:4444/contact-form",
-      ["name", "email", "message", "recaptchaResponse"]
-    );
+    await handleFormSubmit(form, `${backendURL}/contact-form`, [
+      "name",
+      "email",
+      "message",
+      "recaptchaResponse",
+    ]);
 
     console.log("Form submitted successfully:", data);
   } catch (error) {
@@ -74,11 +79,11 @@ export async function handleContactFormSubmit(form) {
 
 export async function handleSubscriptionFormSubmit(form) {
   try {
-    const data = await handleFormSubmit(
-      form,
-      "http://localhost:4444/subscribe",
-      ["name", "email", "recaptchaResponse"]
-    );
+    await handleFormSubmit(form, `${backendURL}/subscribe`, [
+      "name",
+      "email",
+      "recaptchaResponse",
+    ]);
   } catch (error) {
     console.error(`Subscription error: ${error} `);
   }
@@ -114,11 +119,7 @@ export async function handleQuoteFormSubmit(form) {
       fields.push(`height-${i}`);
     }
 
-    const data = await handleFormSubmit(
-      form,
-      "http://localhost:4444/quote-form",
-      fields
-    );
+    await handleFormSubmit(form, `${backendURL}/quote-form`, fields);
   } catch (error) {
     console.error(`Quote form error: ${error}`);
   }

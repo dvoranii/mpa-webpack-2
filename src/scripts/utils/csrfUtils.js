@@ -1,8 +1,10 @@
 let csrfToken = null;
 
+const backendURL = process.env.BACKEND_URL;
+
 export async function fetchCsrfToken() {
   try {
-    const response = await fetch(`http://localhost:4444/csrf-token`, {
+    const response = await fetch(`${backendURL}/csrf-token`, {
       credentials: "include",
     });
     checkValidResponse(response);
