@@ -3,8 +3,6 @@ import { getCsrfToken, appendCsrfToken } from "./csrfUtils.js";
 
 const backendURL = process.env.BACKEND_URL;
 
-console.log(backendURL);
-
 // abstracted this logic to avoid nested callbacks
 async function submitForm(url, formData) {
   try {
