@@ -69,6 +69,9 @@ input[type="text"],
 input[type="email"],
 input[type="tel"],
 input[type="number"],
+input[name="name"],
+input[name="company"],
+input[name="HSCode"],
 textarea,
 select {
   width: 100%;
