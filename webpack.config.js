@@ -59,6 +59,7 @@ export default (env, argv) => {
     new CopyWebpackPlugin({
       patterns: [
         { from: path.resolve(__dirname, "src", "assets"), to: "assets" },
+        { from: path.resolve(__dirname, "robots.txt"), to: "robots.txt" },
       ],
     }),
     new Dotenv({

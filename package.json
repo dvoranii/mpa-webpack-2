@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --config webpack.config.js --mode development",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js --mode production",
-    "start:prod": "npm run build && serve -s dist"
+    "start:prod": "npm run build && node generate-sitemap.js && serve -s dist"
   },
   "type": "module",
   "keywords": [],
