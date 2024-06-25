@@ -10,12 +10,18 @@ export function createNav() {
           <img
             src="../../assets/images/nav-logo-optimized(2).webp"
             alt="nav CGL Logo"
+            width="327"
+            height="254"
+            class="responsive-img logo-img"
           />
         </div>
         <div class="backdrop">
           <img
             src="../../assets/images/nav-banner.svg"
             alt="nav background image"
+            width="300"
+            height="45"
+            class="responsive-img banner-img"
           />
         </div>
         <div class="burger-menu" id="burgerMenu">

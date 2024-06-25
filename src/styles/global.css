@@ -27,9 +27,9 @@
 
 @font-face {
   font-family: "Nunito";
-  src: url("../assets/fonts/Nunito-VariableFont_wght.woff2") format("woff2"),
-    url("../assets/fonts/Nunito-VariableFont_wght.woff") format("woff"),
-    url("../assets/fonts/Nunito-VariableFont_wght.ttf") format("truetype");
+  src: url("../assets/fonts/Nunito-Regular.woff2") format("woff2"),
+    url("../assets/fonts/Nunito-Regular.woff") format("woff"),
+    url("../assets/fonts/Nunito-Regular.ttf") format("truetype");
   font-weight: 400;
   font-display: swap;
 }
