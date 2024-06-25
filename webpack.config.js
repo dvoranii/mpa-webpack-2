@@ -60,6 +60,14 @@ export default (env, argv) => {
       patterns: [
         { from: path.resolve(__dirname, "src", "assets"), to: "assets" },
         { from: path.resolve(__dirname, "robots.txt"), to: "robots.txt" },
+        {
+          from: path.resolve(__dirname, "src/assets/images/icons"),
+          to: "assets/images/icons",
+        },
+        {
+          from: path.resolve(__dirname, "src/service-worker.js"),
+          to: "service-worker.js",
+        },
       ],
     }),
     new Dotenv({

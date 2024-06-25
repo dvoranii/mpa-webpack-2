@@ -31,5 +31,3 @@ ${pages
 </urlset>`;
 
 fs.writeFileSync(path.resolve(__dirname, "dist", "sitemap.xml"), sitemap);
-
-console.log("Sitemap generated!");

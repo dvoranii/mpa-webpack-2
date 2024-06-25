@@ -1,6 +1,7 @@
 let csrfToken = null;
 
 const backendURL = process.env.BACKEND_URL;
+console.log(backendURL);
 
 export async function fetchCsrfToken() {
   try {

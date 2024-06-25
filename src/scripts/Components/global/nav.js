@@ -74,7 +74,6 @@ export function setupNav() {
   const dropdowns = document.querySelectorAll(".dropdown");
   const secondaryDropdowns = document.querySelectorAll(".dropdown-secondary");
 
-  // need to fix this for mobile since we last updated it
   const toggleDropdown = (e) => {
     e.preventDefault();
     if (window.innerWidth <= 1366) {
