@@ -5,7 +5,7 @@ console.log(backendURL);
 
 export async function fetchCsrfToken() {
   try {
-    const response = await fetch(`${backendURL}/csrf-token`, {
+    const response = await fetch(`${backendURL}/api/csrf-token`, {
       credentials: "include",
     });
     checkValidResponse(response);

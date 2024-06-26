@@ -1,8 +1,8 @@
 {
   "name": "webpack-mpa-2",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "CGL Webpack MPA 2 Frontend",
+  "main": "src/scripts/global.js",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack serve --config webpack.config.js --mode development",
     "build": "cross-env NODE_ENV=production webpack --config webpack.config.js --mode production",

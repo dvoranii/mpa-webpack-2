@@ -61,12 +61,11 @@ async function handleFormSubmit(form, url, fields) {
 
 export async function handleContactFormSubmit(form) {
   try {
-    const data = await handleFormSubmit(form, `${backendURL}/contact-form`, [
-      "name",
-      "email",
-      "message",
-      "recaptchaResponse",
-    ]);
+    const data = await handleFormSubmit(
+      form,
+      `${backendURL}/api/contact-form`,
+      ["name", "email", "message", "recaptchaResponse"]
+    );
 
     console.log("Form submitted successfully:", data);
   } catch (error) {
@@ -76,7 +75,7 @@ export async function handleContactFormSubmit(form) {
 
 export async function handleSubscriptionFormSubmit(form) {
   try {
-    const data = await handleFormSubmit(form, `${backendURL}/subscribe`, [
+    const data = await handleFormSubmit(form, `${backendURL}/api/subscribe`, [
       "name",
       "email",
       "recaptchaResponse",
@@ -118,7 +117,7 @@ export async function handleQuoteFormSubmit(form) {
 
     const data = await handleFormSubmit(
       form,
-      `${backendURL}/quote-form`,
+      `${backendURL}/api/quote-form`,
       fields
     );
   } catch (error) {
