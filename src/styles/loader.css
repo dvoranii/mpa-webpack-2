@@ -5,6 +5,8 @@
   width: fit-content;
   height: 60px;
   position: relative;
+  width: 100%;
+  padding-top: 12px;
 }
 
 .loader {

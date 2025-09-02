@@ -8,7 +8,7 @@ export function createNav() {
       <div class="wrapper">
         <div class="logo-wrapper">
           <img
-            src="../../assets/images/nav-logo-optimized(2).webp"
+            src="../../assets/images/cgl-logo-2.png"
             alt="nav CGL Logo"
             width="327"
             height="254"

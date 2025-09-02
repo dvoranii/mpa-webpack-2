@@ -4,14 +4,18 @@
 
 .warehouse-list li {
   margin-bottom: 0;
-  font-size: 1.4rem;
+  font-size: clamp(18px, 1.4vw, 2.2rem);
   margin-left: 2.4rem;
 }
+
 .warehouse-list {
   padding-bottom: 1.2rem;
 }
 
-.quote-link {
-  color: black;
-  font-weight: 700;
+address p {
+  font-size: clamp(18px, 1.4vw, 2.2rem);
+}
+address p span {
+  font-weight: bold;
+  color: #222;
 }

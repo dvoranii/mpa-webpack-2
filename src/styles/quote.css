@@ -1,42 +1,110 @@
-main {
-  padding-bottom: 2.4rem;
-  max-width: 80vw;
-  margin: 10vw auto;
+/* ========================================
+   QUOTE PAGE STYLES
+   Using global spacing system from global.css
+   ======================================== */
+
+.quote-section {
+  padding-top: 10vw;
+  background-image: url("../assets/images/worldmap-new.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-main h1 {
-  padding-bottom: 2.4rem;
+.container-outer {
+  width: 100vw;
+  min-height: 60vh;
+  background: linear-gradient(to bottom, #ebfaffb0 60%, #ffffffa5);
+  padding-bottom: var(--space-5xl);
 }
 
-form {
+.container-inner {
+  max-width: var(--content-width-lg);
+  margin: 0 auto;
+}
+
+.quote-section h1 {
+  padding-bottom: var(--space-xl);
+}
+
+/* ========================================
+     FORM STYLES
+     ======================================== */
+
+.quote-form {
+  overflow: hidden;
+  position: relative;
+}
+
+.form-step {
+  animation: fade 250ms ease-in-out forwards;
+}
+
+.form-step.active {
+  animation: slide 250ms 125ms ease-in-out both;
+}
+
+.form-step.hide {
+  display: none;
+}
+
+.form-actions-multi {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}
+
+@keyframes slide {
+  0% {
+    transform: translateX(200%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(0.75);
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
 }
 
 fieldset {
-  margin-bottom: 20px;
+  margin-bottom: var(--space-lg);
   border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 10px;
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
 }
 
 .form-row {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: var(--space-md);
 }
 
 .form-row__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-top: 8px;
+  gap: var(--space-md);
+  margin-top: var(--space-sm);
 }
 
 .dimensions-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  gap: var(--space-md);
 }
 
 .form-group {
@@ -44,20 +112,28 @@ fieldset {
   min-width: 220px;
   display: flex;
   flex-direction: column;
+  gap: var(--space-xs);
 }
 
 .form-group.personal-effects {
   flex-direction: row;
+  align-items: flex-end;
+  gap: var(--space-xs);
+  margin-top: 42px;
 }
 
 label {
-  margin-bottom: 5px;
+  margin-bottom: var(--space-xs);
+  font-family: "Nunito", sans-serif;
+  font-size: 1.4rem;
 }
 
 label.nonPersonal {
   display: flex;
   align-self: center;
-  margin-left: 8px;
+  margin-left: var(--space-sm);
+  margin-bottom: 0;
+  margin-top: 0;
 }
 
 #nonPersonal {
@@ -65,20 +141,26 @@ label.nonPersonal {
   align-self: center;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="tel"],
-input[type="number"],
-input[name="name"],
-input[name="company"],
-input[name="HSCode"],
+input:not([type="checkbox"], [type="radio"]),
 textarea,
 select {
   width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: var(--space-sm);
   box-sizing: border-box;
+  border: 1px solid rgb(161, 206, 221);
+  border-radius: var(--radius-sm);
+  opacity: 0.8;
+  font-family: "Nunito", sans-serif;
+  font-size: 1.4rem;
+  transition: all var(--transition-normal);
+}
+
+input:not([type="checkbox"], [type="radio"]):focus,
+textarea:focus,
+select:focus {
+  border: 2px solid #103e79;
+  opacity: 1;
+  outline: none;
 }
 
 textarea {
@@ -86,22 +168,27 @@ textarea {
   min-height: 60px;
 }
 
-.form-actions {
-  display: flex;
-  justify-content: space-between;
-}
+/* ========================================
+     FORM ACTIONS
+     ======================================== */
 
-button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
+.form-actions {
+  display: none; /* Hides the original form-actions container */
 }
 
 .btn-container.form-actions {
   width: 100%;
   justify-content: space-between;
+}
+
+button {
+  padding: var(--space-md) var(--space-lg);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-family: "Nunito", sans-serif;
+  transition: all var(--transition-normal);
 }
 
 .submit-btn {
@@ -111,6 +198,8 @@ button {
 
 .submit-btn:hover {
   background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
 .clear-btn {
@@ -120,22 +209,220 @@ button {
 
 .clear-btn:hover {
   background-color: #c82333;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }
 
-@media (max-width: 768px) {
-  .form-row {
-    flex-direction: column;
+/* Progress Bar */
+
+.progress-bar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-xl);
+  padding: var(--space-md);
+  background-color: #f0f8ff;
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+.progress-bar-container::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: var(--space-md);
+  right: var(--space-md);
+  border-top: 2px solid #ccc;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+.progress-step {
+  width: 30px;
+  height: 30px;
+  background-color: #ccc;
+  font-size: 12px;
+  font-family: "Nunito", sans-serif;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  z-index: 1;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.progress-step.active {
+  background-color: #007bff;
+}
+
+.progress-step.completed {
+  background-color: #28a745;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.loader {
+  text-align: center;
+  padding: 20px;
+  background: #f9f9f9;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+  margin: 0 auto 10px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.success-message {
+  text-align: center;
+  padding: 20px;
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 8px;
+  color: #155724;
+  margin: 20px 0;
+}
+
+.review-content {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px 0;
+}
+
+.review-content h2 {
+  color: #333;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+  margin-bottom: 15px;
+}
+
+.review-content h3 {
+  color: #555;
+  margin-top: 20px;
+}
+
+.skid-item {
+  background: white;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border-left: 4px solid #007bff;
+
+  @media screen and (max-width: 768px) {
+    .progress-bar-container {
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
   }
 
-  .logo-wrapper {
-    display: none;
+  @media screen and (max-width: 1024px) {
+    .container-inner {
+      max-width: var(--content-width-xl);
+    }
+
+    .quote-section {
+      padding-top: 15vw;
+    }
   }
 
-  .form-row__grid {
-    grid-template-columns: 1fr;
+  @media screen and (max-width: 768px) {
+    .container-outer {
+      padding-bottom: var(--space-7xl);
+    }
+
+    .container-inner {
+      max-width: 90vw;
+    }
+
+    .quote-section {
+      padding-top: 20vw;
+      background-size: contain;
+      background-position: top center;
+    }
+
+    .form-row {
+      flex-direction: column;
+    }
+
+    .form-row__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .dimensions-wrapper {
+      grid-template-columns: 1fr;
+    }
+
+    .logo-wrapper {
+      display: none;
+    }
+
+    label {
+      padding-bottom: var(--space-xs);
+    }
+
+    .form-actions {
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    /* new styles */
+    .form-actions-multi {
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .form-actions-multi button {
+      width: 100%;
+    }
+
+    .btn-container.form-actions {
+      width: 70%;
+      margin: 0 auto;
+    }
+
+    button {
+      width: 100%;
+    }
   }
 
-  label {
-    padding-bottom: 0.25rem;
+  @media screen and (max-width: 480px) {
+    .quote-section {
+      padding-top: 25vw;
+    }
+
+    .form-group {
+      min-width: 100%;
+    }
+
+    .form-group.personal-effects {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--space-xs);
+    }
+
+    label.nonPersonal {
+      margin-left: 0;
+      margin-top: var(--space-xs);
+    }
   }
 }

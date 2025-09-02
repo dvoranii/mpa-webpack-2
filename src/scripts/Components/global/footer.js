@@ -13,27 +13,27 @@ export function createFooter() {
     <footer class="main-footer">
       <div class="footer-content">
         <div class="footer-section about">
-          <h2>About Us</h2>
+          <h4>About Us</h4>
           <p>
             Discover the ease of managing your supply chain with CGL's
             comprehensive logistics services.
           </p>
         </div>
         <div class="footer-section links">
-          <h2>Quick Links</h2>
+          <h4>Quick Links</h4>
           <ul class="quick-links--list">
-            <li><a href="/home">Home</a></li>
+            <li><a href="/">Home</a></li>
             <li><a href="/about">About</a></li>
             <li><a href="/services">Services</a></li>
             <li><a href="/contact">Contact</a></li>
           </ul>
         </div>
         <div class="footer-section contact">
-          <h2>Contact Us</h2>
+          <h4>Contact Us</h4>
           <p><u>Email:</u> Cindy@CanadianGlobalLogistics.ca</p>
         </div>
         <div class="footer-section social">
-          <h2>Follow Us</h2>
+          <h4>Follow Us</h4>
           <div class="social-icons">
             <a href="#"
               ><img
@@ -67,7 +67,7 @@ export function createFooter() {
         </div>
       </div>
       <div class="footer-bottom">
-        <p>2024 Canadian Global Logistics Inc. <sup>®</sup></p>
+        <p>2025 Canadian Global Logistics Inc. <sup>®</sup></p>
       </div>
     </footer>
   `;

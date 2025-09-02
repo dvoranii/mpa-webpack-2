@@ -1,21 +1,79 @@
 .about-section {
-  margin-top: 10vw;
+  padding-top: 10vw;
+  background-image: url("../assets/images/worldmap-new.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.container-outer {
+  width: 100vw;
+  height: 100%;
+  background: linear-gradient(to bottom, #ebfaff68 60%, #ffffffa5);
+  padding-bottom: var(--space-5xl);
+}
+
+.container-inner {
+  max-width: var(--content-width-lg);
+  margin: 0 auto;
 }
 
 .deal-banner--wrapper {
   width: 100%;
-  padding-top: 1.2rem;
+  padding-top: var(--space-md);
+  padding-bottom: var(--space-xl);
 }
 
 .deal-banner {
   width: 100%;
+  border-radius: var(--radius-md);
 }
 
-.about-section a,
-.about-section a:visited {
-  color: black;
+.about-link,
+.about-link:visited {
+  color: var(--color-black);
+  text-decoration: none;
+  transition: all var(--transition-normal);
 }
 
-.about-section a:hover {
-  font-weight: bold;
+.about-link:hover {
+  color: var(--color-secondary);
+  text-shadow: var(--shadow-sm);
+}
+
+@media screen and (max-width: 1024px) {
+  .container-inner {
+    max-width: var(--content-width-xl);
+  }
+
+  .about-section {
+    padding-top: 15vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container-inner {
+    max-width: 90vw;
+  }
+
+  .about-section {
+    padding-top: 20vw;
+    background-size: contain;
+    background-position: top center;
+  }
+
+  .deal-banner--wrapper {
+    padding-top: var(--space-sm);
+    padding-bottom: var(--space-lg);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-section {
+    padding-top: 25vw;
+  }
+
+  .container-outer {
+    padding-bottom: var(--space-4xl);
+  }
 }

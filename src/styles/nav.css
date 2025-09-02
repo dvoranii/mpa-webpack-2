@@ -1,7 +1,7 @@
 #nav-container {
   height: fit-content;
-  /* padding-left: 12px; */
 }
+
 .main-nav {
   position: fixed;
   top: 0;
@@ -18,6 +18,7 @@
   padding: clamp(0.5rem, 5vw, 2rem);
   gap: 1rem;
 }
+
 .responsive-img {
   width: 100%;
   height: auto;
@@ -31,8 +32,8 @@
 }
 
 .logo-wrapper img {
-  max-width: 6vw;
-  margin-left: 50px;
+  max-width: 20vw;
+  padding: 20px;
 }
 
 .wrapper {
@@ -51,23 +52,29 @@
   z-index: 0;
 }
 
-.transportation-link,
-.services-link {
-  pointer-events: none;
-}
-
 .backdrop img {
   width: 100%;
   margin-top: -2vw;
 }
 
+.transportation-link,
+.services-link {
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+}
+
 /* General styles for nav links */
 .nav-links {
   display: flex;
+  align-items: center;
   list-style: none;
   position: relative;
   z-index: 1;
   user-select: none;
+  gap: 2.4rem;
+  height: fit-content;
+  padding-top: 1.2rem;
 }
 
 .nav-links > li {
@@ -77,11 +84,10 @@
 }
 
 .nav-links a {
-  font-size: 1.4rem;
+  font-size: 1.8rem;
   color: black;
   text-decoration: none;
   padding: 0.5rem;
-  display: block;
   font-family: "Nunito", sans-serif;
   text-transform: uppercase;
 }
@@ -95,6 +101,7 @@
   font-weight: bold;
 }
 
+/* Dropdown styles */
 .dropdown-content {
   position: absolute;
   list-style: none;
@@ -114,8 +121,9 @@
 }
 
 .dropdown-content a {
-  margin-bottom: 0;
   font-size: 1.4rem;
+  margin-bottom: 0;
+  display: block;
 }
 
 .dropdown-content.active {
@@ -150,8 +158,12 @@
 
 .dropdown-secondary a {
   position: relative;
-  padding-right: 20px;
   transition: all 150ms ease;
+  padding: 0.5rem;
+}
+
+.dropdown-secondary a:hover {
+  text-shadow: 2px 2px 2px #8fd6abc0;
 }
 
 .dropdown-content a:hover {
@@ -193,7 +205,6 @@
     right: 0;
     top: 0;
     height: 100%;
-    width: 50%;
     background: white;
     box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease-in-out;
@@ -205,6 +216,7 @@
     transform: translateX(0);
     padding-top: 48px;
     padding-left: 20px;
+    width: 25%;
   }
 
   .dropdown-content {
@@ -256,6 +268,12 @@
   .burger-menu.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
   }
+
+  /* Mobile dropdown centering adjustments */
+  .dropdown-content li,
+  .dropdown-secondary-content li {
+    text-align: left; /* Left align for mobile */
+  }
 }
 
 @media (min-width: 1367px) {
@@ -286,5 +304,11 @@
     opacity: 1;
     visibility: visible;
     transform: translateX(0);
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .nav-links.active {
+    width: 50%;
   }
 }

@@ -1,3 +1,54 @@
+/* ========================================
+   CSS VARIABLES & DESIGN SYSTEM
+   ======================================== */
+
+:root {
+  /* Base spacing unit - everything scales from this */
+  --space-base: 0.8rem;
+
+  /* Spacing scale (based on 8px grid system) */
+  --space-xs: calc(var(--space-base) * 0.5); /* 4px */
+  --space-sm: var(--space-base); /* 8px */
+  --space-md: calc(var(--space-base) * 1.5); /* 12px */
+  --space-lg: calc(var(--space-base) * 2); /* 16px */
+  --space-xl: calc(var(--space-base) * 3); /* 24px */
+  --space-2xl: calc(var(--space-base) * 4); /* 32px */
+  --space-3xl: calc(var(--space-base) * 5); /* 40px */
+  --space-4xl: calc(var(--space-base) * 6); /* 48px */
+  --space-5xl: calc(var(--space-base) * 8); /* 64px */
+  --space-6xl: calc(var(--space-base) * 10); /* 80px */
+  --space-7xl: calc(var(--space-base) * 12); /* 96px */
+  --space-8xl: calc(var(--space-base) * 16); /* 128px */
+
+  /* Section spacing - larger values for major layout breaks */
+  --section-spacing-sm: var(--space-5xl); /* 64px */
+  --section-spacing-md: var(--space-6xl); /* 80px */
+  --section-spacing-lg: var(--space-7xl); /* 96px */
+  --section-spacing-xl: var(--space-8xl); /* 128px */
+
+  /* Content max-widths */
+  --content-width-sm: 60vw;
+  --content-width-md: 70vw;
+  --content-width-lg: 80vw;
+  --content-width-xl: 90vw;
+
+  /* Common border radius values */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Shadow system */
+  --shadow-sm: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 4px 4px 12px rgba(0, 0, 0, 0.2);
+  --shadow-xl: 8px 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* ========================================
+     FONT FACES
+     ======================================== */
+
 @font-face {
   font-family: "Roboto";
   src: url("../assets/fonts/Roboto-Regular.woff2") format("woff2"),
@@ -34,6 +85,10 @@
   font-display: swap;
 }
 
+/* ========================================
+     GLOBAL RESET & BASE STYLES
+     ======================================== */
+
 *,
 *::before,
 *::after {
@@ -59,18 +114,22 @@ body {
 }
 
 h1 {
-  color: #222222;
-  font-size: clamp(2.4rem, 5vw, 4rem);
+  color: #103e79;
+  font-size: clamp(3.2rem, 4vw, 4.8rem);
   font-family: "Roboto", sans-serif;
   font-weight: 700;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+  letter-spacing: 0.25px;
+  margin-bottom: var(--space-md);
 }
 
 h2 {
-  color: #222222;
   font-size: clamp(2rem, 4vw, 3.2rem);
   font-family: "Roboto", sans-serif;
   font-weight: 500;
-  margin-bottom: 1.2rem;
+  margin-bottom: var(--space-md);
+  color: #103e79;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
 }
 
 h3 {
@@ -78,6 +137,7 @@ h3 {
   font-size: clamp(1.8rem, 3.5vw, 2.4rem);
   font-family: "Roboto", sans-serif;
   font-weight: 500;
+  margin-bottom: var(--space-sm);
 }
 
 h4 {
@@ -85,6 +145,7 @@ h4 {
   font-size: clamp(1.6rem, 3vw, 2rem);
   font-family: "Nunito", sans-serif;
   font-weight: 400;
+  margin-bottom: var(--space-sm);
 }
 
 h1:hover,
@@ -92,6 +153,10 @@ h2:hover,
 h3:hover,
 h4:hover {
   cursor: default;
+}
+
+img {
+  object-fit: contain;
 }
 
 img,
@@ -102,33 +167,74 @@ h4 {
   user-select: none;
 }
 
-p,
 a,
-li {
-  font-size: clamp(1.4rem, 2vw, 1.8rem);
+li,
+p {
+  font-size: clamp(18px, 1.4vw, 2.2rem);
   font-family: "Nunito", sans-serif;
-  font-weight: 100;
-  margin-bottom: 1.2rem;
-  font-weight: 400;
+  color: #111111;
 }
+
+p {
+  margin-bottom: var(--space-md);
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+p sup {
+  font-size: 10px;
+}
+
+/* ========================================
+     FORM ELEMENTS
+     ======================================== */
 
 legend {
   font-family: "Nunito", sans-serif;
   font-size: 1.4rem;
   font-weight: bold;
-  padding: 0 10px;
+  padding: 0 var(--space-sm);
 }
 
 label {
   font-family: "Nunito", sans-serif;
   font-size: 1.2rem;
-  margin-top: 1rem;
+  margin-top: var(--space-lg);
 }
 
+/* ========================================
+     LAYOUT UTILITIES
+     ======================================== */
+
 section {
-  max-width: 80vw;
   margin: 0 auto;
 }
+
+/* Standard section classes that can be reused across pages */
+.section {
+  max-width: var(--content-width-lg);
+  margin: 0 auto;
+  padding-bottom: var(--section-spacing-lg);
+}
+
+.section--narrow {
+  max-width: var(--content-width-md);
+}
+
+.section--wide {
+  max-width: var(--content-width-xl);
+}
+
+.section--tight {
+  padding-bottom: var(--section-spacing-sm);
+}
+
+.section--loose {
+  padding-bottom: var(--section-spacing-xl);
+}
+
+/* ========================================
+     RESPONSIVE BREAKPOINTS
+     ======================================== */
 
 @media screen and (max-width: 380px) {
   h1 {

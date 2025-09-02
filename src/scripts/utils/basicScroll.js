@@ -15,7 +15,6 @@ function createBasicScroll(elem, from, to, props) {
 function initializeBasicScrollInstances() {
   const scrollInstances = [];
 
-  // Always initialize these instances regardless of screen size
   scrollInstances.push(
     createBasicScroll(
       ".home-section__logo-wrapper",
@@ -48,7 +47,6 @@ function initializeBasicScrollInstances() {
     })
   );
 
-  // Conditionally initialize scroll-grid images based on screen size
   if (window.innerWidth > 1024) {
     scrollInstances.push(
       createBasicScroll(".scroll-img--1", "top-bottom", "bottom-top", {
